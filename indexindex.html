@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding the Self — Midterm Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f1e6;
+    --ink:#241f1a;
+    --ink-soft:#5a5248;
+    --rule:#d8cdb8;
+    --panel:#fffdf8;
+    --plum:#3b2b4f;
+    --plum-soft:#6a5589;
+    --gold:#b5792a;
+    --gold-soft:#e9c98a;
+    --good:#3d6b4a;
+    --bad:#a53d3d;
+    --shadow: 0 1px 0 rgba(36,31,26,.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    color:var(--plum);
+    margin:0 0 .4em 0;
+    letter-spacing:.01em;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px 80px;}
+
+  /* header */
+  header.top{
+    padding:34px 18px 18px;
+    max-width:760px;margin:0 auto;
+    border-bottom:1px solid var(--rule);
+  }
+  header.top .kicker{
+    font-size:13px;color:var(--gold);font-weight:700;
+    text-transform:uppercase; letter-spacing:.14em;
+    margin-bottom:6px;
+  }
+  header.top h1{font-size:30px;font-weight:600;line-height:1.15;}
+  header.top p{color:var(--ink-soft);margin:8px 0 0;font-size:15px;max-width:56ch;}
+
+  /* tab nav */
+  nav.tabs{
+    position:sticky;top:0;z-index:20;
+    background:var(--paper);
+    border-bottom:1px solid var(--rule);
+    display:flex; overflow-x:auto;
+    max-width:760px;margin:0 auto;
+    padding:0 18px;
+    scrollbar-width:none;
+  }
+  nav.tabs::-webkit-scrollbar{display:none;}
+  nav.tabs button{
+    flex:0 0 auto;
+    background:none;border:none;
+    font-family:'Karla',sans-serif;
+    font-size:14.5px; font-weight:600;
+    color:var(--ink-soft);
+    padding:14px 12px 11px;
+    border-bottom:3px solid transparent;
+    cursor:pointer; white-space:nowrap;
+  }
+  nav.tabs button.active{
+    color:var(--plum);
+    border-bottom-color:var(--gold);
+  }
+
+  section.view{display:none; padding-top:22px;}
+  section.view.active{display:block;}
+
+  /* chapter intro */
+  .chapter-intro{margin-bottom:22px;}
+  .chapter-intro h2{font-size:23px;}
+  .chapter-intro p{color:var(--ink-soft); font-size:15px;}
+
+  /* lesson card */
+  details.lesson{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    margin-bottom:12px;
+    box-shadow:var(--shadow);
+  }
+  details.lesson summary{
+    list-style:none;
+    cursor:pointer;
+    padding:14px 16px;
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:10px;
+  }
+  details.lesson summary::-webkit-details-marker{display:none;}
+  details.lesson summary h3{
+    font-size:17px; margin:0; color:var(--ink);
+    font-weight:600; font-family:'Karla',sans-serif;
+  }
+  details.lesson summary .plus{
+    font-family:'Fraunces',serif; color:var(--gold); font-size:20px; flex:0 0 auto;
+  }
+  details.lesson[open] summary .plus{transform:rotate(45deg); display:inline-block;}
+  .lesson-body{padding:0 16px 18px; font-size:15px; color:var(--ink);}
+  .lesson-body h4{
+    font-size:12.5px; color:var(--plum-soft); font-weight:700;
+    text-transform:uppercase; letter-spacing:.08em;
+    margin:16px 0 6px;
+  }
+  .lesson-body h4:first-child{margin-top:2px;}
+  .lesson-body p{margin:6px 0;}
+  .lesson-body ul{margin:6px 0; padding-left:20px;}
+  .lesson-body li{margin:4px 0;}
+  .lesson-body table{width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0;}
+  .lesson-body th, .lesson-body td{
+    border:1px solid var(--rule); padding:6px 8px; text-align:left; vertical-align:top;
+  }
+  .lesson-body th{background:#efe6d3; color:var(--plum);}
+  .term{color:var(--plum); font-weight:700;}
+  .tag{
+    display:inline-block; background:#efe1c4; color:#7a5417;
+    font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px;
+    margin-right:6px; letter-spacing:.02em;
+  }
+
+  /* QUIZ */
+  .quiz-shell{background:var(--panel); border:1px solid var(--rule); border-radius:4px; padding:22px 20px; box-shadow:var(--shadow);}
+  .quiz-start h2{font-size:22px;}
+  .quiz-start p{color:var(--ink-soft); font-size:15px;}
+  .filter-row{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 20px;}
+  .filter-chip{
+    border:1px solid var(--rule); background:var(--paper);
+    padding:7px 13px; border-radius:20px; font-size:13.5px; font-weight:600;
+    cursor:pointer; color:var(--ink-soft);
+  }
+  .filter-chip.on{ background:var(--plum); border-color:var(--plum); color:#fff; }
+  .btn{
+    display:inline-block; background:var(--plum); color:#fff; border:none;
+    font-family:'Karla',sans-serif; font-weight:700; font-size:15px;
+    padding:12px 22px; border-radius:3px; cursor:pointer;
+  }
+  .btn.secondary{background:none; color:var(--plum); border:1.5px solid var(--plum);}
+  .btn:disabled{opacity:.45; cursor:default;}
+
+  .quiz-progress{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:13px; color:var(--ink-soft); margin-bottom:14px; font-weight:600;
+  }
+  .bar{height:6px; background:var(--rule); border-radius:4px; overflow:hidden; margin-bottom:18px;}
+  .bar-fill{height:100%; background:var(--gold); transition:width .25s;}
+  .q-topic{font-size:12px; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;}
+  .q-text{font-family:'Fraunces',serif; font-size:19px; color:var(--ink); margin:0 0 16px; line-height:1.35;}
+  .opt{
+    display:block; width:100%; text-align:left;
+    background:var(--paper); border:1.5px solid var(--rule);
+    padding:12px 14px; margin-bottom:9px; border-radius:4px;
+    font-family:'Karla',sans-serif; font-size:15px; color:var(--ink);
+    cursor:pointer;
+  }
+  .opt:hover:not(:disabled){border-color:var(--plum-soft);}
+  .opt.correct{border-color:var(--good); background:#e7f0e6; color:var(--good); font-weight:700;}
+  .opt.wrong{border-color:var(--bad); background:#f6e6e6; color:var(--bad); font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{
+    margin-top:14px; padding:12px 14px; background:#efe6d3; border-left:3px solid var(--gold);
+    font-size:14px; border-radius:2px; display:none;
+  }
+  .explain.show{display:block;}
+  .next-row{margin-top:18px; display:flex; justify-content:flex-end;}
+
+  .result h2{font-size:26px;}
+  .result .score{font-family:'Fraunces',serif; font-size:52px; color:var(--gold); margin:6px 0;}
+  .missed-list{margin-top:18px;}
+  .missed-item{border-top:1px solid var(--rule); padding:14px 0; font-size:14.5px;}
+  .missed-item .mq{font-weight:700; margin-bottom:4px;}
+  .missed-item .ma{color:var(--good); font-weight:600;}
+  .missed-item .me{color:var(--ink-soft); margin-top:4px;}
+
+  footer{
+    max-width:760px;margin:0 auto; padding:24px 18px; color:var(--ink-soft); font-size:12.5px;
+    border-top:1px solid var(--rule); margin-top:30px;
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="kicker">Midterm Review</div>
+  <h1>Understanding the Self</h1>
+  <p>Every lesson from your module, condensed into study-ready notes — plus a self-quiz pulled from all three chapters so you can find your weak spots before tomorrow.</p>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-view="ch1" class="active">Chapter 1</button>
+  <button data-view="ch2">Chapter 2</button>
+  <button data-view="ch3">Chapter 3</button>
+  <button data-view="quiz">Quiz Yourself</button>
+</nav>
+
+<div class="wrap">
+
+<!-- CHAPTER 1 -->
+<section class="view active" id="view-ch1">
+  <div class="chapter-intro">
+    <h2>Ch. 1 — The Self from Various Perspectives</h2>
+    <p>Philosophy, sociology, and psychology each answer "who am I?" differently. This chapter walks through six philosophers, the sociology of the social self, and five psychological theories of self.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — Philosophical Perspectives</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Socrates</h4>
+      <p><span class="term">"Know thyself"</span> — an unexamined life is not worth living. Self-knowledge comes from your own firsthand experience: observing, questioning, reasoning. He believed a person is <span class="term">body + soul</span>, and the soul (immortal, perfect) is our true self. Knowledge is the ultimate virtue; the only evil is ignorance. He never wrote anything down — we know him through his student, <span class="term">Plato</span>.</p>
+
+      <h4>Plato</h4>
+      <p>The soul has <span class="term">three parts</span>: <strong>reason</strong> (truth/good), <strong>spirit</strong> (honor, emotion), and <strong>appetite</strong> (food, drink, sex) — happiness comes from balancing them. He also split reality into the <span class="term">visible</span> world (senses, imperfect appearances) and the <span class="term">non-visible</span> world of ideal Forms, graspable only by the mind.</p>
+
+      <h4>René Descartes</h4>
+      <p>"Father of Modern Philosophy." Famous line: <span class="term">Cogito ergo sum</span> — "I think, therefore I am." Even doubting everything proves an "I" exists to do the doubting. He also proposed <span class="term">Cartesian Dualism</span>: mind and body are separate, distinct substances.</p>
+
+      <h4>David Hume</h4>
+      <p>An <span class="term">empiricist</span> — all knowledge comes from sense experience. The self is not a fixed thing but a <span class="term">"bundle of perceptions"</span> in constant flux. Impressions (vivid, direct experience) come first; ideas are just faded copies of impressions.</p>
+
+      <h4>Immanuel Kant</h4>
+      <p>People have <span class="term">intrinsic worth</span> because they're rational agents who can direct their own actions. Moral rule: treat people always as an <span class="term">end in themselves</span>, never merely as a means.</p>
+
+      <h4>John Locke</h4>
+      <p>Personal identity = <span class="term">psychological continuity</span> — it's founded on consciousness/memory, not on the soul or the body. This is his Theory of Personal Identity, addressing survival of the self over time (and after death).</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — The Self and Society</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Charles Horton Cooley — The Looking-Glass Self</h4>
+      <p>We learn who we are by imagining how others see us. <span class="term">Three phases:</span></p>
+      <ul>
+        <li>1. We imagine how we appear to others.</li>
+        <li>2. We imagine their judgment of that appearance.</li>
+        <li>3. We develop a feeling about ourselves based on that imagined judgment.</li>
+      </ul>
+      <p>Because this is based on our <em>imagination</em> of others' views (which can be wrong), the self can form around misperceptions — but self-identities can also change.</p>
+
+      <h4>George Herbert Mead — The Social Self</h4>
+      <p>The self emerges through social interaction and is made of two parts:</p>
+      <ul>
+        <li><span class="term">"I"</span> — the self as subject; the spontaneous, acting self.</li>
+        <li><span class="term">"Me"</span> — the self as object; the image of yourself built from how society sees you.</li>
+      </ul>
+      <p>Mead's <span class="term">three stages of self-development</span>:</p>
+      <ul>
+        <li><strong>Preparation stage</strong> — children imitate people around them (no real understanding yet).</li>
+        <li><strong>Play stage</strong> — children pretend to be other people; role-taking begins.</li>
+        <li><strong>Game stage</strong> — children grasp multiple roles/relationships at once, understanding their own position and others' simultaneously.</li>
+      </ul>
+
+      <h4>The Self and Culture</h4>
+      <p>Culture = practices, beliefs, and behaviors passed down generationally. It shapes how we think, feel, and behave, and the development of the self varies from society to society.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 3 — The Psychological View of the Self</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Sigmund Freud — Structure of Personality</h4>
+      <ul>
+        <li><span class="term">Id</span> — pleasure principle; selfish, illogical, amoral (not immoral); seeks immediate gratification.</li>
+        <li><span class="term">Ego</span> — reality principle; the only part in contact with the real world; mediator.</li>
+        <li><span class="term">Superego</span> — represents society's/parents' values and standards; the conscience.</li>
+      </ul>
+
+      <h4>Psychosexual Stages (Freud)</h4>
+      <table>
+        <tr><th>Stage</th><th>Age</th><th>Focus / Conflict</th></tr>
+        <tr><td>Oral</td><td>0–1 yr</td><td>Mouth (sucking, eating); fixation → smoking, nail-biting, overeating</td></tr>
+        <tr><td>Anal</td><td>1–3 yrs</td><td>Bladder/bowel control; toilet training issues → orderliness or messiness</td></tr>
+        <tr><td>Phallic</td><td>3–6 yrs</td><td>Genitals; Oedipal (boys) / Electra (girls) complex; superego forms</td></tr>
+        <tr><td>Latent</td><td>6–11 yrs</td><td>Id suppressed; social skills & peer relationships develop</td></tr>
+        <tr><td>Genital</td><td>11–18 yrs</td><td>Libido reactivates; interest in the opposite sex</td></tr>
+      </table>
+
+      <h4>Defense Mechanisms (Ego's coping tools)</h4>
+      <ul>
+        <li><span class="term">Rationalization</span> — inventing a logical-sounding excuse ("I cut class because others do too").</li>
+        <li><span class="term">Denial</span> — refusing to accept a fact or feeling exists.</li>
+        <li><span class="term">Repression</span> — unconsciously blocking out painful thoughts/memories.</li>
+        <li><span class="term">Projection</span> — attributing your own unwanted feelings to someone else.</li>
+        <li><span class="term">Reaction formation</span> — expressing the opposite of what you truly feel.</li>
+        <li><span class="term">Sublimation</span> — channeling an impulse into something socially acceptable.</li>
+        <li><span class="term">Displacement</span> — redirecting emotion from its real target to a safer one (e.g., yelling at the dog after a bad day).</li>
+      </ul>
+
+      <h4>Erik Erikson — 8 Psychosocial Stages</h4>
+      <table>
+        <tr><th>Stage / Age</th><th>Conflict</th><th>Success vs. Failure</th></tr>
+        <tr><td>Infancy</td><td>Trust vs. Mistrust</td><td>Trust from reliable caregiving vs. mistrust</td></tr>
+        <tr><td>Early Childhood</td><td>Autonomy vs. Shame/Doubt</td><td>Independence vs. shame</td></tr>
+        <tr><td>Preschool</td><td>Initiative vs. Guilt</td><td>Sense of purpose vs. guilt</td></tr>
+        <tr><td>School Age</td><td>Industry vs. Inferiority</td><td>Competence vs. inferiority</td></tr>
+        <tr><td>Adolescence</td><td>Identity vs. Role Confusion</td><td>Strong identity vs. confusion</td></tr>
+        <tr><td>Young Adulthood</td><td>Intimacy vs. Isolation</td><td>Relationships vs. loneliness</td></tr>
+        <tr><td>Middle Adulthood</td><td>Generativity vs. Stagnation</td><td>Usefulness vs. shallow involvement</td></tr>
+        <tr><td>Maturity</td><td>Ego Integrity vs. Despair</td><td>Wisdom vs. regret</td></tr>
+      </table>
+
+      <h4>William James — "I" and "Me"</h4>
+      <p>Four constituents of the self: <span class="term">material, social, spiritual self</span> (together = the "Me" / Empirical Self), and the <span class="term">pure ego</span> (the "I" — the knower, the sense of personal identity).</p>
+
+      <h4>Carl Rogers — Real Self vs. Ideal Self</h4>
+      <p><span class="term">Real self</span> = who you truly are. <span class="term">Ideal self</span> = who you feel you should be (shaped by outside expectations). A big gap between the two causes stress and anxiety.</p>
+
+      <h4>Donald Winnicott — Real (True) Self vs. False Self</h4>
+      <p>The <span class="term">false self</span> develops when an infant's emotional needs are unmet or met unreliably, creating basic mistrust. Adults wear "social masks" (false self) to protect the true self from a demanding world — useful short-term, but overuse blocks genuine connection.</p>
+    </div>
+  </details>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="view" id="view-ch2">
+  <div class="chapter-intro">
+    <h2>Ch. 2 — Unpacking the Self</h2>
+    <p>Six aspects of the self are examined one by one: physical, sexual, material, spiritual, political, and digital.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — The Physical Self</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>Our body image is shaped by <span class="term">media</span> (unrealistic beauty standards), <span class="term">peers</span> (childhood nicknames/labels), and <span class="term">adults around us</span> (their own body insecurities rub off on us).</p>
+      <h4>Self-Concept — 3 Ingredients</h4>
+      <ul>
+        <li><span class="term">Self-Ideal</span> — the picture of the ideal person you'd most like to be.</li>
+        <li><span class="term">Self-Image</span> — how you picture yourself performing; your "inner mirror."</li>
+        <li><span class="term">Self-Esteem</span> — the root of self-concept; how you feel about yourself.</li>
+      </ul>
+      <h4>Maintaining a Healthy Mental Attitude</h4>
+      <p>Daily affirmations, staying physically fit (hydration, fruits/veggies, regular exercise), and choosing positivity daily (e.g., a deliberate smile — smiling releases endorphins even when faked).</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — The Sexual Self</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Primary vs. Secondary Sex Characteristics</h4>
+      <p><span class="term">Primary</span> = the reproductive organs themselves (ovaries/uterus/vagina; testes/penis/scrotum). <span class="term">Secondary</span> = physical signs of maturity not directly tied to reproduction (breast development, voice change, body hair, muscle growth) — driven by <span class="term">testosterone</span> (males) and <span class="term">estrogen</span> (females).</p>
+      <p>Key milestones: <span class="term">spermarche</span> (first ejaculation, ~age 13) and <span class="term">menarche</span> (first menstrual period).</p>
+
+      <h4>Erogenous Zones</h4>
+      <p>Body parts especially sensitive to touch that produce sexual arousal (mouth, breasts, sex organs, anus — varies per person; also neck, thighs, abdomen, feet).</p>
+
+      <h4>Biology of Sexual Behavior — Helen Fisher's 3 Systems</h4>
+      <ul>
+        <li><span class="term">Lust</span> (sex drive) — driven by estrogens/androgens; craving for gratification.</li>
+        <li><span class="term">Attraction</span> ("passionate love") — high dopamine & norepinephrine, low serotonin; focused energy on one partner.</li>
+        <li><span class="term">Attachment</span> ("companionate love") — oxytocin & vasopressin; calm, secure bonding.</li>
+      </ul>
+
+      <h4>Sexual Response Cycle (Masters & Johnson)</h4>
+      <p>Four phases: <span class="term">Excitement → Plateau → Orgasm → Resolution</span>.</p>
+
+      <h4>Common STDs</h4>
+      <table>
+        <tr><th>STD</th><th>Cause</th><th>Key Note</th></tr>
+        <tr><td>Chlamydia</td><td>Bacteria (C. trachomatis)</td><td>Often symptomless; common in young people</td></tr>
+        <tr><td>Herpes</td><td>HSV-1 / HSV-2 virus</td><td>Lifelong; spreads via skin-to-skin contact</td></tr>
+        <tr><td>HPV</td><td>Virus (~100 types)</td><td>~14 high-risk types can cause cervical cancer</td></tr>
+        <tr><td>Gonorrhea</td><td>Bacteria (N. gonorrhoeae)</td><td>Discharge, burning urination</td></tr>
+        <tr><td>Syphilis</td><td>Bacteria</td><td>3 stages: chancre sore → rash → organ damage if untreated</td></tr>
+        <tr><td>Trichomoniasis</td><td>Protozoan parasite</td><td>Itching, smelly discharge</td></tr>
+        <tr><td>HIV/AIDS</td><td>Virus</td><td>Attacks immune system; spread via sex, blood, needles, vertical (mother-to-child)</td></tr>
+      </table>
+      <p><span class="term">Prevention:</span> safe sex practices, condoms, avoiding multiple partners; <span class="term">abstinence is 100% effective.</span></p>
+
+      <h4>Contraception</h4>
+      <p><span class="term">Natural methods</span> (no devices/medicine): abstinence, fertility awareness, withdrawal. <span class="term">Artificial/barrier</span>: condoms, diaphragm, cervical cap, sponge. <span class="term">Hormonal</span>: the pill, patch, injection (Depo-Provera), vaginal ring, implants, IUD (hormonal or copper, 99%+ effective but no STD protection). <span class="term">Surgical</span>: vasectomy, tubal ligation. <span class="term">Emergency contraception</span> ("morning-after pill") — must be taken within 72 hours, not a regular method.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 3 — The Material Self</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>From William James: the material self = everything a person can call "mine." Four components, from innermost to outermost:</p>
+      <ul>
+        <li><strong>Body</strong> — the innermost part of the material self.</li>
+        <li><strong>Clothes</strong> — shape identity and communicate who we are.</li>
+        <li><strong>Immediate family</strong> — their success/failure feels like our own.</li>
+        <li><strong>Home</strong> — decorated as an extension of ourselves.</li>
+      </ul>
+      <p>Key idea: the material self isn't the object itself — it's our <span class="term">psychological ownership</span> of it. Test: how much emotional investment and behavior-shaping the object has on you.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 4 — The Spiritual Self</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>William James's spiritual self = one's innermost, most enduring psychic dispositions (conscience, will, moral sensibility). <span class="term">Religion</span> (Durkheim) = a unified system of beliefs/practices about sacred things, uniting a moral community. <span class="term">Ritual</span> = customary ceremonies (birth, baptism, marriage, death) that bind religious communities together.</p>
+      <table>
+        <tr><th>Religion</th><th>Core Ideas</th></tr>
+        <tr><td>Christianity</td><td>One God, three persons (Father/Son/Holy Spirit); Jesus's death & resurrection brings salvation; holy book: the Bible; key holidays: Easter, Christmas</td></tr>
+        <tr><td>Buddhism</td><td>Four Noble Truths (life is suffering → caused by craving → can end → via the Eightfold Path); no fixed permanent self; goal: Enlightenment</td></tr>
+        <tr><td>Hinduism</td><td>No single founder; cycle of birth-death-rebirth governed by Karma; holy texts: the Vedas; holidays: Diwali, Holi</td></tr>
+        <tr><td>Islam</td><td>Oneness of God (Allah), mankind, and message; holy book: Quran; Five Pillars: Shahada, Salat, Zakat, Sawm (fasting/Ramadan), Hajj</td></tr>
+        <tr><td>Judaism</td><td>One God, personal relationship; holy text: Torah; worship in synagogues, led by Rabbis; keeps the Sabbath</td></tr>
+      </table>
+      <h4>Logotherapy (Viktor Frankl)</h4>
+      <p>"Therapy through meaning," developed after Frankl survived Nazi concentration camps. Core belief: <span class="term">humans are driven by the search for life's meaning</span>, even amid suffering. Meaning can be found by (1) creating a work/accomplishing a task, (2) experiencing something or someone, or (3) choosing one's attitude toward unavoidable suffering.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 5 — The Political Self (Filipino Identity)</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Strengths of the Filipino Character</h4>
+      <ul>
+        <li><span class="term">Pakikipagkapwa-tao</span> — sense of justice, empathy, hospitality, bayanihan, utang na loob.</li>
+        <li><span class="term">Family orientation</span> — honor to parents/elders; family as main source of identity and support.</li>
+        <li><span class="term">Joy and humor</span> — love of celebration, laughing even in hard times.</li>
+        <li><span class="term">Flexibility, adaptability & creativity</span> — resourcefulness, adapting anywhere.</li>
+        <li><span class="term">Hard work and industry</span> — willingness to take risky jobs, work multiple jobs.</li>
+        <li><span class="term">Faith and religiosity</span> — deep faith in God's will.</li>
+        <li><span class="term">Ability to survive</span> — perseverance despite hardship.</li>
+      </ul>
+      <h4>Weaknesses of the Filipino Character</h4>
+      <ul>
+        <li><span class="term">Extreme personalism</span> — takes everything personally; discomfort with impersonal rules/bureaucracy.</li>
+        <li><span class="term">Extreme family-centeredness</span> — nepotism, political dynasties, protecting erring relatives.</li>
+        <li><span class="term">Lack of discipline</span> — poor time management, procrastination ("Filipino time").</li>
+        <li><span class="term">Passivity and lack of initiative</span> — waiting to be told, over-reliance on others, submissive to authority.</li>
+        <li><span class="term">Colonial mentality</span> — preference for foreign things; feeling of national inferiority.</li>
+        <li><span class="term">Kanya-kanya syndrome</span> — selfish, self-serving, envious of peers' success.</li>
+        <li><span class="term">Lack of self-analysis/reflection</span> — superficial handling of serious problems.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 6 — The Digital Self</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p><span class="term">Digital Self</span> (Russell Belk) — the persona we project online through our digital possessions (photos, videos, posts). Donald Winnicott's true self/false self applies here too: the "false self" can dominate online when we overproject an image to impress others.</p>
+
+      <h4>Goffman's Self-Presentation & Impression Management</h4>
+      <p>People consciously "perform" identities for others. <span class="term">Impression management</span> = consciously/subconsciously shaping how others perceive you. Jones & Pittman's 5 strategies:</p>
+      <ul>
+        <li><span class="term">Ingratiation</span> — being likable to gain affection.</li>
+        <li><span class="term">Self-promotion</span> — highlighting strengths/talents to look competent.</li>
+        <li><span class="term">Exemplification</span> — showing exemplary behavior to look dedicated.</li>
+        <li><span class="term">Intimidation</span> — using threats to appear powerful.</li>
+        <li><span class="term">Supplication</span> — acting weak/helpless to get help.</li>
+      </ul>
+
+      <h4>Sex vs. Gender vs. Sexuality</h4>
+      <ul>
+        <li><span class="term">Sex</span> — biological/physical makeup (organs, genes, hormones).</li>
+        <li><span class="term">Gender</span> (WHO) — socially constructed roles/norms; varies by society and can change.</li>
+        <li><span class="term">Sexuality</span> — who you're attracted to; encompasses sexual orientation.</li>
+      </ul>
+
+      <h4>Setting Boundaries Online</h4>
+      <p>Be kind (anti-bullying); think before you post (nothing is truly erasable); carefully choose who you friend/accept online.</p>
+    </div>
+  </details>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="view" id="view-ch3">
+  <div class="chapter-intro">
+    <h2>Ch. 3 — Managing and Caring for the Self</h2>
+    <p>How we learn, set goals, and manage stress and health — the practical toolkit for becoming a better, healthier student.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — Learning to Be a Better Student</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p><span class="term">Learning</span> = a relatively permanent change in behavior from experience (not from maturation or fatigue). Three main types: <span class="term">associative, nonassociative,</span> and <span class="term">observational</span>.</p>
+
+      <h4>Associative Learning</h4>
+      <ul>
+        <li><span class="term">Classical conditioning</span> (Pavlov) — pairing a neutral stimulus with one that naturally triggers a response, until the neutral one triggers it alone. (Bell + meat → dog salivates to bell alone.) Terms: <span class="term">UCS/UCR</span> (unlearned) vs. <span class="term">CS/CR</span> (learned).</li>
+        <li><span class="term">Operant conditioning</span> — learning through consequences of voluntary behavior.
+          <ul>
+            <li><span class="term">Positive reinforcement</span> — adding something pleasant to increase behavior.</li>
+            <li><span class="term">Negative reinforcement</span> — removing something unpleasant to increase behavior.</li>
+            <li><span class="term">Positive punishment</span> — adding something unpleasant to decrease behavior.</li>
+            <li><span class="term">Negative punishment</span> — removing something pleasant to decrease behavior.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Nonassociative Learning</h4>
+      <ul>
+        <li><span class="term">Habituation</span> — decreased response to a repeated, harmless stimulus (getting used to a new bed).</li>
+        <li><span class="term">Sensitization</span> — increased response to stimuli after one strong/traumatic stimulus (jumpy after a typhoon).</li>
+      </ul>
+
+      <h4>Observational Learning (Bandura)</h4>
+      <p>Learning by watching a model — four processes: <span class="term">attention → retention → motor reproduction → reinforcement</span>.</p>
+
+      <h4>Metacognition</h4>
+      <p>"Thinking about thinking" — awareness of what you know and don't know. Two key strategies: <span class="term">self-instruction</span> (self-talk through a task) and <span class="term">self-monitoring</span> (checking your own performance, e.g., with a checklist).</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 1B — Setting Goals for Success</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Self-Efficacy (Albert Bandura)</h4>
+      <p>Belief in your ability to influence events in your life. Anyone can build it, via 4 sources:</p>
+      <ul>
+        <li><span class="term">Mastery experiences</span> — succeeding firsthand builds it most.</li>
+        <li><span class="term">Social modeling</span> — watching similar others succeed.</li>
+        <li><span class="term">Social persuasion</span> — encouragement from mentors/parents/coaches.</li>
+        <li><span class="term">States of physiology</span> — your emotional/physical state colors your confidence.</li>
+      </ul>
+
+      <h4>Mindset Theory (Carol Dweck)</h4>
+      <p><span class="term">Fixed mindset</span> — belief that intelligence/ability is innate and unchangeable. <span class="term">Growth mindset</span> — belief that ability can be developed through effort; leads to higher achievement.</p>
+
+      <h4>Goal-Setting Theory (Edwin Locke & Gary Latham)</h4>
+      <p>Specific + challenging goals with feedback = better performance. Five keys: <span class="term">Clarity, Challenge, Commitment, Feedback, Task complexity</span> (break big goals into smaller steps).</p>
+      <p><span class="term">S.M.A.R.T. Goals</span>: Specific, Measurable, Achievable, Relevant, Time-bound.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 1C — Taking Charge of One's Health</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Stress Basics</h4>
+      <p><span class="term">Eustress</span> = positive, alerting stress (e.g., before a presentation). <span class="term">Distress</span> = harmful, prolonged stress that impairs functioning.</p>
+
+      <h4>General Adaptation Syndrome (Hans Selye)</h4>
+      <ol>
+        <li><span class="term">Alarm stage</span> — initial shock; immune resistance drops.</li>
+        <li><span class="term">Resistance stage</span> — body fights back efficiently.</li>
+        <li><span class="term">Exhaustion stage</span> — prolonged stress causes collapse/serious illness.</li>
+      </ol>
+      <p>The <span class="term">HPA axis</span> (hypothalamic-pituitary-adrenal axis) triggers cortisol release ("the stress hormone") in response to threats.</p>
+
+      <h4>Sources of Stress</h4>
+      <ul>
+        <li><span class="term">Daily hassles</span> (household, health, time-pressure, environmental, financial, work, security) vs. <span class="term">uplifts</span> (small pleasant events).</li>
+        <li><span class="term">Life changes</span> — even positive changes (graduating, new job) require adjustment and can be stressful.</li>
+        <li><span class="term">Conflict types</span>:
+          <ul>
+            <li><em>Approach-approach</em> — choosing between 2 desirable goals (least stressful).</li>
+            <li><em>Avoidance-avoidance</em> — stuck between 2 undesirable options.</li>
+            <li><em>Approach-avoidance</em> — one goal has both good and bad aspects.</li>
+            <li><em>Multiple approach-avoidance</em> — several options, each with pros and cons (most complex).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Personality & Stress</h4>
+      <ul>
+        <li><span class="term">Type A</span> — driven, impatient, competitive; earns more but at higher health risk.</li>
+        <li><span class="term">Type B</span> — relaxed, less impatient, paced.</li>
+        <li><span class="term">Type D</span> ("distressed") — negative emotions + social inhibition; higher cardiovascular risk.</li>
+      </ul>
+
+      <h4>Psychological Moderators of Stress</h4>
+      <p>Self-efficacy, <span class="term">psychological hardiness</span> (commitment, control, challenge — Suzanne Kobasa), sense of humor, predictability & control, and social support (emotional, instrumental, informational, appraisal, socializing).</p>
+
+      <h4>Stress Management Strategies</h4>
+      <ul>
+        <li><span class="term">Physical</span> — exercise, balanced diet, avoid caffeine, sleep, hydration.</li>
+        <li><span class="term">Behavioral</span> — diversionary hobbies (art, gardening, writing).</li>
+        <li><span class="term">Cognitive restructuring</span> — challenge catastrophic thinking by asking: What's the worst that could happen? How likely is it really? Have I survived worse before?</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<!-- QUIZ -->
+<section class="view" id="view-quiz">
+  <div class="quiz-shell">
+
+    <div id="quiz-start">
+      <h2>Self-Quiz</h2>
+      <p>Pick which chapters to drill, then go. Questions are shuffled every time, with an explanation after each answer.</p>
+      <div class="filter-row" id="filter-row">
+        <button class="filter-chip on" data-chap="1">Chapter 1</button>
+        <button class="filter-chip on" data-chap="2">Chapter 2</button>
+        <button class="filter-chip on" data-chap="3">Chapter 3</button>
+      </div>
+      <button class="btn" id="start-btn">Start Quiz</button>
+    </div>
+
+    <div id="quiz-play" style="display:none;">
+      <div class="quiz-progress">
+        <span id="q-count"></span>
+        <span id="q-score"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
+      <div class="q-topic" id="q-topic"></div>
+      <p class="q-text" id="q-text"></p>
+      <div id="q-options"></div>
+      <div class="explain" id="q-explain"></div>
+      <div class="next-row">
+        <button class="btn" id="next-btn" disabled>Next Question</button>
+      </div>
+    </div>
+
+    <div id="quiz-result" style="display:none;">
+      <h2>Quiz Complete</h2>
+      <div class="score" id="final-score"></div>
+      <p id="final-msg" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="retry-btn">Try Again</button>
+      <button class="btn secondary" id="review-btn" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="missed-list"></div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<footer>Built from your Understanding the Self module. Good luck tomorrow — you've got this.</footer>
+
+<script>
+// ---------- TAB NAV ----------
+const tabButtons = document.querySelectorAll('#tabs button');
+tabButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('view-'+btn.dataset.view).classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+  });
+});
+
+// ---------- QUIZ DATA ----------
+const QUESTIONS = [
+// CHAPTER 1
+{chap:1, topic:"Philosophy", q:"Which philosopher is famous for the line \u201cKnow thyself\u201d and the claim that an unexamined life is not worth living?", options:["Plato","Socrates","Descartes","Kant"], a:1, e:"Socrates believed self-examination through firsthand experience was the path to living well."},
+{chap:1, topic:"Philosophy", q:"According to Plato, which of the three parts of the soul seeks food, drink, and sex?", options:["Reason","Spirit","Appetite","Ego"], a:2, e:"Appetite is drawn to bodily desires; reason seeks truth, and spirit governs emotion and honor."},
+{chap:1, topic:"Philosophy", q:"\u201cCogito ergo sum\u201d (\u201cI think, therefore I am\u201d) belongs to which philosopher?", options:["David Hume","John Locke","René Descartes","Immanuel Kant"], a:2, e:"Descartes reasoned that doubting everything still proves an \u201cI\u201d exists to do the doubting."},
+{chap:1, topic:"Philosophy", q:"David Hume, an empiricist, described the self as:", options:["An immortal soul","A bundle of perceptions","A rational agent","A social construct only"], a:1, e:"Hume argued the self is just a constantly shifting \u201cbundle of perceptions\u201d built from sense experience."},
+{chap:1, topic:"Philosophy", q:"Kant's moral principle states people should be treated:", options:["As means to an end","As objects of study","Always as an end in themselves","According to their social status"], a:2, e:"Kant argued rational beings have intrinsic worth and must never be treated merely as a means."},
+{chap:1, topic:"Philosophy", q:"John Locke argued that personal identity is founded on:", options:["The soul","The physical body","Consciousness and memory","Social approval"], a:2, e:"Locke's theory of personal identity holds that psychological continuity (memory) is what makes you \u2018you\u2019 over time."},
+{chap:1, topic:"Society", q:"Cooley's \u201clooking-glass self\u201d suggests our self-image is built from:", options:["Our genetics","How we imagine others perceive us","Direct instructions from parents","Religious teachings"], a:1, e:"We imagine how we appear to others, imagine their judgment, then form a feeling about ourselves from that."},
+{chap:1, topic:"Society", q:"In Mead's theory of the social self, the \u201cme\u201d refers to:", options:["The spontaneous, acting self","The self as object, shaped by society's view of us","The unconscious mind","The ideal self we aspire to"], a:1, e:"The \u201cI\u201d is the acting subject; the \u201cme\u201d is the self as object, built from social interaction."},
+{chap:1, topic:"Society", q:"In Mead's stages of self-development, role-taking and pretend play mainly happen during the:", options:["Preparation stage","Play stage","Game stage","Genital stage"], a:1, e:"During the play stage, children start pretending to be other people, engaging in role-taking."},
+{chap:1, topic:"Psychology", q:"In Freud's structure of personality, which part operates on the pleasure principle?", options:["Ego","Superego","Id","Conscience"], a:2, e:"The id seeks immediate gratification regardless of consequences \u2014 the pleasure principle."},
+{chap:1, topic:"Psychology", q:"Which Freudian psychosexual stage involves toilet training as the central conflict?", options:["Oral","Anal","Phallic","Latent"], a:1, e:"The anal stage (ages 1\u20133) centers on bladder/bowel control, tied closely to toilet training."},
+{chap:1, topic:"Psychology", q:"A student who says \u201cI cut class because everyone else does it\u201d is using which defense mechanism?", options:["Projection","Denial","Rationalization","Sublimation"], a:2, e:"Rationalization means inventing a logical-sounding excuse to make unacceptable behavior seem okay."},
+{chap:1, topic:"Psychology", q:"Redirecting anger from your teacher onto your dog when you get home is an example of:", options:["Displacement","Reaction formation","Repression","Sublimation"], a:0, e:"Displacement channels emotion away from its real (unsafe) target toward a safer one."},
+{chap:1, topic:"Psychology", q:"In Erikson's psychosocial stages, adolescence is centered on the conflict of:", options:["Trust vs. Mistrust","Industry vs. Inferiority","Identity vs. Role Confusion","Intimacy vs. Isolation"], a:2, e:"Teens must develop a stable sense of self and personal identity during adolescence."},
+{chap:1, topic:"Psychology", q:"William James's \u201cI\u201d refers to:", options:["The material self","The social self","The pure ego, the knower","The spiritual self"], a:2, e:"The \u201cI\u201d is the ego as knower \u2014 the abstract sense of personal identity aware of one's own experience."},
+{chap:1, topic:"Psychology", q:"Carl Rogers's \u201cideal self\u201d is best described as:", options:["Who you truly are","Who you feel you should be, shaped by outside influence","Your unconscious desires","Your childhood self"], a:1, e:"The ideal self is shaped by outside expectations \u2014 who we feel we're supposed to become."},
+{chap:1, topic:"Psychology", q:"Donald Winnicott proposed that the \u201cfalse self\u201d develops mainly because of:", options:["Genetic inheritance","Emotional needs unmet or met unreliably in infancy","Excessive social media use","Too much parental praise"], a:1, e:"When infants' emotional needs go unmet or are inconsistently met, basic mistrust and a false self can develop."},
+
+// CHAPTER 2
+{chap:2, topic:"Physical Self", q:"Which of these is the \u201croot\u201d of self-concept \u2014 how we feel about ourselves?", options:["Self-ideal","Self-image","Self-esteem","Self-actualization"], a:2, e:"Self-esteem is described as the very core of human personality and the root of self-concept."},
+{chap:2, topic:"Sexual Self", q:"The first menstrual period is called:", options:["Spermarche","Menarche","Ovulation","Puberty"], a:1, e:"Menarche is the most significant primary sex change marker for young women."},
+{chap:2, topic:"Sexual Self", q:"Breast development and voice change are examples of:", options:["Primary sex characteristics","Secondary sex characteristics","Erogenous zones","Hormonal disorders"], a:1, e:"Secondary sex characteristics are physical signs of maturity that don't directly involve the reproductive organs."},
+{chap:2, topic:"Sexual Self", q:"In Helen Fisher's model, which brain system is linked with dopamine, norepinephrine, and obsessive thinking about a partner?", options:["Lust","Attraction","Attachment","Aversion"], a:1, e:"Attraction (\u201cpassionate love\u201d) is tied to high dopamine/norepinephrine and low serotonin."},
+{chap:2, topic:"Sexual Self", q:"The four phases of the sexual response cycle, in order, are:", options:["Plateau, excitement, resolution, orgasm","Excitement, plateau, orgasm, resolution","Arousal, orgasm, plateau, excitement","Desire, orgasm, excitement, resolution"], a:1, e:"Masters and Johnson's model: excitement \u2192 plateau \u2192 orgasm \u2192 resolution."},
+{chap:2, topic:"Sexual Self", q:"Which STD is caused by a virus and has strains linked to cervical cancer?", options:["Chlamydia","Gonorrhea","HPV","Trichomoniasis"], a:2, e:"About 14 high-risk types of HPV can lead to cervical cancer."},
+{chap:2, topic:"Sexual Self", q:"Which birth control method is described as 100% effective and also fully protects against STDs?", options:["The pill","IUD","Abstinence","Condom"], a:2, e:"Abstinence is the only method noted as 100% effective for both pregnancy and STD prevention."},
+{chap:2, topic:"Material Self", q:"According to William James, the material self is:", options:["Only our physical body","The objects themselves that we own","Our psychological ownership of things we call \u2018mine\u2019","A purely spiritual concept"], a:2, e:"It's not the object itself but our emotional/psychological investment in it that makes it part of the self."},
+{chap:2, topic:"Spiritual Self", q:"The Four Noble Truths and the Eightfold Path are central teachings of:", options:["Christianity","Buddhism","Hinduism","Judaism"], a:1, e:"Buddhism's core teaching centers on suffering, its cause, its end, and the Eightfold Path to end it."},
+{chap:2, topic:"Spiritual Self", q:"The Five Pillars of Islam include all of the following EXCEPT:", options:["Salat (prayer)","Zakat (charity)","Hajj (pilgrimage)","Baptism"], a:3, e:"Baptism is a Christian rite; the Five Pillars are Shahada, Salat, Zakat, Sawm, and Hajj."},
+{chap:2, topic:"Spiritual Self", q:"Viktor Frankl's Logotherapy is centered on the idea that:", options:["Suffering should always be avoided","Humans are primarily driven by pleasure","Humans are motivated by the search for meaning in life","Meaning can only be found through religion"], a:2, e:"Frankl argued that even amid suffering, humans are driven by \u2018the will to meaning.\u2019"},
+{chap:2, topic:"Political Self", q:"\u201cPakikipagkapwa-tao,\u201d demonstrated through bayanihan and hospitality, is classified as a:", options:["Weakness of the Filipino character","Strength of the Filipino character","Colonial trait","Digital self trait"], a:1, e:"Pakikipagkapwa-tao (shared identity/empathy with others) is listed among the strengths of the Filipino character."},
+{chap:2, topic:"Political Self", q:"The tendency to prefer foreign things and feel a sense of national inferiority is called:", options:["Kanya-kanya syndrome","Colonial mentality","Extreme personalism","Passivity"], a:1, e:"Colonial mentality involves both a lack of patriotism and a preference for foreign things over local ones."},
+{chap:2, topic:"Digital Self", q:"Who proposed the concept of the \u201cDigital Self,\u201d describing it as a persona we project through our digital possessions?", options:["Erving Goffman","Russell Belk","Donald Winnicott","George Herbert Mead"], a:1, e:"Russell Belk pioneered the concept of the Digital Self in 1988."},
+{chap:2, topic:"Digital Self", q:"Highlighting your strengths and talents online to appear competent is an impression management strategy called:", options:["Ingratiation","Supplication","Self-promotion","Intimidation"], a:2, e:"Self-promotion is used to earn respect and be seen as having expertise."},
+{chap:2, topic:"Digital Self", q:"Which term refers to the socially constructed roles and norms associated with being a man or woman, which can vary across societies?", options:["Sex","Gender","Sexuality","Sexual orientation"], a:1, e:"The WHO defines gender as socially constructed characteristics, unlike sex (biological) or sexuality (attraction)."},
+
+// CHAPTER 3
+{chap:3, topic:"Learning", q:"Pavlov's dog salivating to the sound of a bell (after repeated pairing with food) demonstrates:", options:["Operant conditioning","Classical conditioning","Observational learning","Habituation"], a:1, e:"Classical conditioning pairs a neutral stimulus with one that naturally triggers a response."},
+{chap:3, topic:"Learning", q:"Taking away a teenager's car privileges due to poor grades is an example of:", options:["Positive reinforcement","Negative reinforcement","Positive punishment","Negative punishment"], a:3, e:"Negative punishment removes something pleasant (car access) to decrease a behavior."},
+{chap:3, topic:"Learning", q:"Feeling jumpy at every small sound after surviving a typhoon is an example of:", options:["Habituation","Sensitization","Classical conditioning","Metacognition"], a:1, e:"Sensitization increases reactions to a range of stimuli after exposure to one strong, distressing stimulus."},
+{chap:3, topic:"Learning", q:"In Bandura's observational learning, which process involves actually copying the model's actions?", options:["Attention","Retention","Motor reproduction","Reinforcement"], a:2, e:"Motor reproduction is the physical act of imitating what was observed."},
+{chap:3, topic:"Learning", q:"\u201cDid I understand what I just read? What is this problem asking?\u201d is an example of which metacognitive strategy?", options:["Self-monitoring","Self-instruction","Self-efficacy","Self-esteem"], a:1, e:"Self-instruction (self-talk) is talking yourself through a task."},
+{chap:3, topic:"Goals", q:"According to Bandura, which of these is the STRONGEST source of self-efficacy?", options:["Social persuasion","Mastery experiences","Social modeling","States of physiology"], a:1, e:"Firsthand success (mastery experience) builds self-efficacy most powerfully."},
+{chap:3, topic:"Goals", q:"Carol Dweck's \u201cgrowth mindset\u201d is the belief that:", options:["Intelligence is fixed at birth","Abilities can be developed through effort and learning","Only talented people succeed","Failure should always be avoided"], a:1, e:"A growth mindset holds that intelligence/skills can improve with effort, unlike a fixed mindset."},
+{chap:3, topic:"Goals", q:"In Locke's Goal-Setting Theory, breaking a big, difficult goal into smaller steps addresses which principle?", options:["Clarity","Feedback","Task complexity","Commitment"], a:2, e:"Task complexity calls for breaking challenging goals into smaller, more attainable steps."},
+{chap:3, topic:"Goals", q:"In S.M.A.R.T. goal-setting, the \u201cM\u201d stands for:", options:["Meaningful","Motivating","Measurable","Manageable"], a:2, e:"S.M.A.R.T. = Specific, Measurable, Achievable, Relevant, Time-bound."},
+{chap:3, topic:"Health", q:"The kind of stress that helps you feel alert and prepared, like before a presentation, is called:", options:["Distress","Eustress","Chronic stress","Acute trauma"], a:1, e:"Eustress is the positive, activating form of stress."},
+{chap:3, topic:"Health", q:"In Selye's General Adaptation Syndrome, the stage where the body collapses under prolonged stress is:", options:["Alarm","Resistance","Exhaustion","Recovery"], a:2, e:"The exhaustion stage follows prolonged, unresolved stress and can lead to serious health damage."},
+{chap:3, topic:"Health", q:"Which hormone, released via the HPA axis, is known as \u201cthe stress hormone\u201d?", options:["Oxytocin","Cortisol","Serotonin","Dopamine"], a:1, e:"Cortisol directs the body to mobilize energy quickly in response to a perceived threat."},
+{chap:3, topic:"Health", q:"Choosing between two equally desirable options, like meat roll or siopao, is an example of which type of conflict?", options:["Approach-approach","Avoidance-avoidance","Approach-avoidance","Multiple approach-avoidance"], a:0, e:"Approach-approach conflict is considered the least stressful because both options are desirable."},
+{chap:3, topic:"Health", q:"Which personality type is described as highly driven, impatient, and competitive?", options:["Type A","Type B","Type D","Type C"], a:0, e:"Type A individuals are competitive and impatient \u2014 they earn more but face higher health risks."},
+{chap:3, topic:"Health", q:"Commitment, control, and challenge are the three traits of:", options:["Self-efficacy","Psychological hardiness","Growth mindset","Emotional intelligence"], a:1, e:"Suzanne Kobasa's concept of psychological hardiness protects people from the health effects of stress."},
+];
+
+// ---------- QUIZ LOGIC ----------
+let activeChaps = [1,2,3];
+let quizQueue = [];
+let currentIndex = 0;
+let score = 0;
+let missed = [];
+
+document.querySelectorAll('.filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const c = parseInt(chip.dataset.chap);
+    if(activeChaps.includes(c)){
+      if(activeChaps.length>1){ activeChaps = activeChaps.filter(x=>x!==c); chip.classList.remove('on'); }
+    } else {
+      activeChaps.push(c); chip.classList.add('on');
+    }
+  });
+});
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+document.getElementById('start-btn').addEventListener('click', ()=>{
+  quizQueue = shuffle(QUESTIONS.filter(q=>activeChaps.includes(q.chap)));
+  currentIndex = 0; score = 0; missed = [];
+  document.getElementById('quiz-start').style.display='none';
+  document.getElementById('quiz-result').style.display='none';
+  document.getElementById('quiz-play').style.display='block';
+  renderQuestion();
+});
+
+function renderQuestion(){
+  const q = quizQueue[currentIndex];
+  document.getElementById('q-count').textContent = `Question ${currentIndex+1} of ${quizQueue.length}`;
+  document.getElementById('q-score').textContent = `Score: ${score}`;
+  document.getElementById('bar-fill').style.width = ((currentIndex)/quizQueue.length*100)+'%';
+  document.getElementById('q-topic').textContent = `Chapter ${q.chap} \u00b7 ${q.topic}`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-explain').classList.remove('show');
+  document.getElementById('q-explain').textContent='';
+  document.getElementById('next-btn').disabled = true;
+
+  const optsDiv = document.getElementById('q-options');
+  optsDiv.innerHTML='';
+  // shuffle option order but track correct answer text
+  const correctText = q.options[q.a];
+  const shuffledOpts = shuffle(q.options.map((text,i)=>({text, isCorrect:i===q.a})));
+
+  shuffledOpts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt';
+    b.textContent = opt.text;
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+      if(opt.isCorrect){
+        b.classList.add('correct');
+        score++;
+      } else {
+        b.classList.add('wrong');
+        document.querySelectorAll('.opt').forEach(o=>{ if(o.textContent===correctText) o.classList.add('correct'); });
+        missed.push(q);
+      }
+      document.getElementById('q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('q-explain');
+      ex.textContent = q.e;
+      ex.classList.add('show');
+      document.getElementById('next-btn').disabled = false;
+    });
+    optsDiv.appendChild(b);
+  });
+}
+
+document.getElementById('next-btn').addEventListener('click', ()=>{
+  currentIndex++;
+  if(currentIndex >= quizQueue.length){
+    showResult();
+  } else {
+    renderQuestion();
+  }
+});
+
+function showResult(){
+  document.getElementById('bar-fill').style.width = '100%';
+  document.getElementById('quiz-play').style.display='none';
+  document.getElementById('quiz-result').style.display='block';
+  document.getElementById('final-score').textContent = `${score} / ${quizQueue.length}`;
+  const pct = Math.round(score/quizQueue.length*100);
+  let msg;
+  if(pct>=90) msg = "Excellent \u2014 you know this cold.";
+  else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
+  else if(pct>=50) msg = "Decent start \u2014 go back over the missed topics below.";
+  else msg = "Worth another full pass through the chapter notes before the exam.";
+  document.getElementById('final-msg').textContent = msg;
+
+  const missedDiv = document.getElementById('missed-list');
+  missedDiv.innerHTML='';
+  if(missed.length===0){
+    missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses \u2014 clean sweep!</p>';
+  }
+}
+
+document.getElementById('retry-btn').addEventListener('click', ()=>{
+  document.getElementById('quiz-result').style.display='none';
+  document.getElementById('quiz-start').style.display='block';
+});
+
+document.getElementById('review-btn').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('missed-list');
+  if(missed.length===0) return;
+  missedDiv.innerHTML = '<h3 style="margin-top:20px;">Questions to review</h3>';
+  missed.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='missed-item';
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${q.options[q.a]}</div><div class="me">${q.e}</div>`;
+    missedDiv.appendChild(div);
+  });
+});
+</script>
+</body>
+</html>
