@@ -189,6 +189,76 @@
     max-width:760px;margin:0 auto; padding:24px 18px; color:var(--ink-soft); font-size:12.5px;
     border-top:1px solid var(--rule); margin-top:30px;
   }
+
+  /* weak spots */
+  .weak-box{
+    background:#f6e9e3; border:1px solid #e0bfae; border-radius:4px;
+    padding:14px 16px; margin-bottom:18px; font-size:14px;
+  }
+  .weak-box h4{margin:0 0 8px; font-size:12.5px; color:#8a4426; text-transform:uppercase; letter-spacing:.06em;}
+  .weak-box ul{margin:0; padding-left:18px;}
+  .weak-box li{margin:3px 0;}
+  .stats-row{display:flex; justify-content:space-between; align-items:center; margin-top:10px;}
+  .link-btn{background:none;border:none;color:var(--plum-soft);font-size:13px;text-decoration:underline;cursor:pointer;padding:0;font-family:'Karla',sans-serif;}
+
+  /* mode toggle on quiz start */
+  .mode-row{display:flex; gap:8px; margin-bottom:6px;}
+  .mode-chip{
+    flex:1; text-align:center; border:1px solid var(--rule); background:var(--paper);
+    padding:10px 8px; border-radius:4px; font-size:13.5px; font-weight:600; color:var(--ink-soft); cursor:pointer;
+  }
+  .mode-chip.on{background:var(--plum); border-color:var(--plum); color:#fff;}
+  .section-label{font-size:12.5px; color:var(--plum-soft); font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin:18px 0 8px;}
+
+  /* identification input */
+  .id-row{display:flex; gap:8px; margin-bottom:6px;}
+  .id-input{
+    flex:1; padding:12px 14px; border:1.5px solid var(--rule); border-radius:4px;
+    font-family:'Karla',sans-serif; font-size:15px; background:var(--paper); color:var(--ink);
+  }
+  .id-input:focus{outline:none; border-color:var(--plum-soft);}
+  .id-input.correct{border-color:var(--good); background:#e7f0e6;}
+  .id-input.wrong{border-color:var(--bad); background:#f6e6e6;}
+
+  /* FLASHCARDS */
+  .card-controls{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;}
+  .card-controls .count{font-size:13.5px; color:var(--ink-soft); font-weight:600;}
+  .flip-scene{perspective:1200px; margin-bottom:20px;}
+  .flip-card{
+    position:relative; width:100%; min-height:230px;
+    transform-style:preserve-3d; transition:transform .45s;
+    cursor:pointer;
+  }
+  .flip-card.flipped{transform:rotateY(180deg);}
+  .flip-face{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border:1px solid var(--rule); border-radius:6px;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:26px; box-shadow:var(--shadow);
+  }
+  .flip-front{background:var(--panel);}
+  .flip-front .term-tag{position:absolute; top:14px; left:16px; font-size:11px; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.08em;}
+  .flip-front .fc-text{font-family:'Fraunces',serif; font-size:23px; color:var(--plum); line-height:1.3;}
+  .flip-back{background:var(--plum); color:#fff; transform:rotateY(180deg);}
+  .flip-back .fc-text{font-size:15.5px; line-height:1.5;}
+  .flip-hint{text-align:center; font-size:12.5px; color:var(--ink-soft); margin-bottom:18px;}
+  .card-nav{display:flex; gap:10px; justify-content:center;}
+
+  /* CHEAT SHEET */
+  .cheat-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;}
+  .cheat-col h3{
+    font-size:14px; color:var(--gold); text-transform:uppercase; letter-spacing:.06em;
+    border-bottom:1px solid var(--rule); padding-bottom:6px; margin:22px 0 8px;
+  }
+  .cheat-col h3:first-child{margin-top:0;}
+  .cheat-item{font-size:13.5px; margin:6px 0; line-height:1.4;}
+  .cheat-item b{color:var(--plum);}
+  @media print{
+    header.top, nav.tabs, footer, #view-ch1, #view-ch2, #view-ch3, #view-quiz, #view-cards{display:none !important;}
+    body{background:#fff;}
+    .cheat-head button{display:none;}
+    #view-cheat{display:block !important;}
+  }
 </style>
 </head>
 <body>
@@ -204,6 +274,8 @@
   <button data-view="ch2">Chapter 2</button>
   <button data-view="ch3">Chapter 3</button>
   <button data-view="quiz">Quiz Yourself</button>
+  <button data-view="cards">Flashcards</button>
+  <button data-view="cheat">Cheat Sheet</button>
 </nav>
 
 <div class="wrap">
@@ -584,6 +656,17 @@
     <div id="quiz-start">
       <h2>Self-Quiz</h2>
       <p>Pick which chapters to drill, then go. Questions are shuffled every time, with an explanation after each answer.</p>
+
+      <div id="weak-box-holder"></div>
+
+      <div class="section-label">Question type</div>
+      <div class="mode-row" id="mode-row">
+        <button class="mode-chip on" data-mode="mc">Multiple Choice</button>
+        <button class="mode-chip" data-mode="id">Identification</button>
+        <button class="mode-chip" data-mode="mixed">Mixed</button>
+      </div>
+
+      <div class="section-label">Chapters</div>
       <div class="filter-row" id="filter-row">
         <button class="filter-chip on" data-chap="1">Chapter 1</button>
         <button class="filter-chip on" data-chap="2">Chapter 2</button>
@@ -601,6 +684,12 @@
       <div class="q-topic" id="q-topic"></div>
       <p class="q-text" id="q-text"></p>
       <div id="q-options"></div>
+      <div id="q-id-area" style="display:none;">
+        <div class="id-row">
+          <input type="text" class="id-input" id="id-input" placeholder="Type your answer" autocomplete="off">
+          <button class="btn" id="id-submit">Check</button>
+        </div>
+      </div>
       <div class="explain" id="q-explain"></div>
       <div class="next-row">
         <button class="btn" id="next-btn" disabled>Next Question</button>
@@ -616,6 +705,51 @@
       <div class="missed-list" id="missed-list"></div>
     </div>
 
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="view" id="view-cards">
+  <div class="chapter-intro">
+    <h2>Flashcards</h2>
+    <p>Tap a card to flip it. Shuffle whenever you want a fresh order.</p>
+  </div>
+  <div class="quiz-shell">
+    <div class="card-controls">
+      <span class="count" id="card-count"></span>
+      <button class="link-btn" id="shuffle-cards-btn">Shuffle deck</button>
+    </div>
+    <div class="flip-scene">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-face flip-front">
+          <span class="term-tag" id="fc-chap"></span>
+          <div class="fc-text" id="fc-term"></div>
+        </div>
+        <div class="flip-face flip-back">
+          <div class="fc-text" id="fc-def"></div>
+        </div>
+      </div>
+    </div>
+    <p class="flip-hint">Tap the card to flip</p>
+    <div class="card-nav">
+      <button class="btn secondary" id="card-prev">Previous</button>
+      <button class="btn" id="card-next">Next</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section class="view" id="view-cheat">
+  <div class="chapter-intro">
+    <h2>Cheat Sheet</h2>
+    <p>Every key term at a glance — one last scan before you walk in.</p>
+  </div>
+  <div class="quiz-shell">
+    <div class="cheat-head">
+      <span style="font-size:13px;color:var(--ink-soft);">All terms, condensed</span>
+      <button class="btn secondary" id="print-cheat-btn">Print / Save PDF</button>
+    </div>
+    <div id="cheat-content"></div>
   </div>
 </section>
 
@@ -693,12 +827,143 @@ const QUESTIONS = [
 {chap:3, topic:"Health", q:"Commitment, control, and challenge are the three traits of:", options:["Self-efficacy","Psychological hardiness","Growth mindset","Emotional intelligence"], a:1, e:"Suzanne Kobasa's concept of psychological hardiness protects people from the health effects of stress."},
 ];
 
+// ---------- IDENTIFICATION QUESTIONS ----------
+const ID_QUESTIONS = [
+{chap:1, topic:"Philosophy", q:"Which philosopher's famous line is \u201cKnow thyself\u201d?", ans:["socrates"], e:"Socrates believed self-examination was the path to living well."},
+{chap:1, topic:"Philosophy", q:"What Latin phrase, meaning \u201cI think, therefore I am,\u201d comes from Descartes?", ans:["cogito ergo sum"], e:"Even doubting everything proves an \u2018I\u2019 exists to do the doubting."},
+{chap:1, topic:"Philosophy", q:"What term describes Hume's view that the self is just a shifting collection of perceptions?", ans:["bundle of perceptions","bundle theory"], e:"Hume: the self is \u2018a bundle or collection of different perceptions.\u2019"},
+{chap:1, topic:"Philosophy", q:"What is the name of Descartes's theory that mind and body are separate substances?", ans:["cartesian dualism"], e:"Cartesian Dualism argues the mind and body are distinct."},
+{chap:1, topic:"Philosophy", q:"According to Locke, personal identity is founded on consciousness, or specifically on what mental faculty?", ans:["memory"], e:"Locke ties personal identity to psychological continuity through memory."},
+{chap:1, topic:"Society", q:"What term did Cooley coin for the idea that our self-image is built from how we imagine others see us?", ans:["looking-glass self","looking glass self"], e:"Cooley's looking-glass self has three phases of imagined judgment."},
+{chap:1, topic:"Society", q:"In Mead's theory, what is the name for the self as object — the image built from society's view of us?", ans:["me","the me"], e:"The \u2018me\u2019 is the self as object; the \u2018I\u2019 is the self as subject."},
+{chap:1, topic:"Society", q:"What is the final stage in Mead's three stages of self-development, where children grasp multiple roles at once?", ans:["game stage","the game stage"], e:"In the game stage, children understand their own position and others' simultaneously."},
+{chap:1, topic:"Psychology", q:"In Freud's model, what part of personality operates on the reality principle?", ans:["ego","the ego"], e:"The ego is the only part of personality in direct contact with reality."},
+{chap:1, topic:"Psychology", q:"What defense mechanism involves attributing your own unwanted feelings to someone else?", ans:["projection"], e:"Projection avoids owning uncomfortable feelings by placing them on another person."},
+{chap:1, topic:"Psychology", q:"What is the name of Erikson's theory dividing life into eight conflicts across the lifespan?", ans:["psychosocial development","stages of psychosocial development","psychosocial stages"], e:"Erikson's 8 stages run from Trust vs. Mistrust to Ego Integrity vs. Despair."},
+{chap:1, topic:"Psychology", q:"Who proposed the concept of the \u2018real self\u2019 versus the \u2018ideal self\u2019?", ans:["carl rogers","rogers"], e:"Rogers: the real self is who we truly are; the ideal self is who we feel we should be."},
+{chap:1, topic:"Psychology", q:"Who proposed the true self versus false self, tied to unmet infant emotional needs?", ans:["donald winnicott","winnicott"], e:"Winnicott argued the false self develops as a protective mask."},
+{chap:2, topic:"Sexual Self", q:"What is the term for a male's first ejaculation, usually occurring around age 13?", ans:["spermarche"], e:"Spermarche marks that a boy is now producing sperm."},
+{chap:2, topic:"Sexual Self", q:"Who developed the four-phase model of the sexual response cycle (excitement, plateau, orgasm, resolution)?", ans:["masters and johnson","william masters and virginia johnson","masters & johnson"], e:"Masters and Johnson's model describes physiological responses during sexual activity."},
+{chap:2, topic:"Material Self", q:"Whose theory describes the material self as body, clothes, family, and home?", ans:["william james","james"], e:"James proposed the material self as part of the empirical self (\u2018Me\u2019)."},
+{chap:2, topic:"Spiritual Self", q:"Who developed Logotherapy, the \u2018therapy through meaning\u2019?", ans:["viktor frankl","frankl"], e:"Frankl developed Logotherapy after surviving Nazi concentration camps."},
+{chap:2, topic:"Spiritual Self", q:"What is the Islamic holy book called?", ans:["quran","the quran","koran"], e:"Muslims base their laws on the Quran."},
+{chap:2, topic:"Spiritual Self", q:"What are Buddhism's core teachings about suffering and its end called?", ans:["four noble truths","the four noble truths"], e:"The Four Noble Truths comprise the essence of Buddha's teachings."},
+{chap:2, topic:"Political Self", q:"What term describes the Filipino tendency to take everything personally, causing discomfort with rules and bureaucracy?", ans:["extreme personalism"], e:"Extreme personalism is listed as a weakness of the Filipino character."},
+{chap:2, topic:"Political Self", q:"What Filipino value is shown through bayanihan, hospitality, and empathy for others?", ans:["pakikipagkapwa-tao","pakikipagkapwa tao"], e:"Pakikipagkapwa-tao is a core strength of the Filipino character."},
+{chap:2, topic:"Digital Self", q:"Who pioneered the concept of the Digital Self in 1988?", ans:["russell belk","belk"], e:"Belk described the Digital Self as the persona we project through digital possessions."},
+{chap:2, topic:"Digital Self", q:"What is the term for consciously or subconsciously shaping how others perceive you, per Goffman?", ans:["impression management"], e:"Impression management underlies self-presentation strategies like self-promotion and ingratiation."},
+{chap:3, topic:"Learning", q:"What type of learning did Pavlov demonstrate with his salivating dogs?", ans:["classical conditioning"], e:"Classical conditioning pairs a neutral stimulus with one that naturally triggers a response."},
+{chap:3, topic:"Learning", q:"What term describes a decreased response to a repeated, harmless stimulus, like getting used to a new bed?", ans:["habituation"], e:"Habituation is a form of nonassociative learning."},
+{chap:3, topic:"Learning", q:"Who developed the concept of observational learning (attention, retention, motor reproduction, reinforcement)?", ans:["albert bandura","bandura"], e:"Bandura's model explains learning by watching a competent model."},
+{chap:3, topic:"Goals", q:"What term describes the belief that intelligence and ability can be developed through effort, per Carol Dweck?", ans:["growth mindset"], e:"Opposite of a fixed mindset, which sees ability as innate and unchangeable."},
+{chap:3, topic:"Goals", q:"What does the \u2018S\u2019 in S.M.A.R.T. goals stand for?", ans:["specific"], e:"S.M.A.R.T. = Specific, Measurable, Achievable, Relevant, Time-bound."},
+{chap:3, topic:"Health", q:"What is the name of Selye's model describing the body's stress response in three stages: alarm, resistance, exhaustion?", ans:["general adaptation syndrome","gas"], e:"GAS describes the common bodily effects of stress over time."},
+{chap:3, topic:"Health", q:"What hormone, released via the HPA axis, is known as \u2018the stress hormone\u2019?", ans:["cortisol"], e:"Cortisol mobilizes the body's resources in response to a perceived threat."},
+{chap:3, topic:"Health", q:"What three traits make up psychological hardiness, per Suzanne Kobasa?", ans:["commitment, control, and challenge","commitment control challenge","commitment, control, challenge"], e:"Hardy individuals see difficulties as challenges rather than threats."},
+];
+
+// ---------- FLASHCARDS DATA ----------
+const FLASHCARDS = [
+{chap:1, term:"Socrates", def:"\u201cKnow thyself\u201d \u2014 believed an unexamined life is not worth living; self = body + immortal soul."},
+{chap:1, term:"Plato", def:"Soul has 3 parts: reason (truth), spirit (honor/emotion), appetite (bodily desire). Balance = happiness."},
+{chap:1, term:"René Descartes", def:"\u201cCogito ergo sum\u201d \u2014 I think, therefore I am. Proposed Cartesian Dualism: mind and body are separate."},
+{chap:1, term:"David Hume", def:"Empiricist \u2014 the self is just a \u2018bundle of perceptions,\u2019 constantly shifting, built from sense experience."},
+{chap:1, term:"Immanuel Kant", def:"People have intrinsic worth as rational agents; treat others always as an end, never merely as a means."},
+{chap:1, term:"John Locke", def:"Personal identity = psychological continuity, founded on consciousness/memory, not soul or body."},
+{chap:1, term:"Looking-Glass Self (Cooley)", def:"We build our self-image from how we imagine others perceive and judge us \u2014 in three phases."},
+{chap:1, term:"Mead's \u2018I\u2019 and \u2018Me\u2019", def:"\u2018I\u2019 = the acting, spontaneous self (subject). \u2018Me\u2019 = the self as object, shaped by society."},
+{chap:1, term:"Mead's 3 Stages", def:"Preparation (imitation) \u2192 Play (role-taking/pretend) \u2192 Game (grasping multiple roles at once)."},
+{chap:1, term:"Id", def:"Pleasure principle \u2014 selfish, illogical, amoral; seeks immediate gratification (Freud)."},
+{chap:1, term:"Ego", def:"Reality principle \u2014 the only part of personality in contact with the real world (Freud)."},
+{chap:1, term:"Superego", def:"Represents society's and parents' values and standards \u2014 the conscience (Freud)."},
+{chap:1, term:"Psychosexual Stages", def:"Oral (0\u20131) \u2192 Anal (1\u20133) \u2192 Phallic (3\u20136) \u2192 Latent (6\u201311) \u2192 Genital (11\u201318)."},
+{chap:1, term:"Rationalization", def:"Inventing a logical-sounding excuse for unacceptable behavior."},
+{chap:1, term:"Projection", def:"Attributing your own unwanted thoughts/feelings to someone else."},
+{chap:1, term:"Displacement", def:"Redirecting emotion from its real target to a safer one (e.g., yelling at the dog)."},
+{chap:1, term:"Reaction Formation", def:"Expressing the opposite of what you truly feel."},
+{chap:1, term:"Erikson's Identity vs. Role Confusion", def:"Adolescence stage \u2014 teens must develop a stable sense of self, or face role confusion."},
+{chap:1, term:"William James's \u2018I\u2019 and \u2018Me\u2019", def:"\u2018Me\u2019 = material + social + spiritual self (Empirical Self). \u2018I\u2019 = the pure ego, the knower."},
+{chap:1, term:"Real Self vs. Ideal Self (Rogers)", def:"Real self = who you truly are. Ideal self = who you feel you should be. Big gap = stress/anxiety."},
+{chap:1, term:"True Self vs. False Self (Winnicott)", def:"False self develops from unmet/unreliable infant emotional needs; acts as a protective social mask."},
+{chap:2, term:"Self-Concept (3 parts)", def:"Self-Ideal (who you want to be) + Self-Image (how you picture yourself) + Self-Esteem (how you feel about yourself, the root)."},
+{chap:2, term:"Primary Sex Characteristics", def:"The reproductive organs themselves \u2014 ovaries/uterus/vagina; testes/penis/scrotum."},
+{chap:2, term:"Secondary Sex Characteristics", def:"Physical maturity signs not directly tied to reproduction \u2014 breast development, voice change, body hair."},
+{chap:2, term:"Menarche / Spermarche", def:"Menarche = first menstrual period. Spermarche = first ejaculation (~age 13)."},
+{chap:2, term:"Fisher's Lust, Attraction, Attachment", def:"Lust (estrogens/androgens) \u2192 Attraction (dopamine/norepinephrine, \u2018passionate love\u2019) \u2192 Attachment (oxytocin/vasopressin, \u2018companionate love\u2019)."},
+{chap:2, term:"Sexual Response Cycle", def:"Excitement \u2192 Plateau \u2192 Orgasm \u2192 Resolution (Masters & Johnson)."},
+{chap:2, term:"Material Self (James)", def:"Everything we call \u2018mine\u2019: body (innermost) \u2192 clothes \u2192 family \u2192 home. It's psychological ownership, not the object itself."},
+{chap:2, term:"Logotherapy (Frankl)", def:"\u2018Therapy through meaning\u2019 \u2014 humans are driven by the search for meaning, even amid suffering."},
+{chap:2, term:"Four Noble Truths", def:"Buddhism: life is suffering \u2192 caused by craving \u2192 can be ended \u2192 via the Eightfold Path."},
+{chap:2, term:"Five Pillars of Islam", def:"Shahada (faith), Salat (prayer), Zakat (charity), Sawm (fasting), Hajj (pilgrimage)."},
+{chap:2, term:"Pakikipagkapwa-tao", def:"Filipino strength \u2014 sense of justice, empathy, hospitality, bayanihan, utang na loob."},
+{chap:2, term:"Colonial Mentality", def:"Filipino weakness \u2014 preference for foreign things and a sense of national inferiority."},
+{chap:2, term:"Kanya-Kanya Syndrome", def:"Filipino weakness \u2014 selfish, self-serving attitude that breeds envy toward peers' success."},
+{chap:2, term:"Digital Self (Belk)", def:"The persona we project online through digital possessions \u2014 photos, videos, posts."},
+{chap:2, term:"Impression Management (Goffman)", def:"Consciously/subconsciously shaping how others perceive you \u2014 via ingratiation, self-promotion, exemplification, intimidation, or supplication."},
+{chap:2, term:"Sex vs. Gender vs. Sexuality", def:"Sex = biological makeup. Gender = socially constructed roles (WHO). Sexuality = who you're attracted to."},
+{chap:3, term:"Classical Conditioning", def:"Pairing a neutral stimulus with one that naturally triggers a response until the neutral one triggers it alone (Pavlov)."},
+{chap:3, term:"Operant Conditioning", def:"Learning through consequences: positive/negative reinforcement (increase behavior) vs. positive/negative punishment (decrease behavior)."},
+{chap:3, term:"Habituation vs. Sensitization", def:"Habituation = decreased response to repeated harmless stimulus. Sensitization = increased response after one strong/traumatic stimulus."},
+{chap:3, term:"Observational Learning (Bandura)", def:"Attention \u2192 Retention \u2192 Motor Reproduction \u2192 Reinforcement \u2014 learning by watching a model."},
+{chap:3, term:"Self-Efficacy Sources", def:"Mastery experiences (strongest), social modeling, social persuasion, states of physiology (Bandura)."},
+{chap:3, term:"Growth vs. Fixed Mindset", def:"Growth = ability develops through effort. Fixed = ability is innate and unchangeable (Dweck)."},
+{chap:3, term:"S.M.A.R.T. Goals", def:"Specific, Measurable, Achievable, Relevant, Time-bound."},
+{chap:3, term:"General Adaptation Syndrome", def:"Alarm (shock) \u2192 Resistance (fighting back) \u2192 Exhaustion (collapse) (Selye)."},
+{chap:3, term:"Cortisol", def:"\u2018The stress hormone\u2019 \u2014 released via the HPA axis to mobilize the body's resources against a threat."},
+{chap:3, term:"Conflict Types", def:"Approach-approach (least stressful) \u2192 Avoidance-avoidance \u2192 Approach-avoidance \u2192 Multiple approach-avoidance (most complex)."},
+{chap:3, term:"Type A / B / D Personality", def:"A = driven, impatient, competitive. B = relaxed, paced. D = distressed, negative emotions, socially inhibited."},
+{chap:3, term:"Psychological Hardiness", def:"Commitment + Control + Challenge \u2014 protects against the health effects of stress (Kobasa)."},
+];
+
+// ---------- WEAK SPOT TRACKING ----------
+const STATS_KEY = 'uts_topic_stats_v1';
+function loadStats(){
+  try{ return JSON.parse(localStorage.getItem(STATS_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveStats(stats){
+  try{ localStorage.setItem(STATS_KEY, JSON.stringify(stats)); }catch(e){}
+}
+function recordAnswer(topic, correct){
+  const stats = loadStats();
+  if(!stats[topic]) stats[topic] = {correct:0, total:0};
+  stats[topic].total++;
+  if(correct) stats[topic].correct++;
+  saveStats(stats);
+}
+function renderWeakBox(){
+  const holder = document.getElementById('weak-box-holder');
+  const stats = loadStats();
+  const rows = Object.keys(stats)
+    .map(topic=>({topic, ...stats[topic], pct: stats[topic].correct/stats[topic].total}))
+    .filter(r=>r.total>=3 && r.pct<0.7)
+    .sort((a,b)=>a.pct-b.pct)
+    .slice(0,5);
+  if(rows.length===0){ holder.innerHTML=''; return; }
+  holder.innerHTML = `<div class="weak-box"><h4>Your weak spots so far</h4><ul>` +
+    rows.map(r=>`<li>${r.topic} \u2014 ${r.correct}/${r.total} correct</li>`).join('') +
+    `</ul><div class="stats-row"><span></span><button class="link-btn" id="reset-stats-btn">Reset stats</button></div></div>`;
+  document.getElementById('reset-stats-btn').addEventListener('click', ()=>{
+    localStorage.removeItem(STATS_KEY);
+    renderWeakBox();
+  });
+}
+renderWeakBox();
+
 // ---------- QUIZ LOGIC ----------
 let activeChaps = [1,2,3];
+let quizMode = 'mc';
 let quizQueue = [];
 let currentIndex = 0;
 let score = 0;
 let missed = [];
+
+document.querySelectorAll('.mode-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.mode-chip').forEach(c=>c.classList.remove('on'));
+    chip.classList.add('on');
+    quizMode = chip.dataset.mode;
+  });
+});
 
 document.querySelectorAll('.filter-chip').forEach(chip=>{
   chip.addEventListener('click', ()=>{
@@ -721,7 +986,14 @@ function shuffle(arr){
 }
 
 document.getElementById('start-btn').addEventListener('click', ()=>{
-  quizQueue = shuffle(QUESTIONS.filter(q=>activeChaps.includes(q.chap)));
+  let pool = [];
+  if(quizMode==='mc') pool = QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'mc'}));
+  else if(quizMode==='id') pool = ID_QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'id'}));
+  else pool = [
+    ...QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'mc'})),
+    ...ID_QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'id'}))
+  ];
+  quizQueue = shuffle(pool);
   currentIndex = 0; score = 0; missed = [];
   document.getElementById('quiz-start').style.display='none';
   document.getElementById('quiz-result').style.display='none';
@@ -741,7 +1013,40 @@ function renderQuestion(){
   document.getElementById('next-btn').disabled = true;
 
   const optsDiv = document.getElementById('q-options');
+  const idArea = document.getElementById('q-id-area');
   optsDiv.innerHTML='';
+
+  if(q.type==='id'){
+    optsDiv.style.display='none';
+    idArea.style.display='block';
+    const input = document.getElementById('id-input');
+    input.value=''; input.classList.remove('correct','wrong'); input.disabled=false;
+    input.focus();
+    const submitBtn = document.getElementById('id-submit');
+    submitBtn.disabled=false;
+
+    const checkAnswer = ()=>{
+      const val = input.value.trim().toLowerCase();
+      if(!val) return;
+      input.disabled=true; submitBtn.disabled=true;
+      const isCorrect = q.ans.some(a=>a.toLowerCase()===val);
+      if(isCorrect){ input.classList.add('correct'); score++; }
+      else{ input.classList.add('wrong'); missed.push(q); }
+      recordAnswer(q.topic, isCorrect);
+      document.getElementById('q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('q-explain');
+      ex.textContent = isCorrect ? q.e : `Accepted answer: ${q.ans[0]}. ${q.e}`;
+      ex.classList.add('show');
+      document.getElementById('next-btn').disabled = false;
+    };
+    submitBtn.onclick = checkAnswer;
+    input.onkeydown = (e)=>{ if(e.key==='Enter') checkAnswer(); };
+    return;
+  }
+
+  optsDiv.style.display='block';
+  idArea.style.display='none';
+
   // shuffle option order but track correct answer text
   const correctText = q.options[q.a];
   const shuffledOpts = shuffle(q.options.map((text,i)=>({text, isCorrect:i===q.a})));
@@ -752,6 +1057,7 @@ function renderQuestion(){
     b.textContent = opt.text;
     b.addEventListener('click', ()=>{
       document.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+      recordAnswer(q.topic, opt.isCorrect);
       if(opt.isCorrect){
         b.classList.add('correct');
         score++;
@@ -802,6 +1108,7 @@ function showResult(){
 document.getElementById('retry-btn').addEventListener('click', ()=>{
   document.getElementById('quiz-result').style.display='none';
   document.getElementById('quiz-start').style.display='block';
+  renderWeakBox();
 });
 
 document.getElementById('review-btn').addEventListener('click', ()=>{
@@ -811,9 +1118,64 @@ document.getElementById('review-btn').addEventListener('click', ()=>{
   missed.forEach(q=>{
     const div = document.createElement('div');
     div.className='missed-item';
-    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${q.options[q.a]}</div><div class="me">${q.e}</div>`;
+    const correctAns = q.type==='id' ? q.ans[0] : q.options[q.a];
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${correctAns}</div><div class="me">${q.e}</div>`;
     missedDiv.appendChild(div);
   });
+});
+
+// ---------- FLASHCARDS LOGIC ----------
+let cardDeck = shuffle(FLASHCARDS);
+let cardIndex = 0;
+
+function renderCard(){
+  const c = cardDeck[cardIndex];
+  document.getElementById('flip-card').classList.remove('flipped');
+  document.getElementById('fc-chap').textContent = `Chapter ${c.chap}`;
+  document.getElementById('fc-term').textContent = c.term;
+  document.getElementById('fc-def').textContent = c.def;
+  document.getElementById('card-count').textContent = `Card ${cardIndex+1} of ${cardDeck.length}`;
+}
+document.getElementById('flip-card').addEventListener('click', ()=>{
+  document.getElementById('flip-card').classList.toggle('flipped');
+});
+document.getElementById('card-next').addEventListener('click', ()=>{
+  cardIndex = (cardIndex+1) % cardDeck.length;
+  renderCard();
+});
+document.getElementById('card-prev').addEventListener('click', ()=>{
+  cardIndex = (cardIndex-1+cardDeck.length) % cardDeck.length;
+  renderCard();
+});
+document.getElementById('shuffle-cards-btn').addEventListener('click', ()=>{
+  cardDeck = shuffle(FLASHCARDS);
+  cardIndex = 0;
+  renderCard();
+});
+renderCard();
+
+// ---------- CHEAT SHEET ----------
+function renderCheatSheet(){
+  const container = document.getElementById('cheat-content');
+  const chapters = [
+    {n:1, label:'Chapter 1 \u2014 Philosophy, Society, Psychology'},
+    {n:2, label:'Chapter 2 \u2014 Unpacking the Self'},
+    {n:3, label:'Chapter 3 \u2014 Managing and Caring for the Self'}
+  ];
+  let html = '';
+  chapters.forEach(ch=>{
+    const items = FLASHCARDS.filter(f=>f.chap===ch.n);
+    html += `<div class="cheat-col"><h3>${ch.label}</h3>`;
+    items.forEach(it=>{
+      html += `<div class="cheat-item"><b>${it.term}:</b> ${it.def}</div>`;
+    });
+    html += `</div>`;
+  });
+  container.innerHTML = html;
+}
+renderCheatSheet();
+document.getElementById('print-cheat-btn').addEventListener('click', ()=>{
+  window.print();
 });
 </script>
 </body>
