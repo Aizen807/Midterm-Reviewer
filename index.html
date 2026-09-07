@@ -655,7 +655,7 @@
 
     <div id="quiz-start">
       <h2>Self-Quiz</h2>
-      <p>Pick which chapters to drill, then go. Questions are shuffled every time, with an explanation after each answer.</p>
+      <p>Pick which chapters to drill, then go — leave all unchecked to cover everything. Questions are shuffled every time, with an explanation after each answer.</p>
 
       <div id="weak-box-holder"></div>
 
@@ -668,9 +668,9 @@
 
       <div class="section-label">Chapters</div>
       <div class="filter-row" id="filter-row">
-        <button class="filter-chip on" data-chap="1">Chapter 1</button>
-        <button class="filter-chip on" data-chap="2">Chapter 2</button>
-        <button class="filter-chip on" data-chap="3">Chapter 3</button>
+        <button class="filter-chip" data-chap="1">Chapter 1</button>
+        <button class="filter-chip" data-chap="2">Chapter 2</button>
+        <button class="filter-chip" data-chap="3">Chapter 3</button>
       </div>
       <button class="btn" id="start-btn">Start Quiz</button>
     </div>
@@ -950,7 +950,7 @@ function renderWeakBox(){
 renderWeakBox();
 
 // ---------- QUIZ LOGIC ----------
-let activeChaps = [1,2,3];
+let activeChaps = [];
 let quizMode = 'mc';
 let quizQueue = [];
 let currentIndex = 0;
@@ -969,9 +969,11 @@ document.querySelectorAll('.filter-chip').forEach(chip=>{
   chip.addEventListener('click', ()=>{
     const c = parseInt(chip.dataset.chap);
     if(activeChaps.includes(c)){
-      if(activeChaps.length>1){ activeChaps = activeChaps.filter(x=>x!==c); chip.classList.remove('on'); }
+      activeChaps = activeChaps.filter(x=>x!==c);
+      chip.classList.remove('on');
     } else {
-      activeChaps.push(c); chip.classList.add('on');
+      activeChaps.push(c);
+      chip.classList.add('on');
     }
   });
 });
@@ -986,12 +988,13 @@ function shuffle(arr){
 }
 
 document.getElementById('start-btn').addEventListener('click', ()=>{
+  const chapFilter = activeChaps.length>0 ? activeChaps : [1,2,3];
   let pool = [];
-  if(quizMode==='mc') pool = QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'mc'}));
-  else if(quizMode==='id') pool = ID_QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'id'}));
+  if(quizMode==='mc') pool = QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'}));
+  else if(quizMode==='id') pool = ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}));
   else pool = [
-    ...QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'mc'})),
-    ...ID_QUESTIONS.filter(q=>activeChaps.includes(q.chap)).map(q=>({...q, type:'id'}))
+    ...QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'})),
+    ...ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}))
   ];
   quizQueue = shuffle(pool);
   currentIndex = 0; score = 0; missed = [];
