@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Understanding the Self — Midterm Review</title>
+<title>Midterm Reviewer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+
   :root{
     --paper:#f6f1e6;
+    --tint:#efe6d3;
     --ink:#241f1a;
     --ink-soft:#5a5248;
     --rule:#d8cdb8;
@@ -21,6 +23,19 @@
     --bad:#a53d3d;
     --shadow: 0 1px 0 rgba(36,31,26,.06);
   }
+
+  #subject-uts{
+    --plum:#3b2b4f;
+    --plum-soft:#6a5589;
+    --tint:#efe6d3;
+  }
+  #subject-pathfit{
+    --plum:#2c4a3e;
+    --plum-soft:#4f7a67;
+    --tint:#e7ecdf;
+  }
+  .subject-view{display:none;}
+
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
@@ -124,7 +139,7 @@
   .lesson-body th, .lesson-body td{
     border:1px solid var(--rule); padding:6px 8px; text-align:left; vertical-align:top;
   }
-  .lesson-body th{background:#efe6d3; color:var(--plum);}
+  .lesson-body th{background:var(--tint); color:var(--plum);}
   .term{color:var(--plum); font-weight:700;}
   .tag{
     display:inline-block; background:#efe1c4; color:#7a5417;
@@ -171,7 +186,7 @@
   .opt.wrong{border-color:var(--bad); background:#f6e6e6; color:var(--bad); font-weight:700;}
   .opt:disabled{cursor:default;}
   .explain{
-    margin-top:14px; padding:12px 14px; background:#efe6d3; border-left:3px solid var(--gold);
+    margin-top:14px; padding:12px 14px; background:var(--tint); border-left:3px solid var(--gold);
     font-size:14px; border-radius:2px; display:none;
   }
   .explain.show{display:block;}
@@ -254,34 +269,86 @@
   .cheat-item{font-size:13.5px; margin:6px 0; line-height:1.4;}
   .cheat-item b{color:var(--plum);}
   @media print{
-    header.top, nav.tabs, footer, #view-ch1, #view-ch2, #view-ch3, #view-quiz, #view-cards{display:none !important;}
+    header.top, nav.tabs, footer{display:none !important;}
+    #hub-view{display:none !important;}
     body{background:#fff;}
     .cheat-head button{display:none;}
-    #view-cheat{display:block !important;}
+    section.view{display:none !important;}
+    section.view.cheat-view{display:block !important;}
   }
+
+  .hub-header{border-bottom:1px solid var(--rule);}
+  .subject-grid{display:flex; flex-direction:column; gap:14px; margin-top:24px;}
+  .subject-card{
+    display:block; width:100%; text-align:left; text-decoration:none; color:inherit;
+    background:var(--panel); border:1px solid var(--rule); border-radius:6px;
+    padding:20px 22px; box-shadow:var(--shadow);
+    font-family:'Karla',sans-serif; cursor:pointer;
+  }
+  .subject-card:active{transform:scale(0.99);}
+  .subject-card .tag2{
+    display:inline-block; font-size:11px; font-weight:700; color:var(--gold);
+    text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;
+  }
+  .subject-card h2{font-size:21px; margin-bottom:6px;}
+  .subject-card p{color:var(--ink-soft); font-size:14.5px; margin:0 0 12px;}
+  .subject-card .meta{font-size:13px; color:var(--gold); font-weight:700;}
+  .empty-note{
+    border:1px dashed var(--rule); border-radius:6px; padding:18px 20px;
+    color:var(--ink-soft); font-size:14px; margin-top:6px;
+  }
+
 </style>
 </head>
 <body>
 
+
+<div id="hub-view">
+  <header class="top hub-header">
+    <div class="kicker">Study Hub</div>
+    <h1>Midterm Reviewer</h1>
+    <p>Pick a subject below to open its notes, flashcards, and self-quiz.</p>
+  </header>
+  <div class="wrap">
+    <div class="subject-grid">
+      <button class="subject-card" onclick="showSubject('uts')">
+        <span class="tag2">General Education</span>
+        <h2>Understanding the Self</h2>
+        <p>Philosophy, society, and psychology of the self; physical, sexual, material, spiritual, political, and digital self; learning, goal-setting, and stress management.</p>
+        <span class="meta">Open Reviewer →</span>
+      </button>
+
+      <button class="subject-card" onclick="showSubject('pathfit')">
+        <span class="tag2">PATHFIT</span>
+        <h2>Physical Education</h2>
+        <p>Fitness basics, BMI, health- and skill-related fitness components, benefits of activity, the 7 dimensions of wellness, and the FITT principle.</p>
+        <span class="meta">Open Reviewer →</span>
+      </button>
+    </div>
+    <p class="empty-note">More subjects will show up here as you add them — just send over the notes or slides for the next one.</p>
+  </div>
+</div>
+
+<div id="subject-uts" class="subject-view">
 <header class="top">
+  <button onclick="showHub()" style="display:inline-block;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:10px;background:none;border:none;cursor:pointer;padding:0;font-family:'Karla',sans-serif;">← All Subjects</button>
   <div class="kicker">Midterm Review</div>
   <h1>Understanding the Self</h1>
   <p>Every lesson from your module, condensed into study-ready notes — plus a self-quiz pulled from all three chapters so you can find your weak spots before tomorrow.</p>
 </header>
-
-<nav class="tabs" id="tabs">
+<nav class="tabs" id="uts-tabs">
   <button data-view="ch1" class="active">Chapter 1</button>
   <button data-view="ch2">Chapter 2</button>
   <button data-view="ch3">Chapter 3</button>
   <button data-view="quiz">Quiz Yourself</button>
+  <button data-view="quiz2">Quiz Yourself 2</button>
   <button data-view="cards">Flashcards</button>
   <button data-view="cheat">Cheat Sheet</button>
 </nav>
-
 <div class="wrap">
 
 <!-- CHAPTER 1 -->
-<section class="view active" id="view-ch1">
+<section class="view active" id="uts-view-ch1">
   <div class="chapter-intro">
     <h2>Ch. 1 — The Self from Various Perspectives</h2>
     <p>Philosophy, sociology, and psychology each answer "who am I?" differently. This chapter walks through six philosophers, the sociology of the social self, and five psychological theories of self.</p>
@@ -397,7 +464,7 @@
 </section>
 
 <!-- CHAPTER 2 -->
-<section class="view" id="view-ch2">
+<section class="view" id="uts-view-ch2">
   <div class="chapter-intro">
     <h2>Ch. 2 — Unpacking the Self</h2>
     <p>Six aspects of the self are examined one by one: physical, sexual, material, spiritual, political, and digital.</p>
@@ -542,7 +609,7 @@
 </section>
 
 <!-- CHAPTER 3 -->
-<section class="view" id="view-ch3">
+<section class="view" id="uts-view-ch3">
   <div class="chapter-intro">
     <h2>Ch. 3 — Managing and Caring for the Self</h2>
     <p>How we learn, set goals, and manage stress and health — the practical toolkit for becoming a better, healthier student.</p>
@@ -650,96 +717,140 @@
 </section>
 
 <!-- QUIZ -->
-<section class="view" id="view-quiz">
+<section class="view" id="uts-view-quiz">
   <div class="quiz-shell">
 
-    <div id="quiz-start">
+    <div id="uts-quiz-start">
       <h2>Self-Quiz</h2>
       <p>Pick which chapters to drill, then go — leave all unchecked to cover everything. Questions are shuffled every time, with an explanation after each answer.</p>
 
-      <div id="weak-box-holder"></div>
+      <div id="uts-weak-box-holder"></div>
 
       <div class="section-label">Question type</div>
-      <div class="mode-row" id="mode-row">
+      <div class="mode-row" id="uts-mode-row">
         <button class="mode-chip on" data-mode="mc">Multiple Choice</button>
         <button class="mode-chip" data-mode="id">Identification</button>
         <button class="mode-chip" data-mode="mixed">Mixed</button>
       </div>
 
       <div class="section-label">Chapters</div>
-      <div class="filter-row" id="filter-row">
+      <div class="filter-row" id="uts-filter-row">
         <button class="filter-chip" data-chap="1">Chapter 1</button>
         <button class="filter-chip" data-chap="2">Chapter 2</button>
         <button class="filter-chip" data-chap="3">Chapter 3</button>
       </div>
-      <button class="btn" id="start-btn">Start Quiz</button>
+      <button class="btn" id="uts-start-btn">Start Quiz</button>
     </div>
 
-    <div id="quiz-play" style="display:none;">
+    <div id="uts-quiz-play" style="display:none;">
       <div class="quiz-progress">
-        <span id="q-count"></span>
-        <span id="q-score"></span>
+        <span id="uts-q-count"></span>
+        <span id="uts-q-score"></span>
       </div>
-      <div class="bar"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
-      <div class="q-topic" id="q-topic"></div>
-      <p class="q-text" id="q-text"></p>
-      <div id="q-options"></div>
-      <div id="q-id-area" style="display:none;">
+      <div class="bar"><div class="bar-fill" id="uts-bar-fill" style="width:0%"></div></div>
+      <div class="q-topic" id="uts-q-topic"></div>
+      <p class="q-text" id="uts-q-text"></p>
+      <div id="uts-q-options"></div>
+      <div id="uts-q-id-area" style="display:none;">
         <div class="id-row">
-          <input type="text" class="id-input" id="id-input" placeholder="Type your answer" autocomplete="off">
-          <button class="btn" id="id-submit">Check</button>
+          <input type="text" class="id-input" id="uts-id-input" placeholder="Type your answer" autocomplete="off">
+          <button class="btn" id="uts-id-submit">Check</button>
         </div>
       </div>
-      <div class="explain" id="q-explain"></div>
+      <div class="explain" id="uts-q-explain"></div>
       <div class="next-row">
-        <button class="btn" id="next-btn" disabled>Next Question</button>
+        <button class="btn" id="uts-next-btn" disabled>Next Question</button>
       </div>
     </div>
 
-    <div id="quiz-result" style="display:none;">
+    <div id="uts-quiz-result" style="display:none;">
       <h2>Quiz Complete</h2>
-      <div class="score" id="final-score"></div>
-      <p id="final-msg" style="color:var(--ink-soft);"></p>
-      <button class="btn" id="retry-btn">Try Again</button>
-      <button class="btn secondary" id="review-btn" style="margin-left:8px;">Review Missed</button>
-      <div class="missed-list" id="missed-list"></div>
+      <div class="score" id="uts-final-score"></div>
+      <p id="uts-final-msg" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="uts-retry-btn">Try Again</button>
+      <button class="btn secondary" id="uts-review-btn" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="uts-missed-list"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIZ 2: TERM MATCH (definition shown, guess the term) -->
+<section class="view" id="uts-view-quiz2">
+  <div class="quiz-shell">
+
+    <div id="uts-quiz2-start">
+      <h2>Quiz Yourself 2</h2>
+      <p>Read the definition, pick the matching term. Answer choices are shuffled every time.</p>
+
+      <div class="section-label">Chapters</div>
+      <div class="filter-row" id="uts-filter-row2">
+        <button class="filter-chip" data-chap="1">Chapter 1</button>
+        <button class="filter-chip" data-chap="2">Chapter 2</button>
+        <button class="filter-chip" data-chap="3">Chapter 3</button>
+      </div>
+      <button class="btn" id="uts-start-btn2">Start Quiz</button>
+    </div>
+
+    <div id="uts-quiz2-play" style="display:none;">
+      <div class="quiz-progress">
+        <span id="uts-q2-count"></span>
+        <span id="uts-q2-score"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="uts-bar-fill2" style="width:0%"></div></div>
+      <div class="q-topic" id="uts-q2-topic"></div>
+      <p class="q-text" id="uts-q2-text"></p>
+      <div id="uts-q2-options"></div>
+      <div class="explain" id="uts-q2-explain"></div>
+      <div class="next-row">
+        <button class="btn" id="uts-next-btn2" disabled>Next Question</button>
+      </div>
+    </div>
+
+    <div id="uts-quiz2-result" style="display:none;">
+      <h2>Quiz Complete</h2>
+      <div class="score" id="uts-final-score2"></div>
+      <p id="uts-final-msg2" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="uts-retry-btn2">Try Again</button>
+      <button class="btn secondary" id="uts-review-btn2" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="uts-missed-list2"></div>
     </div>
 
   </div>
 </section>
 
 <!-- FLASHCARDS -->
-<section class="view" id="view-cards">
+<section class="view" id="uts-view-cards">
   <div class="chapter-intro">
     <h2>Flashcards</h2>
     <p>Tap a card to flip it. Shuffle whenever you want a fresh order.</p>
   </div>
   <div class="quiz-shell">
     <div class="card-controls">
-      <span class="count" id="card-count"></span>
-      <button class="link-btn" id="shuffle-cards-btn">Shuffle deck</button>
+      <span class="count" id="uts-card-count"></span>
+      <button class="link-btn" id="uts-shuffle-cards-btn">Shuffle deck</button>
     </div>
     <div class="flip-scene">
-      <div class="flip-card" id="flip-card">
+      <div class="flip-card" id="uts-flip-card">
         <div class="flip-face flip-front">
-          <span class="term-tag" id="fc-chap"></span>
-          <div class="fc-text" id="fc-term"></div>
+          <span class="term-tag" id="uts-fc-chap"></span>
+          <div class="fc-text" id="uts-fc-term"></div>
         </div>
         <div class="flip-face flip-back">
-          <div class="fc-text" id="fc-def"></div>
+          <div class="fc-text" id="uts-fc-def"></div>
         </div>
       </div>
     </div>
     <p class="flip-hint">Tap the card to flip</p>
     <div class="card-nav">
-      <button class="btn secondary" id="card-prev">Previous</button>
-      <button class="btn" id="card-next">Next</button>
+      <button class="btn secondary" id="uts-card-prev">Previous</button>
+      <button class="btn" id="uts-card-next">Next</button>
     </div>
   </div>
 </section>
 
 <!-- CHEAT SHEET -->
-<section class="view" id="view-cheat">
+<section class="view cheat-view" id="uts-view-cheat">
   <div class="chapter-intro">
     <h2>Cheat Sheet</h2>
     <p>Every key term at a glance — one last scan before you walk in.</p>
@@ -747,25 +858,364 @@
   <div class="quiz-shell">
     <div class="cheat-head">
       <span style="font-size:13px;color:var(--ink-soft);">All terms, condensed</span>
-      <button class="btn secondary" id="print-cheat-btn">Print / Save PDF</button>
+      <button class="btn secondary" id="uts-print-cheat-btn">Print / Save PDF</button>
     </div>
-    <div id="cheat-content"></div>
+    <div id="uts-cheat-content"></div>
   </div>
 </section>
 
 </div>
+</div>
 
-<footer>Built from your Understanding the Self module. Good luck tomorrow — you've got this.</footer>
+<div id="subject-pathfit" class="subject-view">
+<header class="top">
+  <button onclick="showHub()" style="display:inline-block;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:10px;background:none;border:none;cursor:pointer;padding:0;font-family:'Karla',sans-serif;">← All Subjects</button>
+  <div class="kicker">Midterm Review</div>
+  <h1>PATHFIT — Physical Education</h1>
+  <p>Fitness components, BMI, wellness, and the FITT principle from your slides — condensed into study-ready notes, plus a self-quiz to drill before the exam.</p>
+</header>
+<nav class="tabs" id="pf-tabs">
+  <button data-view="p1" class="active">Fitness Basics</button>
+  <button data-view="p2">Skills &amp; Benefits</button>
+  <button data-view="p3">Wellness &amp; FITT</button>
+  <button data-view="quiz">Quiz Yourself</button>
+  <button data-view="quiz2">Quiz Yourself 2</button>
+  <button data-view="cards">Flashcards</button>
+  <button data-view="cheat">Cheat Sheet</button>
+</nav>
+<div class="wrap">
+
+<!-- PART 1 -->
+<section class="view active" id="pf-view-p1">
+  <div class="chapter-intro">
+    <h2>Part 1 — Fitness Basics &amp; Health-Related Components</h2>
+    <p>Core definitions, the five health-related fitness components, and how to compute BMI.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — Physical Activity &amp; Fitness</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Key Definitions</h4>
+      <p><span class="term">Recreational activities</span> — activities held during one's leisure time, meant to refresh oneself through activities the individual finds enjoyable.</p>
+      <p><span class="term">Physical activity</span> — participation in regular, moderate bodily movement (30 minutes to 1 hour) that elevates your heart rate. "Regular" means being active most or all days of the week — about <span class="term">3 to 4 times per week or more</span> is recommended, with rest/easy days in between for recovery.</p>
+      <p><span class="term">Physical fitness</span> — the ability to execute everyday tasks without getting short of breath, tired, or sore; the capacity of the heart, lungs, muscles, and joints to perform well.</p>
+
+      <h4>Healthy Lifestyle Assessment Rating</h4>
+      <p>Based on a pre-assessment checklist (16 statements on habits like exercise, diet, and safety), rated by number of checks:</p>
+      <table>
+        <tr><th>Checks</th><th>Rating</th></tr>
+        <tr><td>13–16</td><td>Excellent</td></tr>
+        <tr><td>9–12</td><td>Good</td></tr>
+        <tr><td>5–8</td><td>Fair</td></tr>
+        <tr><td>0–4</td><td>Needs Improvement</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — Health-Related Components of Fitness</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>Five components make up health-related fitness:</p>
+      <h4>Muscular Strength</h4>
+      <p>The amount of force muscles employ when used. Strong muscles support bones and joints, translating into the capacity to lift, push, kick, and throw with power.</p>
+      <h4>Muscular Endurance</h4>
+      <p>The ability to use a group of muscles for a long period of time without getting tired easily — e.g., pedaling a bicycle up and down a hilly track without stopping.</p>
+      <h4>Flexibility</h4>
+      <p>The ability to bend, twist, reach, and move the joints easily — used when striking a tennis ball or touching your toes while seated.</p>
+      <h4>Cardiorespiratory Endurance</h4>
+      <p>The ability to perform activities that need increased oxygen for a period of time. Running, walking, biking, and swimming all improve it.</p>
+      <ul>
+        <li><span class="term">Heart Rate</span> — the number of times your heart beats per minute.</li>
+      </ul>
+      <h4>Body Composition</h4>
+      <p>The proportion of fat tissue to lean tissue in the body.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 3 — Body Mass Index (BMI)</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p><span class="term">Body Mass Index</span> is the standard health professionals use to determine if a person's weight is healthful.</p>
+      <h4>Formula</h4>
+      <p>BMI = weight (kg) ÷ height (m)²</p>
+      <h4>Classification Ranges</h4>
+      <table>
+        <tr><th>BMI</th><th>Classification</th></tr>
+        <tr><td>Below 18.5</td><td>Underweight</td></tr>
+        <tr><td>18.5 – 24.9</td><td>Normal weight</td></tr>
+        <tr><td>25 – 29.9</td><td>Overweight</td></tr>
+        <tr><td>Above 30</td><td>Obesity</td></tr>
+      </table>
+      <h4>Conversion Factors</h4>
+      <ul>
+        <li>1 m = 100 cm</li>
+        <li>1 inch = 2.54 cm</li>
+        <li>1 ft = 12 inches</li>
+      </ul>
+      <h4>Sample Problem</h4>
+      <p>Compute the BMI of Allan, who is 65 kg and 5 feet 7 inches tall.</p>
+      <p>5 ft × 12 in/ft + 7 in = 67 inches → 67 in × 2.54 cm/in × 1 m/100 cm = <span class="term">1.7018 m</span></p>
+      <p>BMI = 65 ÷ (1.7018)² = 65 ÷ 2.8961 = <span class="term">22.44 kg/m²</span> → <span class="term">Normal Weight</span></p>
+    </div>
+  </details>
+</section>
+
+<!-- PART 2 -->
+<section class="view" id="pf-view-p2">
+  <div class="chapter-intro">
+    <h2>Part 2 — Skill-Related Components &amp; Benefits</h2>
+    <p>The six skill-related fitness components, plus the four categories of benefits from staying active.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — Skill-Related Components of Fitness</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <table>
+        <tr><th>Component</th><th>Definition</th></tr>
+        <tr><td><span class="term">Agility</span></td><td>The ability to rapidly and accurately change the direction of the whole body in space while maintaining balance.</td></tr>
+        <tr><td><span class="term">Balance</span></td><td>The ability to maintain equilibrium (control of your body) while stationary or moving.</td></tr>
+        <tr><td><span class="term">Coordination</span></td><td>The ability to use the senses and body parts to perform motor tasks smoothly and accurately.</td></tr>
+        <tr><td><span class="term">Power</span></td><td>The ability to perform a task quickly and forcefully — strength × speed.</td></tr>
+        <tr><td><span class="term">Reaction Time</span></td><td>The ability to react or respond quickly to what you hear, see, or feel.</td></tr>
+        <tr><td><span class="term">Speed</span></td><td>The ability to move quickly from one point to another.</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — Benefits of Active Participation</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Health Benefits</h4>
+      <p>A road map to good health and longevity; improved quality of life; lower blood pressure, reduced arthritis pain, and weight loss.</p>
+      <h4>Physical Benefits</h4>
+      <p>Improvement of skills specific to a particular activity; relaxation, rest, and revitalization.</p>
+      <h4>Mental and Emotional Benefits</h4>
+      <p>Release of stress from the demands of everyday living; greater personal confidence and self-esteem; a sense of achievement.</p>
+      <h4>Social Benefits</h4>
+      <p>Bonding with family and friends; opportunity to make new friends and acquaintances; strengthened social networks and community identity.</p>
+    </div>
+  </details>
+</section>
+
+<!-- PART 3 -->
+<section class="view" id="pf-view-p3">
+  <div class="chapter-intro">
+    <h2>Part 3 — Dimensions of Wellness &amp; the FITT Principle</h2>
+    <p>The seven dimensions of overall wellness, and the four factors to plan an exercise routine.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — The 7 Dimensions of Fitness / Wellness</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <table>
+        <tr><th>Dimension</th><th>Definition</th></tr>
+        <tr><td><span class="term">Physical</span></td><td>Refers to the health of your physical body.</td></tr>
+        <tr><td><span class="term">Emotional</span></td><td>Pertains to your psychological and emotional perspective about yourself and the world around you.</td></tr>
+        <tr><td><span class="term">Intellectual</span></td><td>Encompasses your mindedness and intelligent response to stimuli, decision-making skill, and lifelong learning.</td></tr>
+        <tr><td><span class="term">Social</span></td><td>Covers your interaction and relationship with others.</td></tr>
+        <tr><td><span class="term">Career</span></td><td>Includes personal satisfaction from your career or job and contribution as a productive member of society.</td></tr>
+        <tr><td><span class="term">Environmental</span></td><td>Relates to your responsibility to take care of the environment.</td></tr>
+        <tr><td><span class="term">Spiritual</span></td><td>Deals not only with your religious beliefs and practices but more so with their effects on the other dimensions of well-being.</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — The FITT Principle</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>Four factors to plan an effective, balanced workout:</p>
+      <h4>Frequency</h4>
+      <p>How often you will exercise. Find a balanced routine that challenges the body but allows enough time to rest, adapt, and heal — some routines run two to three, or three to five, days each week.</p>
+      <h4>Intensity</h4>
+      <p>How much effort or work you exert during exercise. Avoid overloading or over-straining your body to prevent injury or burnout — monitor your heart rate and resistance as you go.</p>
+      <h4>Type</h4>
+      <p>What kind of exercise will help you reach your fitness goal — for the heart (running, cycling, swimming) or for the muscles (lifting weights).</p>
+      <h4>Time</h4>
+      <p>How long you will exercise per session — based on the intensity and type of exercise chosen.</p>
+    </div>
+  </details>
+</section>
+
+<!-- QUIZ -->
+<section class="view" id="pf-view-quiz">
+  <div class="quiz-shell">
+
+    <div id="pf-quiz-start">
+      <h2>Self-Quiz</h2>
+      <p>Pick which parts to drill, then go — leave all unchecked to cover everything. Questions are shuffled every time, with an explanation after each answer.</p>
+
+      <div id="pf-weak-box-holder"></div>
+
+      <div class="section-label">Question type</div>
+      <div class="mode-row" id="pf-mode-row">
+        <button class="mode-chip on" data-mode="mc">Multiple Choice</button>
+        <button class="mode-chip" data-mode="id">Identification</button>
+        <button class="mode-chip" data-mode="mixed">Mixed</button>
+      </div>
+
+      <div class="section-label">Parts</div>
+      <div class="filter-row" id="pf-filter-row">
+        <button class="filter-chip" data-chap="1">Part 1</button>
+        <button class="filter-chip" data-chap="2">Part 2</button>
+        <button class="filter-chip" data-chap="3">Part 3</button>
+      </div>
+      <button class="btn" id="pf-start-btn">Start Quiz</button>
+    </div>
+
+    <div id="pf-quiz-play" style="display:none;">
+      <div class="quiz-progress">
+        <span id="pf-q-count"></span>
+        <span id="pf-q-score"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="pf-bar-fill" style="width:0%"></div></div>
+      <div class="q-topic" id="pf-q-topic"></div>
+      <p class="q-text" id="pf-q-text"></p>
+      <div id="pf-q-options"></div>
+      <div id="pf-q-id-area" style="display:none;">
+        <div class="id-row">
+          <input type="text" class="id-input" id="pf-id-input" placeholder="Type your answer" autocomplete="off">
+          <button class="btn" id="pf-id-submit">Check</button>
+        </div>
+      </div>
+      <div class="explain" id="pf-q-explain"></div>
+      <div class="next-row">
+        <button class="btn" id="pf-next-btn" disabled>Next Question</button>
+      </div>
+    </div>
+
+    <div id="pf-quiz-result" style="display:none;">
+      <h2>Quiz Complete</h2>
+      <div class="score" id="pf-final-score"></div>
+      <p id="pf-final-msg" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="pf-retry-btn">Try Again</button>
+      <button class="btn secondary" id="pf-review-btn" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="pf-missed-list"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIZ 2: TERM MATCH -->
+<section class="view" id="pf-view-quiz2">
+  <div class="quiz-shell">
+
+    <div id="pf-quiz2-start">
+      <h2>Quiz Yourself 2</h2>
+      <p>Read the definition, pick the matching term. Answer choices are shuffled every time.</p>
+
+      <div class="section-label">Parts</div>
+      <div class="filter-row" id="pf-filter-row2">
+        <button class="filter-chip" data-chap="1">Part 1</button>
+        <button class="filter-chip" data-chap="2">Part 2</button>
+        <button class="filter-chip" data-chap="3">Part 3</button>
+      </div>
+      <button class="btn" id="pf-start-btn2">Start Quiz</button>
+    </div>
+
+    <div id="pf-quiz2-play" style="display:none;">
+      <div class="quiz-progress">
+        <span id="pf-q2-count"></span>
+        <span id="pf-q2-score"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="pf-bar-fill2" style="width:0%"></div></div>
+      <div class="q-topic" id="pf-q2-topic"></div>
+      <p class="q-text" id="pf-q2-text"></p>
+      <div id="pf-q2-options"></div>
+      <div class="explain" id="pf-q2-explain"></div>
+      <div class="next-row">
+        <button class="btn" id="pf-next-btn2" disabled>Next Question</button>
+      </div>
+    </div>
+
+    <div id="pf-quiz2-result" style="display:none;">
+      <h2>Quiz Complete</h2>
+      <div class="score" id="pf-final-score2"></div>
+      <p id="pf-final-msg2" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="pf-retry-btn2">Try Again</button>
+      <button class="btn secondary" id="pf-review-btn2" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="pf-missed-list2"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="view" id="pf-view-cards">
+  <div class="chapter-intro">
+    <h2>Flashcards</h2>
+    <p>Tap a card to flip it. Shuffle whenever you want a fresh order.</p>
+  </div>
+  <div class="quiz-shell">
+    <div class="card-controls">
+      <span class="count" id="pf-card-count"></span>
+      <button class="link-btn" id="pf-shuffle-cards-btn">Shuffle deck</button>
+    </div>
+    <div class="flip-scene">
+      <div class="flip-card" id="pf-flip-card">
+        <div class="flip-face flip-front">
+          <span class="term-tag" id="pf-fc-chap"></span>
+          <div class="fc-text" id="pf-fc-term"></div>
+        </div>
+        <div class="flip-face flip-back">
+          <div class="fc-text" id="pf-fc-def"></div>
+        </div>
+      </div>
+    </div>
+    <p class="flip-hint">Tap the card to flip</p>
+    <div class="card-nav">
+      <button class="btn secondary" id="pf-card-prev">Previous</button>
+      <button class="btn" id="pf-card-next">Next</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section class="view cheat-view" id="pf-view-cheat">
+  <div class="chapter-intro">
+    <h2>Cheat Sheet</h2>
+    <p>Every key term at a glance — one last scan before you walk in.</p>
+  </div>
+  <div class="quiz-shell">
+    <div class="cheat-head">
+      <span style="font-size:13px;color:var(--ink-soft);">All terms, condensed</span>
+      <button class="btn secondary" id="pf-print-cheat-btn">Print / Save PDF</button>
+    </div>
+    <div id="pf-cheat-content"></div>
+  </div>
+</section>
+
+</div>
+</div>
+
+
+<footer id="global-footer">Built from your class materials. Good luck on your midterms.</footer>
 
 <script>
+
+function showHub(){
+  document.getElementById('hub-view').style.display='block';
+  document.getElementById('subject-uts').style.display='none';
+  document.getElementById('subject-pathfit').style.display='none';
+  window.scrollTo({top:0, behavior:'instant'});
+}
+function showSubject(id){
+  document.getElementById('hub-view').style.display='none';
+  document.getElementById('subject-uts').style.display = (id==='uts') ? 'block' : 'none';
+  document.getElementById('subject-pathfit').style.display = (id==='pathfit') ? 'block' : 'none';
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+(function(){
+
+const ROOT = document.getElementById('subject-uts');
 // ---------- TAB NAV ----------
-const tabButtons = document.querySelectorAll('#tabs button');
+const tabButtons = document.querySelectorAll('#uts-tabs button');
 tabButtons.forEach(btn=>{
   btn.addEventListener('click', ()=>{
     tabButtons.forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));
-    document.getElementById('view-'+btn.dataset.view).classList.add('active');
+    ROOT.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('uts-view-'+btn.dataset.view).classList.add('active');
     window.scrollTo({top:0, behavior:'instant'});
   });
 });
@@ -931,7 +1381,7 @@ function recordAnswer(topic, correct){
   saveStats(stats);
 }
 function renderWeakBox(){
-  const holder = document.getElementById('weak-box-holder');
+  const holder = document.getElementById('uts-weak-box-holder');
   const stats = loadStats();
   const rows = Object.keys(stats)
     .map(topic=>({topic, ...stats[topic], pct: stats[topic].correct/stats[topic].total}))
@@ -941,8 +1391,8 @@ function renderWeakBox(){
   if(rows.length===0){ holder.innerHTML=''; return; }
   holder.innerHTML = `<div class="weak-box"><h4>Your weak spots so far</h4><ul>` +
     rows.map(r=>`<li>${r.topic} \u2014 ${r.correct}/${r.total} correct</li>`).join('') +
-    `</ul><div class="stats-row"><span></span><button class="link-btn" id="reset-stats-btn">Reset stats</button></div></div>`;
-  document.getElementById('reset-stats-btn').addEventListener('click', ()=>{
+    `</ul><div class="stats-row"><span></span><button class="link-btn" id="uts-reset-stats-btn">Reset stats</button></div></div>`;
+  document.getElementById('uts-reset-stats-btn').addEventListener('click', ()=>{
     localStorage.removeItem(STATS_KEY);
     renderWeakBox();
   });
@@ -957,15 +1407,15 @@ let currentIndex = 0;
 let score = 0;
 let missed = [];
 
-document.querySelectorAll('.mode-chip').forEach(chip=>{
+ROOT.querySelectorAll('.mode-chip').forEach(chip=>{
   chip.addEventListener('click', ()=>{
-    document.querySelectorAll('.mode-chip').forEach(c=>c.classList.remove('on'));
+    ROOT.querySelectorAll('.mode-chip').forEach(c=>c.classList.remove('on'));
     chip.classList.add('on');
     quizMode = chip.dataset.mode;
   });
 });
 
-document.querySelectorAll('.filter-chip').forEach(chip=>{
+ROOT.querySelectorAll('.filter-chip').forEach(chip=>{
   chip.addEventListener('click', ()=>{
     const c = parseInt(chip.dataset.chap);
     if(activeChaps.includes(c)){
@@ -987,7 +1437,7 @@ function shuffle(arr){
   return a;
 }
 
-document.getElementById('start-btn').addEventListener('click', ()=>{
+document.getElementById('uts-start-btn').addEventListener('click', ()=>{
   const chapFilter = activeChaps.length>0 ? activeChaps : [1,2,3];
   let pool = [];
   if(quizMode==='mc') pool = QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'}));
@@ -998,34 +1448,34 @@ document.getElementById('start-btn').addEventListener('click', ()=>{
   ];
   quizQueue = shuffle(pool);
   currentIndex = 0; score = 0; missed = [];
-  document.getElementById('quiz-start').style.display='none';
-  document.getElementById('quiz-result').style.display='none';
-  document.getElementById('quiz-play').style.display='block';
+  document.getElementById('uts-quiz-start').style.display='none';
+  document.getElementById('uts-quiz-result').style.display='none';
+  document.getElementById('uts-quiz-play').style.display='block';
   renderQuestion();
 });
 
 function renderQuestion(){
   const q = quizQueue[currentIndex];
-  document.getElementById('q-count').textContent = `Question ${currentIndex+1} of ${quizQueue.length}`;
-  document.getElementById('q-score').textContent = `Score: ${score}`;
-  document.getElementById('bar-fill').style.width = ((currentIndex)/quizQueue.length*100)+'%';
-  document.getElementById('q-topic').textContent = `Chapter ${q.chap} \u00b7 ${q.topic}`;
-  document.getElementById('q-text').textContent = q.q;
-  document.getElementById('q-explain').classList.remove('show');
-  document.getElementById('q-explain').textContent='';
-  document.getElementById('next-btn').disabled = true;
+  document.getElementById('uts-q-count').textContent = `Question ${currentIndex+1} of ${quizQueue.length}`;
+  document.getElementById('uts-q-score').textContent = `Score: ${score}`;
+  document.getElementById('uts-bar-fill').style.width = ((currentIndex)/quizQueue.length*100)+'%';
+  document.getElementById('uts-q-topic').textContent = `Chapter ${q.chap} \u00b7 ${q.topic}`;
+  document.getElementById('uts-q-text').textContent = q.q;
+  document.getElementById('uts-q-explain').classList.remove('show');
+  document.getElementById('uts-q-explain').textContent='';
+  document.getElementById('uts-next-btn').disabled = true;
 
-  const optsDiv = document.getElementById('q-options');
-  const idArea = document.getElementById('q-id-area');
+  const optsDiv = document.getElementById('uts-q-options');
+  const idArea = document.getElementById('uts-q-id-area');
   optsDiv.innerHTML='';
 
   if(q.type==='id'){
     optsDiv.style.display='none';
     idArea.style.display='block';
-    const input = document.getElementById('id-input');
+    const input = document.getElementById('uts-id-input');
     input.value=''; input.classList.remove('correct','wrong'); input.disabled=false;
     input.focus();
-    const submitBtn = document.getElementById('id-submit');
+    const submitBtn = document.getElementById('uts-id-submit');
     submitBtn.disabled=false;
 
     const checkAnswer = ()=>{
@@ -1036,11 +1486,11 @@ function renderQuestion(){
       if(isCorrect){ input.classList.add('correct'); score++; }
       else{ input.classList.add('wrong'); missed.push(q); }
       recordAnswer(q.topic, isCorrect);
-      document.getElementById('q-score').textContent = `Score: ${score}`;
-      const ex = document.getElementById('q-explain');
+      document.getElementById('uts-q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('uts-q-explain');
       ex.textContent = isCorrect ? q.e : `Accepted answer: ${q.ans[0]}. ${q.e}`;
       ex.classList.add('show');
-      document.getElementById('next-btn').disabled = false;
+      document.getElementById('uts-next-btn').disabled = false;
     };
     submitBtn.onclick = checkAnswer;
     input.onkeydown = (e)=>{ if(e.key==='Enter') checkAnswer(); };
@@ -1059,27 +1509,27 @@ function renderQuestion(){
     b.className='opt';
     b.textContent = opt.text;
     b.addEventListener('click', ()=>{
-      document.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+      ROOT.querySelectorAll('.opt').forEach(o=>o.disabled=true);
       recordAnswer(q.topic, opt.isCorrect);
       if(opt.isCorrect){
         b.classList.add('correct');
         score++;
       } else {
         b.classList.add('wrong');
-        document.querySelectorAll('.opt').forEach(o=>{ if(o.textContent===correctText) o.classList.add('correct'); });
+        ROOT.querySelectorAll('.opt').forEach(o=>{ if(o.textContent===correctText) o.classList.add('correct'); });
         missed.push(q);
       }
-      document.getElementById('q-score').textContent = `Score: ${score}`;
-      const ex = document.getElementById('q-explain');
+      document.getElementById('uts-q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('uts-q-explain');
       ex.textContent = q.e;
       ex.classList.add('show');
-      document.getElementById('next-btn').disabled = false;
+      document.getElementById('uts-next-btn').disabled = false;
     });
     optsDiv.appendChild(b);
   });
 }
 
-document.getElementById('next-btn').addEventListener('click', ()=>{
+document.getElementById('uts-next-btn').addEventListener('click', ()=>{
   currentIndex++;
   if(currentIndex >= quizQueue.length){
     showResult();
@@ -1089,33 +1539,33 @@ document.getElementById('next-btn').addEventListener('click', ()=>{
 });
 
 function showResult(){
-  document.getElementById('bar-fill').style.width = '100%';
-  document.getElementById('quiz-play').style.display='none';
-  document.getElementById('quiz-result').style.display='block';
-  document.getElementById('final-score').textContent = `${score} / ${quizQueue.length}`;
+  document.getElementById('uts-bar-fill').style.width = '100%';
+  document.getElementById('uts-quiz-play').style.display='none';
+  document.getElementById('uts-quiz-result').style.display='block';
+  document.getElementById('uts-final-score').textContent = `${score} / ${quizQueue.length}`;
   const pct = Math.round(score/quizQueue.length*100);
   let msg;
   if(pct>=90) msg = "Excellent \u2014 you know this cold.";
   else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
   else if(pct>=50) msg = "Decent start \u2014 go back over the missed topics below.";
   else msg = "Worth another full pass through the chapter notes before the exam.";
-  document.getElementById('final-msg').textContent = msg;
+  document.getElementById('uts-final-msg').textContent = msg;
 
-  const missedDiv = document.getElementById('missed-list');
+  const missedDiv = document.getElementById('uts-missed-list');
   missedDiv.innerHTML='';
   if(missed.length===0){
     missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses \u2014 clean sweep!</p>';
   }
 }
 
-document.getElementById('retry-btn').addEventListener('click', ()=>{
-  document.getElementById('quiz-result').style.display='none';
-  document.getElementById('quiz-start').style.display='block';
+document.getElementById('uts-retry-btn').addEventListener('click', ()=>{
+  document.getElementById('uts-quiz-result').style.display='none';
+  document.getElementById('uts-quiz-start').style.display='block';
   renderWeakBox();
 });
 
-document.getElementById('review-btn').addEventListener('click', ()=>{
-  const missedDiv = document.getElementById('missed-list');
+document.getElementById('uts-review-btn').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('uts-missed-list');
   if(missed.length===0) return;
   missedDiv.innerHTML = '<h3 style="margin-top:20px;">Questions to review</h3>';
   missed.forEach(q=>{
@@ -1127,30 +1577,162 @@ document.getElementById('review-btn').addEventListener('click', ()=>{
   });
 });
 
+// ---------- QUIZ 2: TERM MATCH ----------
+let activeChaps2 = [];
+let quiz2Queue = [];
+let quiz2Index = 0;
+let quiz2Score = 0;
+let quiz2Missed = [];
+
+document.querySelectorAll('#uts-filter-row2 .filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const c = parseInt(chip.dataset.chap);
+    if(activeChaps2.includes(c)){
+      activeChaps2 = activeChaps2.filter(x=>x!==c);
+      chip.classList.remove('on');
+    } else {
+      activeChaps2.push(c);
+      chip.classList.add('on');
+    }
+  });
+});
+
+function buildTermPool(chapFilter){
+  const cards = FLASHCARDS.filter(c=>chapFilter.includes(c.chap));
+  return cards.map(c=>{
+    const distractors = shuffle(FLASHCARDS.filter(x=>x.term!==c.term)).slice(0,3).map(x=>x.term);
+    const options = shuffle([c.term, ...distractors]);
+    return {
+      chap: c.chap,
+      topic: 'Term Match',
+      q: c.def,
+      options: options,
+      answerText: c.term,
+      e: `${c.term} — ${c.def}`
+    };
+  });
+}
+
+document.getElementById('uts-start-btn2').addEventListener('click', ()=>{
+  const chapFilter = activeChaps2.length>0 ? activeChaps2 : [1,2,3];
+  quiz2Queue = shuffle(buildTermPool(chapFilter));
+  quiz2Index = 0; quiz2Score = 0; quiz2Missed = [];
+  document.getElementById('uts-quiz2-start').style.display='none';
+  document.getElementById('uts-quiz2-result').style.display='none';
+  document.getElementById('uts-quiz2-play').style.display='block';
+  renderQuiz2Question();
+});
+
+function renderQuiz2Question(){
+  const q = quiz2Queue[quiz2Index];
+  document.getElementById('uts-q2-count').textContent = `Question ${quiz2Index+1} of ${quiz2Queue.length}`;
+  document.getElementById('uts-q2-score').textContent = `Score: ${quiz2Score}`;
+  document.getElementById('uts-bar-fill2').style.width = ((quiz2Index)/quiz2Queue.length*100)+'%';
+  document.getElementById('uts-q2-topic').textContent = `Chapter ${q.chap} \u00b7 Term Match`;
+  document.getElementById('uts-q2-text').textContent = q.q;
+  document.getElementById('uts-q2-explain').classList.remove('show');
+  document.getElementById('uts-q2-explain').textContent='';
+  document.getElementById('uts-next-btn2').disabled = true;
+
+  const optsDiv = document.getElementById('uts-q2-options');
+  optsDiv.innerHTML='';
+  const shuffledOpts = shuffle(q.options.map(text=>({text, isCorrect:text===q.answerText})));
+
+  shuffledOpts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt';
+    b.textContent = opt.text;
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('#uts-q2-options .opt').forEach(o=>o.disabled=true);
+      recordAnswer(q.topic, opt.isCorrect);
+      if(opt.isCorrect){
+        b.classList.add('correct');
+        quiz2Score++;
+      } else {
+        b.classList.add('wrong');
+        document.querySelectorAll('#uts-q2-options .opt').forEach(o=>{ if(o.textContent===q.answerText) o.classList.add('correct'); });
+        quiz2Missed.push(q);
+      }
+      document.getElementById('uts-q2-score').textContent = `Score: ${quiz2Score}`;
+      const ex = document.getElementById('uts-q2-explain');
+      ex.textContent = q.e;
+      ex.classList.add('show');
+      document.getElementById('uts-next-btn2').disabled = false;
+    });
+    optsDiv.appendChild(b);
+  });
+}
+
+document.getElementById('uts-next-btn2').addEventListener('click', ()=>{
+  quiz2Index++;
+  if(quiz2Index >= quiz2Queue.length){
+    showQuiz2Result();
+  } else {
+    renderQuiz2Question();
+  }
+});
+
+function showQuiz2Result(){
+  document.getElementById('uts-bar-fill2').style.width = '100%';
+  document.getElementById('uts-quiz2-play').style.display='none';
+  document.getElementById('uts-quiz2-result').style.display='block';
+  document.getElementById('uts-final-score2').textContent = `${quiz2Score} / ${quiz2Queue.length}`;
+  const pct = Math.round(quiz2Score/quiz2Queue.length*100);
+  let msg;
+  if(pct>=90) msg = "Excellent — you know this cold.";
+  else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
+  else if(pct>=50) msg = "Decent start — go back over the missed terms below.";
+  else msg = "Worth another pass through the flashcards before the exam.";
+  document.getElementById('uts-final-msg2').textContent = msg;
+
+  const missedDiv = document.getElementById('uts-missed-list2');
+  missedDiv.innerHTML='';
+  if(quiz2Missed.length===0){
+    missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses — clean sweep!</p>';
+  }
+}
+
+document.getElementById('uts-retry-btn2').addEventListener('click', ()=>{
+  document.getElementById('uts-quiz2-result').style.display='none';
+  document.getElementById('uts-quiz2-start').style.display='block';
+});
+
+document.getElementById('uts-review-btn2').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('uts-missed-list2');
+  if(quiz2Missed.length===0) return;
+  missedDiv.innerHTML = '<h3 style="margin-top:20px;">Terms to review</h3>';
+  quiz2Missed.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='missed-item';
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${q.answerText}</div>`;
+    missedDiv.appendChild(div);
+  });
+});
+
 // ---------- FLASHCARDS LOGIC ----------
 let cardDeck = shuffle(FLASHCARDS);
 let cardIndex = 0;
 
 function renderCard(){
   const c = cardDeck[cardIndex];
-  document.getElementById('flip-card').classList.remove('flipped');
-  document.getElementById('fc-chap').textContent = `Chapter ${c.chap}`;
-  document.getElementById('fc-term').textContent = c.term;
-  document.getElementById('fc-def').textContent = c.def;
-  document.getElementById('card-count').textContent = `Card ${cardIndex+1} of ${cardDeck.length}`;
+  document.getElementById('uts-flip-card').classList.remove('flipped');
+  document.getElementById('uts-fc-chap').textContent = `Chapter ${c.chap}`;
+  document.getElementById('uts-fc-term').textContent = c.term;
+  document.getElementById('uts-fc-def').textContent = c.def;
+  document.getElementById('uts-card-count').textContent = `Card ${cardIndex+1} of ${cardDeck.length}`;
 }
-document.getElementById('flip-card').addEventListener('click', ()=>{
-  document.getElementById('flip-card').classList.toggle('flipped');
+document.getElementById('uts-flip-card').addEventListener('click', ()=>{
+  document.getElementById('uts-flip-card').classList.toggle('flipped');
 });
-document.getElementById('card-next').addEventListener('click', ()=>{
+document.getElementById('uts-card-next').addEventListener('click', ()=>{
   cardIndex = (cardIndex+1) % cardDeck.length;
   renderCard();
 });
-document.getElementById('card-prev').addEventListener('click', ()=>{
+document.getElementById('uts-card-prev').addEventListener('click', ()=>{
   cardIndex = (cardIndex-1+cardDeck.length) % cardDeck.length;
   renderCard();
 });
-document.getElementById('shuffle-cards-btn').addEventListener('click', ()=>{
+document.getElementById('uts-shuffle-cards-btn').addEventListener('click', ()=>{
   cardDeck = shuffle(FLASHCARDS);
   cardIndex = 0;
   renderCard();
@@ -1159,7 +1741,7 @@ renderCard();
 
 // ---------- CHEAT SHEET ----------
 function renderCheatSheet(){
-  const container = document.getElementById('cheat-content');
+  const container = document.getElementById('uts-cheat-content');
   const chapters = [
     {n:1, label:'Chapter 1 \u2014 Philosophy, Society, Psychology'},
     {n:2, label:'Chapter 2 \u2014 Unpacking the Self'},
@@ -1177,9 +1759,518 @@ function renderCheatSheet(){
   container.innerHTML = html;
 }
 renderCheatSheet();
-document.getElementById('print-cheat-btn').addEventListener('click', ()=>{
+document.getElementById('uts-print-cheat-btn').addEventListener('click', ()=>{
   window.print();
 });
+
+})();
+(function(){
+
+const ROOT = document.getElementById('subject-pathfit');
+// ---------- TAB NAV ----------
+const tabButtons = document.querySelectorAll('#pf-tabs button');
+tabButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    ROOT.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('pf-view-'+btn.dataset.view).classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+  });
+});
+
+// ---------- MULTIPLE CHOICE QUESTIONS ----------
+const QUESTIONS = [
+{chap:1, topic:"Fitness Basics", q:"What term describes activities held during one's leisure time, meant to refresh oneself?", options:["Physical fitness","Recreational activities","Cardiorespiratory training","Skill-related fitness"], a:1, e:"Recreational activities are enjoyable activities pursued during leisure time."},
+{chap:1, topic:"Fitness Basics", q:"How many times per week is regular moderate physical activity recommended?", options:["Once a week","3 to 4 times per week or more","Only on weekends","Every single day without rest"], a:1, e:"About 3–4 times weekly is recommended, with rest days to allow recovery."},
+{chap:1, topic:"Fitness Basics", q:"Physical fitness is best defined as:", options:["Winning in sports competitions","The ability to execute everyday tasks without getting short of breath, tired, or sore","Having a muscular body","Following a strict diet"], a:1, e:"It's the capacity of the heart, lungs, muscles, and joints to perform well in daily tasks."},
+{chap:1, topic:"Fitness Basics", q:"On the Healthy Lifestyle Assessment, a score of 13–16 checks is rated as:", options:["Fair","Good","Excellent","Needs Improvement"], a:2, e:"13–16 checks = Excellent; 9–12 = Good; 5–8 = Fair; 0–4 = Needs Improvement."},
+{chap:1, topic:"Health Components", q:"The amount of force muscles employ when used, needed to lift, push, kick, or throw, is:", options:["Muscular Endurance","Flexibility","Muscular Strength","Agility"], a:2, e:"Muscular strength supports your bones and joints and enables powerful movements."},
+{chap:1, topic:"Health Components", q:"The ability to use a group of muscles for a long time without getting tired easily is:", options:["Muscular Strength","Muscular Endurance","Balance","Speed"], a:1, e:"Example: pedaling a bicycle up and down a hilly track without stopping."},
+{chap:1, topic:"Health Components", q:"The ability to bend, twist, reach, and move the joints easily is called:", options:["Coordination","Power","Flexibility","Reaction Time"], a:2, e:"Used when striking a tennis ball or touching your toes while seated."},
+{chap:1, topic:"Health Components", q:"The ability to perform activities that need increased oxygen over time is:", options:["Cardiorespiratory Endurance","Body Composition","Agility","Muscular Strength"], a:0, e:"Running, walking, biking, and swimming all build cardiorespiratory endurance."},
+{chap:1, topic:"Health Components", q:"The proportion of fat tissue to lean tissue in the body is called:", options:["Heart Rate","Body Mass Index","Body Composition","Muscular Endurance"], a:2, e:"Body composition is one of the five health-related components of fitness."},
+{chap:1, topic:"BMI", q:"The correct formula for Body Mass Index is:", options:["Weight (kg) × Height (m)","Weight (kg) ÷ Height (m)²","Height (m) ÷ Weight (kg)","Weight (kg) ÷ Height (cm)"], a:1, e:"BMI = weight in kilograms divided by height in meters squared."},
+{chap:1, topic:"BMI", q:"A BMI below 18.5 is classified as:", options:["Normal weight","Overweight","Underweight","Obesity"], a:2, e:"Below 18.5 = Underweight; 18.5–24.9 = Normal; 25–29.9 = Overweight; above 30 = Obesity."},
+{chap:1, topic:"BMI", q:"A BMI between 25 and 29.9 is classified as:", options:["Underweight","Normal weight","Overweight","Obesity"], a:2, e:"This range falls just above normal weight, before the obesity threshold of 30+."},
+{chap:1, topic:"BMI", q:"How many centimeters are in 1 inch?", options:["1.54 cm","2.54 cm","12 cm","100 cm"], a:1, e:"1 inch = 2.54 cm — one of the key BMI conversion factors."},
+
+{chap:2, topic:"Skill Components", q:"The ability to rapidly and accurately change the direction of the whole body while maintaining balance is:", options:["Speed","Agility","Power","Coordination"], a:1, e:"Agility involves quick, controlled changes of direction."},
+{chap:2, topic:"Skill Components", q:"The ability to maintain equilibrium while stationary or moving is:", options:["Balance","Reaction Time","Muscular Endurance","Flexibility"], a:0, e:"Balance is about controlling your body's position, whether still or in motion."},
+{chap:2, topic:"Skill Components", q:"The ability to use the senses and body parts to perform motor tasks smoothly and accurately is:", options:["Power","Coordination","Agility","Cardiorespiratory Endurance"], a:1, e:"Coordination links sensory input with smooth, accurate physical execution."},
+{chap:2, topic:"Skill Components", q:"Strength multiplied by speed defines which skill-related component?", options:["Power","Balance","Reaction Time","Body Composition"], a:0, e:"Power is the ability to perform a task quickly and forcefully."},
+{chap:2, topic:"Skill Components", q:"The ability to respond quickly to what you hear, see, or feel is:", options:["Speed","Reaction Time","Agility","Coordination"], a:1, e:"Reaction time measures how fast you respond to a stimulus."},
+{chap:2, topic:"Skill Components", q:"The ability to move quickly from one point to another is:", options:["Speed","Power","Balance","Flexibility"], a:0, e:"Speed is simply how fast you can travel between two points."},
+{chap:2, topic:"Benefits", q:"Lower blood pressure, reduced arthritis pain, and weight loss fall under which benefit category?", options:["Social Benefits","Health Benefits","Mental and Emotional Benefits","Physical Benefits"], a:1, e:"These are direct health outcomes of staying physically active."},
+{chap:2, topic:"Benefits", q:"Improvement of activity-specific skills, plus relaxation and revitalization, fall under:", options:["Physical Benefits","Health Benefits","Social Benefits","Mental and Emotional Benefits"], a:0, e:"Physical benefits focus on skill improvement and physical recovery."},
+{chap:2, topic:"Benefits", q:"Greater personal confidence, self-esteem, and stress release fall under:", options:["Health Benefits","Physical Benefits","Mental and Emotional Benefits","Social Benefits"], a:2, e:"These describe the psychological payoff of regular activity."},
+{chap:2, topic:"Benefits", q:"Bonding with family and friends and strengthening community identity fall under:", options:["Social Benefits","Health Benefits","Physical Benefits","Mental and Emotional Benefits"], a:0, e:"Social benefits come from the relationships built through shared activity."},
+
+{chap:3, topic:"Wellness", q:"Which dimension of wellness refers to the health of your physical body?", options:["Emotional Wellness","Physical Wellness","Intellectual Wellness","Career Wellness"], a:1, e:"Physical wellness is about the condition and health of the body itself."},
+{chap:3, topic:"Wellness", q:"Which dimension pertains to your psychological and emotional perspective about yourself and the world?", options:["Emotional Wellness","Social Wellness","Spiritual Wellness","Environmental Wellness"], a:0, e:"Emotional wellness covers how you feel and process emotions about yourself and your world."},
+{chap:3, topic:"Wellness", q:"Which dimension encompasses decision-making skill and lifelong learning?", options:["Career Wellness","Intellectual Wellness","Social Wellness","Physical Wellness"], a:1, e:"Intellectual wellness involves intelligent responses to stimuli and continuous learning."},
+{chap:3, topic:"Wellness", q:"Which dimension covers your interaction and relationship with others?", options:["Social Wellness","Emotional Wellness","Career Wellness","Spiritual Wellness"], a:0, e:"Social wellness is about the quality of your relationships and interactions."},
+{chap:3, topic:"Wellness", q:"Which dimension includes personal satisfaction from your job and contribution to society?", options:["Environmental Wellness","Intellectual Wellness","Career Wellness","Physical Wellness"], a:2, e:"Career wellness is tied to fulfillment from work and being a productive member of society."},
+{chap:3, topic:"Wellness", q:"Which dimension relates to your responsibility to take care of the environment?", options:["Environmental Wellness","Spiritual Wellness","Social Wellness","Physical Wellness"], a:0, e:"Environmental wellness is about your relationship with and care for your surroundings."},
+{chap:3, topic:"Wellness", q:"Which dimension deals with religious beliefs and their effects on other areas of well-being?", options:["Intellectual Wellness","Spiritual Wellness","Career Wellness","Emotional Wellness"], a:1, e:"Spiritual wellness goes beyond religion to how beliefs affect overall well-being."},
+{chap:3, topic:"FITT", q:"In the FITT principle, \u2018Frequency\u2019 refers to:", options:["How hard you exercise","How often you will exercise","What kind of exercise you do","How long each session lasts"], a:1, e:"Frequency is about balancing exercise days with rest and recovery time."},
+{chap:3, topic:"FITT", q:"In the FITT principle, \u2018Intensity\u2019 refers to:", options:["How often you exercise","How long you exercise","How much effort or work you exert","What equipment you use"], a:2, e:"Intensity is about effort level — avoid overloading the body to prevent injury or burnout."},
+{chap:3, topic:"FITT", q:"In the FITT principle, \u2018Type\u2019 refers to:", options:["The kind of exercise that fits your fitness goal","How many calories you burn","The clothes you wear while exercising","The duration of a workout"], a:0, e:"Type could mean cardio exercises (running, swimming) or strength exercises (lifting weights), depending on your goal."},
+{chap:3, topic:"FITT", q:"In the FITT principle, \u2018Time\u2019 refers to:", options:["How often you exercise per week","How long you exercise per session","How intensely you train","The type of exercise equipment"], a:1, e:"Time is based on the intensity and type of exercise chosen for that session."},
+];
+
+// ---------- IDENTIFICATION QUESTIONS ----------
+const ID_QUESTIONS = [
+{chap:1, topic:"Fitness Basics", q:"What term describes participation in regular, moderate bodily movement that elevates the heart rate?", ans:["physical activity"], e:"Physical activity means engaging in vigorous bodily movement for 30 minutes to 1 hour."},
+{chap:1, topic:"Health Components", q:"What health-related fitness component is the amount of force your muscles employ when used?", ans:["muscular strength"], e:"Muscular strength supports your bones and joints for lifting, pushing, kicking, and throwing."},
+{chap:1, topic:"Health Components", q:"What health-related fitness component lets you use a group of muscles for a long time without tiring?", ans:["muscular endurance"], e:"Example: pedaling a bike up and down hills without stopping."},
+{chap:1, topic:"Health Components", q:"What health-related fitness component is the proportion of fat tissue to lean tissue in the body?", ans:["body composition"], e:"Body composition is one of the five health-related fitness components."},
+{chap:1, topic:"BMI", q:"What is the standard health professionals use to determine if a person's weight is healthful?", ans:["body mass index","bmi"], e:"BMI = weight (kg) ÷ height (m)²."},
+{chap:1, topic:"BMI", q:"What BMI classification applies to a BMI above 30?", ans:["obesity"], e:"Above 30 is classified as obesity."},
+{chap:2, topic:"Skill Components", q:"What skill-related component is defined as strength multiplied by speed?", ans:["power"], e:"Power is the ability to perform a task quickly and forcefully."},
+{chap:2, topic:"Skill Components", q:"What skill-related component is the ability to maintain equilibrium while stationary or moving?", ans:["balance"], e:"Balance is about control of your body's position."},
+{chap:2, topic:"Skill Components", q:"What skill-related component involves using your senses and body parts to perform motor tasks smoothly and accurately?", ans:["coordination"], e:"Coordination links sensory input to accurate physical execution."},
+{chap:2, topic:"Benefits", q:"Which benefit category includes lower blood pressure, reduced arthritis pain, and weight loss?", ans:["health benefits"], e:"These are direct physiological improvements from staying active."},
+{chap:2, topic:"Benefits", q:"Which benefit category includes bonding with family and friends and strengthening community identity?", ans:["social benefits"], e:"Social benefits come from relationships built through shared activity."},
+{chap:3, topic:"Wellness", q:"What dimension of wellness encompasses decision-making skill and lifelong learning?", ans:["intellectual wellness","intellectual"], e:"Intellectual wellness involves intelligent responses to stimuli and continuous learning."},
+{chap:3, topic:"Wellness", q:"What dimension of wellness relates to your responsibility to take care of the environment?", ans:["environmental wellness","environmental"], e:"Environmental wellness is about your relationship with and care for your surroundings."},
+{chap:3, topic:"FITT", q:"In the FITT principle, what does the second \u2018I\u2019 stand for? (Hint: how much effort you exert)", ans:["intensity"], e:"Intensity is monitored via heart rate and resistance to avoid injury or burnout."},
+{chap:3, topic:"FITT", q:"In the FITT principle, what factor determines how long you exercise per session?", ans:["time"], e:"Time depends on the intensity and type of exercise chosen."},
+];
+
+// ---------- FLASHCARDS ----------
+const FLASHCARDS = [
+{chap:1, term:"Recreational Activities", def:"Activities held during leisure time, meant to refresh oneself through enjoyable pursuits."},
+{chap:1, term:"Physical Activity", def:"Regular, moderate bodily movement (30 min–1 hr) that elevates heart rate; recommended 3–4x per week or more."},
+{chap:1, term:"Physical Fitness", def:"The ability to execute everyday tasks without getting short of breath, tired, or sore."},
+{chap:1, term:"Muscular Strength", def:"The amount of force muscles employ when used; supports lifting, pushing, kicking, throwing."},
+{chap:1, term:"Muscular Endurance", def:"Ability to use a group of muscles for a long time without getting tired easily."},
+{chap:1, term:"Flexibility", def:"Ability to bend, twist, reach, and move the joints easily."},
+{chap:1, term:"Cardiorespiratory Endurance", def:"Ability to perform activities needing increased oxygen over a period of time (running, biking, swimming)."},
+{chap:1, term:"Body Composition", def:"The proportion of fat tissue to lean tissue in the body."},
+{chap:1, term:"Body Mass Index (BMI)", def:"Weight (kg) ÷ Height (m)². Below 18.5 = Underweight, 18.5–24.9 = Normal, 25–29.9 = Overweight, Above 30 = Obesity."},
+{chap:1, term:"BMI Conversion Factors", def:"1 m = 100 cm; 1 inch = 2.54 cm; 1 ft = 12 inches."},
+{chap:2, term:"Agility", def:"Ability to rapidly and accurately change the direction of the whole body while maintaining balance."},
+{chap:2, term:"Balance", def:"Ability to maintain equilibrium (control of your body) while stationary or moving."},
+{chap:2, term:"Coordination", def:"Ability to use the senses and body parts to perform motor tasks smoothly and accurately."},
+{chap:2, term:"Power", def:"Ability to perform a task quickly and forcefully; strength × speed."},
+{chap:2, term:"Reaction Time", def:"Ability to react or respond quickly to what you hear, see, or feel."},
+{chap:2, term:"Speed", def:"Ability to move quickly from one point to another."},
+{chap:2, term:"Health Benefits", def:"Road map to good health and longevity; lower blood pressure, reduced arthritis pain, weight loss."},
+{chap:2, term:"Physical Benefits", def:"Improvement of activity-specific skills; relaxation, rest, and revitalization."},
+{chap:2, term:"Mental & Emotional Benefits", def:"Stress release, greater confidence and self-esteem, sense of achievement."},
+{chap:2, term:"Social Benefits", def:"Bonding with family/friends; new friendships; strengthened social networks and community identity."},
+{chap:3, term:"Physical Wellness", def:"Refers to the health of your physical body."},
+{chap:3, term:"Emotional Wellness", def:"Your psychological and emotional perspective about yourself and the world around you."},
+{chap:3, term:"Intellectual Wellness", def:"Mindedness and intelligent response to stimuli, decision-making skill, lifelong learning."},
+{chap:3, term:"Social Wellness", def:"Covers your interaction and relationship with others."},
+{chap:3, term:"Career Wellness", def:"Personal satisfaction from your career/job and contribution as a productive member of society."},
+{chap:3, term:"Environmental Wellness", def:"Relates to your responsibility to take care of the environment."},
+{chap:3, term:"Spiritual Wellness", def:"Religious beliefs and practices, and their effects on other dimensions of well-being."},
+{chap:3, term:"FITT — Frequency", def:"How often you will exercise; balance challenge with rest and recovery (e.g., 2–3 or 3–5 days/week)."},
+{chap:3, term:"FITT — Intensity", def:"How much effort or work you exert; monitor heart rate/resistance to avoid injury or burnout."},
+{chap:3, term:"FITT — Type", def:"What kind of exercise fits your goal — cardio (running, cycling, swimming) or muscle (lifting weights)."},
+{chap:3, term:"FITT — Time", def:"How long you exercise per session, based on intensity and type."},
+];
+
+// ---------- WEAK SPOT TRACKING ----------
+const STATS_KEY = 'pathfit_topic_stats_v1';
+function loadStats(){
+  try{ return JSON.parse(localStorage.getItem(STATS_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveStats(stats){
+  try{ localStorage.setItem(STATS_KEY, JSON.stringify(stats)); }catch(e){}
+}
+function recordAnswer(topic, correct){
+  const stats = loadStats();
+  if(!stats[topic]) stats[topic] = {correct:0, total:0};
+  stats[topic].total++;
+  if(correct) stats[topic].correct++;
+  saveStats(stats);
+}
+function renderWeakBox(){
+  const holder = document.getElementById('pf-weak-box-holder');
+  const stats = loadStats();
+  const rows = Object.keys(stats)
+    .map(topic=>({topic, ...stats[topic], pct: stats[topic].correct/stats[topic].total}))
+    .filter(r=>r.total>=3 && r.pct<0.7)
+    .sort((a,b)=>a.pct-b.pct)
+    .slice(0,5);
+  if(rows.length===0){ holder.innerHTML=''; return; }
+  holder.innerHTML = `<div class="weak-box"><h4>Your weak spots so far</h4><ul>` +
+    rows.map(r=>`<li>${r.topic} \u2014 ${r.correct}/${r.total} correct</li>`).join('') +
+    `</ul><div class="stats-row"><span></span><button class="link-btn" id="pf-reset-stats-btn">Reset stats</button></div></div>`;
+  document.getElementById('pf-reset-stats-btn').addEventListener('click', ()=>{
+    localStorage.removeItem(STATS_KEY);
+    renderWeakBox();
+  });
+}
+renderWeakBox();
+
+// ---------- QUIZ LOGIC ----------
+let activeChaps = [];
+let quizMode = 'mc';
+let quizQueue = [];
+let currentIndex = 0;
+let score = 0;
+let missed = [];
+
+ROOT.querySelectorAll('.mode-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    ROOT.querySelectorAll('.mode-chip').forEach(c=>c.classList.remove('on'));
+    chip.classList.add('on');
+    quizMode = chip.dataset.mode;
+  });
+});
+
+document.querySelectorAll('#pf-filter-row .filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const c = parseInt(chip.dataset.chap);
+    if(activeChaps.includes(c)){
+      activeChaps = activeChaps.filter(x=>x!==c);
+      chip.classList.remove('on');
+    } else {
+      activeChaps.push(c);
+      chip.classList.add('on');
+    }
+  });
+});
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+document.getElementById('pf-start-btn').addEventListener('click', ()=>{
+  const chapFilter = activeChaps.length>0 ? activeChaps : [1,2,3];
+  let pool = [];
+  if(quizMode==='mc') pool = QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'}));
+  else if(quizMode==='id') pool = ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}));
+  else pool = [
+    ...QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'})),
+    ...ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}))
+  ];
+  quizQueue = shuffle(pool);
+  currentIndex = 0; score = 0; missed = [];
+  document.getElementById('pf-quiz-start').style.display='none';
+  document.getElementById('pf-quiz-result').style.display='none';
+  document.getElementById('pf-quiz-play').style.display='block';
+  renderQuestion();
+});
+
+function renderQuestion(){
+  const q = quizQueue[currentIndex];
+  document.getElementById('pf-q-count').textContent = `Question ${currentIndex+1} of ${quizQueue.length}`;
+  document.getElementById('pf-q-score').textContent = `Score: ${score}`;
+  document.getElementById('pf-bar-fill').style.width = ((currentIndex)/quizQueue.length*100)+'%';
+  document.getElementById('pf-q-topic').textContent = `Part ${q.chap} \u00b7 ${q.topic}`;
+  document.getElementById('pf-q-text').textContent = q.q;
+  document.getElementById('pf-q-explain').classList.remove('show');
+  document.getElementById('pf-q-explain').textContent='';
+  document.getElementById('pf-next-btn').disabled = true;
+
+  const optsDiv = document.getElementById('pf-q-options');
+  const idArea = document.getElementById('pf-q-id-area');
+  optsDiv.innerHTML='';
+
+  if(q.type==='id'){
+    optsDiv.style.display='none';
+    idArea.style.display='block';
+    const input = document.getElementById('pf-id-input');
+    input.value=''; input.classList.remove('correct','wrong'); input.disabled=false;
+    input.focus();
+    const submitBtn = document.getElementById('pf-id-submit');
+    submitBtn.disabled=false;
+
+    const checkAnswer = ()=>{
+      const val = input.value.trim().toLowerCase();
+      if(!val) return;
+      input.disabled=true; submitBtn.disabled=true;
+      const isCorrect = q.ans.some(a=>a.toLowerCase()===val);
+      if(isCorrect){ input.classList.add('correct'); score++; }
+      else{ input.classList.add('wrong'); missed.push(q); }
+      recordAnswer(q.topic, isCorrect);
+      document.getElementById('pf-q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('pf-q-explain');
+      ex.textContent = isCorrect ? q.e : `Accepted answer: ${q.ans[0]}. ${q.e}`;
+      ex.classList.add('show');
+      document.getElementById('pf-next-btn').disabled = false;
+    };
+    submitBtn.onclick = checkAnswer;
+    input.onkeydown = (e)=>{ if(e.key==='Enter') checkAnswer(); };
+    return;
+  }
+
+  optsDiv.style.display='block';
+  idArea.style.display='none';
+
+  const correctText = q.options[q.a];
+  const shuffledOpts = shuffle(q.options.map((text,i)=>({text, isCorrect:i===q.a})));
+
+  shuffledOpts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt';
+    b.textContent = opt.text;
+    b.addEventListener('click', ()=>{
+      ROOT.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+      recordAnswer(q.topic, opt.isCorrect);
+      if(opt.isCorrect){
+        b.classList.add('correct');
+        score++;
+      } else {
+        b.classList.add('wrong');
+        ROOT.querySelectorAll('.opt').forEach(o=>{ if(o.textContent===correctText) o.classList.add('correct'); });
+        missed.push(q);
+      }
+      document.getElementById('pf-q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('pf-q-explain');
+      ex.textContent = q.e;
+      ex.classList.add('show');
+      document.getElementById('pf-next-btn').disabled = false;
+    });
+    optsDiv.appendChild(b);
+  });
+}
+
+document.getElementById('pf-next-btn').addEventListener('click', ()=>{
+  currentIndex++;
+  if(currentIndex >= quizQueue.length){
+    showResult();
+  } else {
+    renderQuestion();
+  }
+});
+
+function showResult(){
+  document.getElementById('pf-bar-fill').style.width = '100%';
+  document.getElementById('pf-quiz-play').style.display='none';
+  document.getElementById('pf-quiz-result').style.display='block';
+  document.getElementById('pf-final-score').textContent = `${score} / ${quizQueue.length}`;
+  const pct = Math.round(score/quizQueue.length*100);
+  let msg;
+  if(pct>=90) msg = "Excellent \u2014 you know this cold.";
+  else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
+  else if(pct>=50) msg = "Decent start \u2014 go back over the missed topics below.";
+  else msg = "Worth another full pass through the notes before the exam.";
+  document.getElementById('pf-final-msg').textContent = msg;
+
+  const missedDiv = document.getElementById('pf-missed-list');
+  missedDiv.innerHTML='';
+  if(missed.length===0){
+    missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses \u2014 clean sweep!</p>';
+  }
+}
+
+document.getElementById('pf-retry-btn').addEventListener('click', ()=>{
+  document.getElementById('pf-quiz-result').style.display='none';
+  document.getElementById('pf-quiz-start').style.display='block';
+  renderWeakBox();
+});
+
+document.getElementById('pf-review-btn').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('pf-missed-list');
+  if(missed.length===0) return;
+  missedDiv.innerHTML = '<h3 style="margin-top:20px;">Questions to review</h3>';
+  missed.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='missed-item';
+    const correctAns = q.type==='id' ? q.ans[0] : q.options[q.a];
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${correctAns}</div><div class="me">${q.e}</div>`;
+    missedDiv.appendChild(div);
+  });
+});
+
+// ---------- QUIZ 2: TERM MATCH ----------
+let activeChaps2 = [];
+let quiz2Queue = [];
+let quiz2Index = 0;
+let quiz2Score = 0;
+let quiz2Missed = [];
+
+document.querySelectorAll('#pf-filter-row2 .filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const c = parseInt(chip.dataset.chap);
+    if(activeChaps2.includes(c)){
+      activeChaps2 = activeChaps2.filter(x=>x!==c);
+      chip.classList.remove('on');
+    } else {
+      activeChaps2.push(c);
+      chip.classList.add('on');
+    }
+  });
+});
+
+function buildTermPool(chapFilter){
+  const cards = FLASHCARDS.filter(c=>chapFilter.includes(c.chap));
+  return cards.map(c=>{
+    const distractors = shuffle(FLASHCARDS.filter(x=>x.term!==c.term)).slice(0,3).map(x=>x.term);
+    const options = shuffle([c.term, ...distractors]);
+    return {
+      chap: c.chap,
+      topic: 'Term Match',
+      q: c.def,
+      options: options,
+      answerText: c.term,
+      e: `${c.term} — ${c.def}`
+    };
+  });
+}
+
+document.getElementById('pf-start-btn2').addEventListener('click', ()=>{
+  const chapFilter = activeChaps2.length>0 ? activeChaps2 : [1,2,3];
+  quiz2Queue = shuffle(buildTermPool(chapFilter));
+  quiz2Index = 0; quiz2Score = 0; quiz2Missed = [];
+  document.getElementById('pf-quiz2-start').style.display='none';
+  document.getElementById('pf-quiz2-result').style.display='none';
+  document.getElementById('pf-quiz2-play').style.display='block';
+  renderQuiz2Question();
+});
+
+function renderQuiz2Question(){
+  const q = quiz2Queue[quiz2Index];
+  document.getElementById('pf-q2-count').textContent = `Question ${quiz2Index+1} of ${quiz2Queue.length}`;
+  document.getElementById('pf-q2-score').textContent = `Score: ${quiz2Score}`;
+  document.getElementById('pf-bar-fill2').style.width = ((quiz2Index)/quiz2Queue.length*100)+'%';
+  document.getElementById('pf-q2-topic').textContent = `Part ${q.chap} \u00b7 Term Match`;
+  document.getElementById('pf-q2-text').textContent = q.q;
+  document.getElementById('pf-q2-explain').classList.remove('show');
+  document.getElementById('pf-q2-explain').textContent='';
+  document.getElementById('pf-next-btn2').disabled = true;
+
+  const optsDiv = document.getElementById('pf-q2-options');
+  optsDiv.innerHTML='';
+  const shuffledOpts = shuffle(q.options.map(text=>({text, isCorrect:text===q.answerText})));
+
+  shuffledOpts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt';
+    b.textContent = opt.text;
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('#pf-q2-options .opt').forEach(o=>o.disabled=true);
+      recordAnswer(q.topic, opt.isCorrect);
+      if(opt.isCorrect){
+        b.classList.add('correct');
+        quiz2Score++;
+      } else {
+        b.classList.add('wrong');
+        document.querySelectorAll('#pf-q2-options .opt').forEach(o=>{ if(o.textContent===q.answerText) o.classList.add('correct'); });
+        quiz2Missed.push(q);
+      }
+      document.getElementById('pf-q2-score').textContent = `Score: ${quiz2Score}`;
+      const ex = document.getElementById('pf-q2-explain');
+      ex.textContent = q.e;
+      ex.classList.add('show');
+      document.getElementById('pf-next-btn2').disabled = false;
+    });
+    optsDiv.appendChild(b);
+  });
+}
+
+document.getElementById('pf-next-btn2').addEventListener('click', ()=>{
+  quiz2Index++;
+  if(quiz2Index >= quiz2Queue.length){
+    showQuiz2Result();
+  } else {
+    renderQuiz2Question();
+  }
+});
+
+function showQuiz2Result(){
+  document.getElementById('pf-bar-fill2').style.width = '100%';
+  document.getElementById('pf-quiz2-play').style.display='none';
+  document.getElementById('pf-quiz2-result').style.display='block';
+  document.getElementById('pf-final-score2').textContent = `${quiz2Score} / ${quiz2Queue.length}`;
+  const pct = Math.round(quiz2Score/quiz2Queue.length*100);
+  let msg;
+  if(pct>=90) msg = "Excellent — you know this cold.";
+  else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
+  else if(pct>=50) msg = "Decent start — go back over the missed terms below.";
+  else msg = "Worth another pass through the flashcards before the exam.";
+  document.getElementById('pf-final-msg2').textContent = msg;
+
+  const missedDiv = document.getElementById('pf-missed-list2');
+  missedDiv.innerHTML='';
+  if(quiz2Missed.length===0){
+    missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses — clean sweep!</p>';
+  }
+}
+
+document.getElementById('pf-retry-btn2').addEventListener('click', ()=>{
+  document.getElementById('pf-quiz2-result').style.display='none';
+  document.getElementById('pf-quiz2-start').style.display='block';
+});
+
+document.getElementById('pf-review-btn2').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('pf-missed-list2');
+  if(quiz2Missed.length===0) return;
+  missedDiv.innerHTML = '<h3 style="margin-top:20px;">Terms to review</h3>';
+  quiz2Missed.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='missed-item';
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${q.answerText}</div>`;
+    missedDiv.appendChild(div);
+  });
+});
+
+// ---------- FLASHCARDS LOGIC ----------
+let cardDeck = shuffle(FLASHCARDS);
+let cardIndex = 0;
+
+function renderCard(){
+  const c = cardDeck[cardIndex];
+  document.getElementById('pf-flip-card').classList.remove('flipped');
+  document.getElementById('pf-fc-chap').textContent = `Part ${c.chap}`;
+  document.getElementById('pf-fc-term').textContent = c.term;
+  document.getElementById('pf-fc-def').textContent = c.def;
+  document.getElementById('pf-card-count').textContent = `Card ${cardIndex+1} of ${cardDeck.length}`;
+}
+document.getElementById('pf-flip-card').addEventListener('click', ()=>{
+  document.getElementById('pf-flip-card').classList.toggle('flipped');
+});
+document.getElementById('pf-card-next').addEventListener('click', ()=>{
+  cardIndex = (cardIndex+1) % cardDeck.length;
+  renderCard();
+});
+document.getElementById('pf-card-prev').addEventListener('click', ()=>{
+  cardIndex = (cardIndex-1+cardDeck.length) % cardDeck.length;
+  renderCard();
+});
+document.getElementById('pf-shuffle-cards-btn').addEventListener('click', ()=>{
+  cardDeck = shuffle(FLASHCARDS);
+  cardIndex = 0;
+  renderCard();
+});
+renderCard();
+
+// ---------- CHEAT SHEET ----------
+function renderCheatSheet(){
+  const container = document.getElementById('pf-cheat-content');
+  const parts = [
+    {n:1, label:'Part 1 \u2014 Fitness Basics & Health-Related Components'},
+    {n:2, label:'Part 2 \u2014 Skill-Related Components & Benefits'},
+    {n:3, label:'Part 3 \u2014 Dimensions of Wellness & FITT'}
+  ];
+  let html = '';
+  parts.forEach(p=>{
+    const items = FLASHCARDS.filter(f=>f.chap===p.n);
+    html += `<div class="cheat-col"><h3>${p.label}</h3>`;
+    items.forEach(it=>{
+      html += `<div class="cheat-item"><b>${it.term}:</b> ${it.def}</div>`;
+    });
+    html += `</div>`;
+  });
+  container.innerHTML = html;
+}
+renderCheatSheet();
+document.getElementById('pf-print-cheat-btn').addEventListener('click', ()=>{
+  window.print();
+});
+
+})();
 </script>
 </body>
 </html>
