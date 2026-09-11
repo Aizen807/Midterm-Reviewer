@@ -34,6 +34,11 @@
     --plum-soft:#4f7a67;
     --tint:#e7ecdf;
   }
+  #subject-ic{
+    --plum:#1f3a5f;
+    --plum-soft:#4a6d8c;
+    --tint:#e2e9f0;
+  }
   .subject-view{display:none;}
 
   *{box-sizing:border-box;}
@@ -322,6 +327,13 @@
         <span class="tag2">PATHFIT</span>
         <h2>Physical Education</h2>
         <p>Fitness basics, BMI, health- and skill-related fitness components, benefits of activity, the 7 dimensions of wellness, and the FITT principle.</p>
+        <span class="meta">Open Reviewer →</span>
+      </button>
+
+      <button class="subject-card" onclick="showSubject('ic')">
+        <span class="tag2">Computer Studies</span>
+        <h2>Introduction to Computer</h2>
+        <p>Computer fundamentals, hardware/software/peopleware, internal and external parts, and input/output/storage devices.</p>
         <span class="meta">Open Reviewer →</span>
       </button>
     </div>
@@ -1188,6 +1200,306 @@
 </div>
 
 
+<div id="subject-ic" class="subject-view">
+<header class="top">
+  <button onclick="showHub()" style="display:inline-block;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:10px;background:none;border:none;cursor:pointer;padding:0;font-family:'Karla',sans-serif;">← All Subjects</button>
+  <div class="kicker">Midterm Review</div>
+  <h1>Introduction to Computer</h1>
+  <p>Computer fundamentals, hardware/software/peopleware, internal and external parts, and input/output/storage devices — condensed into study-ready notes, plus a self-quiz to drill before the exam.</p>
+</header>
+<nav class="tabs" id="ic-tabs">
+  <button data-view="ch1" class="active">Basics</button>
+  <button data-view="ch2">Computer Parts</button>
+  <button data-view="ch3">I/O &amp; Storage</button>
+  <button data-view="quiz">Quiz Yourself</button>
+  <button data-view="quiz2">Quiz Yourself 2</button>
+  <button data-view="cards">Flashcards</button>
+  <button data-view="cheat">Cheat Sheet</button>
+</nav>
+<div class="wrap">
+
+<!-- PART 1 -->
+<section class="view active" id="ic-view-ch1">
+  <div class="chapter-intro">
+    <h2>Part 1 — Computer Basics</h2>
+    <p>What a computer is, how it processes information, and the three major elements that make one up.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — What Is a Computer?</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>A <span class="term">computer</span> is a machine that can be instructed to perform an operation. It is also used to store and process data.</p>
+
+      <h4>The Data Processing Model</h4>
+      <p><span class="term">Data</span> → <span class="term">Processing System</span> → <span class="term">Information</span></p>
+
+      <h4>Functions of an Information Processing System</h4>
+      <ul>
+        <li><span class="term">Input</span> — it accepts and gathers data.</li>
+        <li><span class="term">Processing</span> — it processes data to become information.</li>
+        <li><span class="term">Storage</span> — it stores data and information.</li>
+        <li><span class="term">Output</span> — it presents information.</li>
+      </ul>
+
+      <h4>Computer Lab Rules</h4>
+      <p>No food or drink; keep your workstation clean; respect others and work quietly; don't change settings; keep your files organized; surf safely; save often; print only when necessary; log off when done.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — The Three Major Elements of a Computer</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>Every computer system is made up of three major elements: <span class="term">Hardware, Software,</span> and <span class="term">Peopleware</span>.</p>
+
+      <h4>Hardware</h4>
+      <p>The tangible part of a computer system, or the exterior devices. A computer's hardware consists of electronic devices — the parts you can see and touch.</p>
+
+      <h4>Software</h4>
+      <p>The non-tangible part that tells the computer what and how to do its job. There are two main types:</p>
+      <ul>
+        <li><span class="term">System Software</span> — controls a computer's internal functioning, chiefly through an operating system, and also controls peripherals such as monitors, printers, and storage devices.</li>
+        <li><span class="term">Application Software</span> — directs the computer to execute commands given by the user; includes any program that processes data for a user (e.g., Word, Excel, PowerPoint, Gmail, Paint).</li>
+      </ul>
+
+      <h4>Peopleware</h4>
+      <p>Refers to people who use and operate the computer system, write computer programs, and analyze and design the information system.</p>
+    </div>
+  </details>
+</section>
+
+<!-- PART 2 -->
+<section class="view" id="ic-view-ch2">
+  <div class="chapter-intro">
+    <h2>Part 2 — Computer Parts</h2>
+    <p>Computer parts are divided into External (parts you interact with directly) and Internal (parts inside the case).</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — External Parts of a Computer</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <table>
+        <tr><th>Part</th><th>Function</th></tr>
+        <tr><td><span class="term">Keyboard</span></td><td>Used to enter information into the computer and for giving commands.</td></tr>
+        <tr><td><span class="term">Mouse</span></td><td>An input device operated by rolling its ball across a flat surface; controls the on-screen pointer by pointing, clicking, double-clicking, or dragging.</td></tr>
+        <tr><td><span class="term">Monitor</span></td><td>A display screen that provides "output" to the user — where you view the information you're working on.</td></tr>
+        <tr><td><span class="term">Speakers</span></td><td>Used to generate or reproduce voice, music, and other sounds.</td></tr>
+        <tr><td><span class="term">Printer</span></td><td>A device that accepts text and graphic output from a computer and transfers it to paper.</td></tr>
+        <tr><td><span class="term">Microphone</span></td><td>Allows the user to record sounds as input to their computer.</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — Internal Parts of a Computer</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <table>
+        <tr><th>Part</th><th>Function</th></tr>
+        <tr><td><span class="term">CPU</span></td><td>The Central Processing Unit is a piece of hardware that carries out the instructions of a computer program — often called the "brain of the computer."</td></tr>
+        <tr><td><span class="term">Fan</span></td><td>Any fan inside or attached to a computer case, used for active cooling.</td></tr>
+        <tr><td><span class="term">Video Card</span></td><td>Connects the computer to the monitor; a circuit board on the motherboard that sends information to the monitor for display.</td></tr>
+        <tr><td><span class="term">Motherboard</span></td><td>The main circuit board in a computer system. It connects all internal components (memory, processor, graphics card, etc.), provides power to each, and lets them communicate.</td></tr>
+        <tr><td><span class="term">Hard Disk</span></td><td>A non-volatile electro-mechanical data storage device that uses magnetic storage on rapidly rotating platters.</td></tr>
+        <tr><td><span class="term">CD-ROM Drive</span></td><td>The drive that plays CDs/DVDs and reads data stored on them (an optical drive).</td></tr>
+        <tr><td><span class="term">CD</span></td><td>Compact Disk — a type of optical storage device.</td></tr>
+        <tr><td><span class="term">RAM</span></td><td>Random Access Memory — the computer's temporary memory, existing as chips near the CPU. Stores data/programs while in use; requires power.</td></tr>
+        <tr><td><span class="term">Sound Card</span></td><td>Connects the speakers and microphone to the computer.</td></tr>
+        <tr><td><span class="term">Floppy Disk Drive</span></td><td>Holds a removable floppy disk when in use; read/write heads read and write data to the diskette.</td></tr>
+      </table>
+    </div>
+  </details>
+</section>
+
+<!-- PART 3 -->
+<section class="view" id="ic-view-ch3">
+  <div class="chapter-intro">
+    <h2>Part 3 — Input, Output &amp; Storage Devices</h2>
+    <p>How devices are classified by the role they play in getting data into, out of, or stored by the computer.</p>
+  </div>
+
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — Input, Output, and Storage Devices</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Input Devices</h4>
+      <p>Allow data and programs to be sent to the CPU. Examples: Keyboard, Mouse, Joystick, Microphone, Webcam, Scanner.</p>
+
+      <h4>Output Devices</h4>
+      <p>Media used by the computer in displaying its responses to our requests and instructions. Examples: Monitor, Audio Speakers, Printer.</p>
+
+      <h4>Storage Devices</h4>
+      <p>Attached to the computer system to allow you to store programs and data permanently, for the purpose of retrieving them in the future. Examples: Hard Disk, RAM, ROM, CD/DVD, Floppy, Memory Card, Pen Drive, Tape.</p>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary><h3>Lesson 2 — Storage Media Notes</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <h4>Floppy Disk</h4>
+      <p>The most common secondary storage device (historically) — a 3.5" disk holds 1.44MB.</p>
+
+      <h4>Hard Disk</h4>
+      <p>Made of rigid materials, unlike floppy disks; holds a much greater amount of data.</p>
+
+      <h4>CD-ROM Drive</h4>
+      <p>A CD-ROM Drive or optical drive is the device used to read CDs and DVDs.</p>
+
+      <h4>Practice: Hardware or Software?</h4>
+      <p>Try classifying these yourself: Speaker, Microphone, Microsoft Word, Microsoft PowerPoint, Keyboard, Mouse, Monitor, Facebook Messenger, Instagram, Twitter.</p>
+      <p><span class="term">Hint:</span> if you can physically touch it, it's hardware; if it's a program that tells the computer what to do, it's software.</p>
+    </div>
+  </details>
+</section>
+
+<!-- QUIZ -->
+<section class="view" id="ic-view-quiz">
+  <div class="quiz-shell">
+
+    <div id="ic-quiz-start">
+      <h2>Self-Quiz</h2>
+      <p>Pick which parts to drill, then go — leave all unchecked to cover everything. Questions are shuffled every time, with an explanation after each answer.</p>
+
+      <div id="ic-weak-box-holder"></div>
+
+      <div class="section-label">Question type</div>
+      <div class="mode-row" id="ic-mode-row">
+        <button class="mode-chip on" data-mode="mc">Multiple Choice</button>
+        <button class="mode-chip" data-mode="id">Identification</button>
+        <button class="mode-chip" data-mode="mixed">Mixed</button>
+      </div>
+
+      <div class="section-label">Parts</div>
+      <div class="filter-row" id="ic-filter-row">
+        <button class="filter-chip" data-chap="1">Part 1</button>
+        <button class="filter-chip" data-chap="2">Part 2</button>
+        <button class="filter-chip" data-chap="3">Part 3</button>
+      </div>
+      <button class="btn" id="ic-start-btn">Start Quiz</button>
+    </div>
+
+    <div id="ic-quiz-play" style="display:none;">
+      <div class="quiz-progress">
+        <span id="ic-q-count"></span>
+        <span id="ic-q-score"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="ic-bar-fill" style="width:0%"></div></div>
+      <div class="q-topic" id="ic-q-topic"></div>
+      <p class="q-text" id="ic-q-text"></p>
+      <div id="ic-q-options"></div>
+      <div id="ic-q-id-area" style="display:none;">
+        <div class="id-row">
+          <input type="text" class="id-input" id="ic-id-input" placeholder="Type your answer" autocomplete="off">
+          <button class="btn" id="ic-id-submit">Check</button>
+        </div>
+      </div>
+      <div class="explain" id="ic-q-explain"></div>
+      <div class="next-row">
+        <button class="btn" id="ic-next-btn" disabled>Next Question</button>
+      </div>
+    </div>
+
+    <div id="ic-quiz-result" style="display:none;">
+      <h2>Quiz Complete</h2>
+      <div class="score" id="ic-final-score"></div>
+      <p id="ic-final-msg" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="ic-retry-btn">Try Again</button>
+      <button class="btn secondary" id="ic-review-btn" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="ic-missed-list"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIZ 2: TERM MATCH -->
+<section class="view" id="ic-view-quiz2">
+  <div class="quiz-shell">
+
+    <div id="ic-quiz2-start">
+      <h2>Quiz Yourself 2</h2>
+      <p>Read the definition, pick the matching term. Answer choices are shuffled every time.</p>
+
+      <div class="section-label">Parts</div>
+      <div class="filter-row" id="ic-filter-row2">
+        <button class="filter-chip" data-chap="1">Part 1</button>
+        <button class="filter-chip" data-chap="2">Part 2</button>
+        <button class="filter-chip" data-chap="3">Part 3</button>
+      </div>
+      <button class="btn" id="ic-start-btn2">Start Quiz</button>
+    </div>
+
+    <div id="ic-quiz2-play" style="display:none;">
+      <div class="quiz-progress">
+        <span id="ic-q2-count"></span>
+        <span id="ic-q2-score"></span>
+      </div>
+      <div class="bar"><div class="bar-fill" id="ic-bar-fill2" style="width:0%"></div></div>
+      <div class="q-topic" id="ic-q2-topic"></div>
+      <p class="q-text" id="ic-q2-text"></p>
+      <div id="ic-q2-options"></div>
+      <div class="explain" id="ic-q2-explain"></div>
+      <div class="next-row">
+        <button class="btn" id="ic-next-btn2" disabled>Next Question</button>
+      </div>
+    </div>
+
+    <div id="ic-quiz2-result" style="display:none;">
+      <h2>Quiz Complete</h2>
+      <div class="score" id="ic-final-score2"></div>
+      <p id="ic-final-msg2" style="color:var(--ink-soft);"></p>
+      <button class="btn" id="ic-retry-btn2">Try Again</button>
+      <button class="btn secondary" id="ic-review-btn2" style="margin-left:8px;">Review Missed</button>
+      <div class="missed-list" id="ic-missed-list2"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="view" id="ic-view-cards">
+  <div class="chapter-intro">
+    <h2>Flashcards</h2>
+    <p>Tap a card to flip it. Shuffle whenever you want a fresh order.</p>
+  </div>
+  <div class="quiz-shell">
+    <div class="card-controls">
+      <span class="count" id="ic-card-count"></span>
+      <button class="link-btn" id="ic-shuffle-cards-btn">Shuffle deck</button>
+    </div>
+    <div class="flip-scene">
+      <div class="flip-card" id="ic-flip-card">
+        <div class="flip-face flip-front">
+          <span class="term-tag" id="ic-fc-chap"></span>
+          <div class="fc-text" id="ic-fc-term"></div>
+        </div>
+        <div class="flip-face flip-back">
+          <div class="fc-text" id="ic-fc-def"></div>
+        </div>
+      </div>
+    </div>
+    <p class="flip-hint">Tap the card to flip</p>
+    <div class="card-nav">
+      <button class="btn secondary" id="ic-card-prev">Previous</button>
+      <button class="btn" id="ic-card-next">Next</button>
+    </div>
+  </div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section class="view cheat-view" id="ic-view-cheat">
+  <div class="chapter-intro">
+    <h2>Cheat Sheet</h2>
+    <p>Every key term at a glance — one last scan before you walk in.</p>
+  </div>
+  <div class="quiz-shell">
+    <div class="cheat-head">
+      <span style="font-size:13px;color:var(--ink-soft);">All terms, condensed</span>
+      <button class="btn secondary" id="ic-print-cheat-btn">Print / Save PDF</button>
+    </div>
+    <div id="ic-cheat-content"></div>
+  </div>
+</section>
+
+</div>
+</div>
+
 <footer id="global-footer">Built from your class materials. Good luck on your midterms.</footer>
 
 <script>
@@ -1196,12 +1508,14 @@ function showHub(){
   document.getElementById('hub-view').style.display='block';
   document.getElementById('subject-uts').style.display='none';
   document.getElementById('subject-pathfit').style.display='none';
+  document.getElementById('subject-ic').style.display='none';
   window.scrollTo({top:0, behavior:'instant'});
 }
 function showSubject(id){
   document.getElementById('hub-view').style.display='none';
   document.getElementById('subject-uts').style.display = (id==='uts') ? 'block' : 'none';
   document.getElementById('subject-pathfit').style.display = (id==='pathfit') ? 'block' : 'none';
+  document.getElementById('subject-ic').style.display = (id==='ic') ? 'block' : 'none';
   window.scrollTo({top:0, behavior:'instant'});
 }
 
@@ -2267,6 +2581,517 @@ function renderCheatSheet(){
 }
 renderCheatSheet();
 document.getElementById('pf-print-cheat-btn').addEventListener('click', ()=>{
+  window.print();
+});
+
+})();
+(function(){
+
+const ROOT = document.getElementById('subject-ic');
+// ---------- TAB NAV ----------
+const tabButtons = document.querySelectorAll('#ic-tabs button');
+tabButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    ROOT.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('ic-view-'+btn.dataset.view).classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+  });
+});
+
+// ---------- MULTIPLE CHOICE QUESTIONS ----------
+const QUESTIONS = [
+{chap:1, topic:"Basics", q:"What is a computer?", options:["A device that only stores photos", "A machine that can be instructed to perform an operation; used to store and process data", "A type of software", "A brand of monitor"], a:1, e:"A computer is a machine instructed to perform operations and store/process data."},
+{chap:1, topic:"Basics", q:"In the data processing model, what does a processing system turn data into?", options:["Software","Hardware","Information","Peopleware"], a:2, e:"The model flows: Data → Processing System → Information."},
+{chap:1, topic:"Basics", q:"Which function of an information processing system accepts and gathers data?", options:["Output","Storage","Processing","Input"], a:3, e:"Input is the function that accepts and gathers data."},
+{chap:1, topic:"Basics", q:"Which function of an information processing system presents information to the user?", options:["Input","Output","Storage","Processing"], a:1, e:"Output is the function that presents information."},
+{chap:1, topic:"Basics", q:"Which function stores data and information for future use?", options:["Storage","Input","Output","Processing"], a:0, e:"Storage keeps data and information for later retrieval."},
+{chap:1, topic:"Basics", q:"What are the three major elements of a computer?", options:["Input, Output, Storage","Hardware, Software, Peopleware","CPU, RAM, Motherboard","Monitor, Keyboard, Mouse"], a:1, e:"Every computer system is made up of Hardware, Software, and Peopleware."},
+{chap:1, topic:"Basics", q:"Hardware is best described as:", options:["The non-tangible part that tells the computer what to do","The tangible part of a computer system you can see and touch","A person who operates the computer","A type of storage file"], a:1, e:"Hardware refers to the tangible, physical/exterior parts of a computer."},
+{chap:1, topic:"Basics", q:"Software is best described as:", options:["The tangible exterior devices","The non-tangible part that tells the computer what and how to do its job","The people who use the computer","The computer's power supply"], a:1, e:"Software is the non-tangible part directing the computer's behavior."},
+{chap:1, topic:"Basics", q:"What are the two main types of software?", options:["Input Software and Output Software","System Software and Application Software","Hardware Software and Peopleware Software","Internal Software and External Software"], a:1, e:"Software splits into System Software and Application Software."},
+{chap:1, topic:"Basics", q:"Which type of software controls a computer's internal functioning, chiefly through an operating system?", options:["Application Software","Peopleware","System Software","Input Software"], a:2, e:"System Software manages internal functioning and peripherals like printers and storage."},
+{chap:1, topic:"Basics", q:"Which type of software directs the computer to execute commands given by the user, like Word or Excel?", options:["System Software","Application Software","Hardware","Peopleware"], a:1, e:"Application Software processes data for a user based on their commands."},
+{chap:1, topic:"Basics", q:"Peopleware refers to:", options:["The physical computer case","People who use, operate, write programs for, and design computer systems","A type of storage device","The computer's operating system"], a:1, e:"Peopleware is the human element — users, programmers, and systems analysts/designers."},
+
+{chap:2, topic:"External Parts", q:"Which external part is used to enter information into the computer and give commands?", options:["Monitor","Keyboard","Speakers","Fan"], a:1, e:"The keyboard is used for entering information and giving commands."},
+{chap:2, topic:"External Parts", q:"Which input device is operated by rolling its ball across a flat surface to control an on-screen pointer?", options:["Mouse","Microphone","Printer","Monitor"], a:0, e:"The mouse controls the on-screen pointer via clicking, double-clicking, or dragging."},
+{chap:2, topic:"External Parts", q:"Which external device is a display screen that provides \u2018output\u2019 to the user?", options:["Speakers","Printer","Monitor","Microphone"], a:2, e:"The monitor is where you view the information you're working on."},
+{chap:2, topic:"External Parts", q:"Which device allows a user to record sounds as input to their computer?", options:["Speakers","Microphone","Printer","Mouse"], a:1, e:"The microphone records sound as an input to the computer."},
+{chap:2, topic:"Internal Parts", q:"Which internal part is described as carrying out the instructions of a computer program?", options:["RAM","CPU","Sound Card","Fan"], a:1, e:"The CPU (Central Processing Unit) executes program instructions."},
+{chap:2, topic:"Internal Parts", q:"What is the main function of a computer fan?", options:["Data storage","Active cooling","Sound output","Video display"], a:1, e:"A computer fan provides active cooling for the case and components."},
+{chap:2, topic:"Internal Parts", q:"Which internal part connects the computer to the monitor and sends display information?", options:["Sound Card","Video Card","Hard Disk","RAM"], a:1, e:"The video card is a circuit board that sends information to the monitor for display."},
+{chap:2, topic:"Internal Parts", q:"Which component is the main circuit board that connects all internal components and provides power to them?", options:["Motherboard","CPU","Hard Disk","CD-ROM Drive"], a:0, e:"The motherboard connects and powers memory, processor, graphics card, and other hardware."},
+{chap:2, topic:"Internal Parts", q:"Which internal part is a non-volatile storage device that uses magnetic storage on rotating platters?", options:["RAM","Hard Disk","Sound Card","Fan"], a:1, e:"The hard disk stores digital data magnetically on rapidly rotating platters."},
+{chap:2, topic:"Internal Parts", q:"What does RAM stand for?", options:["Random Access Memory","Rapid Application Module","Read Access Memory","Remote Auxiliary Memory"], a:0, e:"RAM = Random Access Memory."},
+{chap:2, topic:"Internal Parts", q:"RAM is best described as:", options:["Permanent storage that needs no power","The computer's temporary memory that stores data/programs while in use and requires power","A type of external speaker","A cooling device"], a:1, e:"RAM exists as chips near the CPU and loses its contents without power."},
+{chap:2, topic:"Internal Parts", q:"Which internal part connects the speakers and microphone to the computer?", options:["Sound Card","Video Card","Motherboard","CPU"], a:0, e:"The sound card connects audio input/output devices to the computer."},
+{chap:2, topic:"Internal Parts", q:"Which drive holds a removable floppy disk and reads/writes data to the diskette?", options:["CD-ROM Drive","Hard Disk","Floppy Disk Drive","Video Card"], a:2, e:"The floppy disk drive uses read/write heads to access data on a diskette."},
+
+{chap:3, topic:"Input Devices", q:"Input devices are defined as devices that:", options:["Store data permanently","Allow data and programs to be sent to the CPU","Display responses to the user","Cool down the computer"], a:1, e:"Input devices send data and programs to the CPU for processing."},
+{chap:3, topic:"Input Devices", q:"Which of these is an input device?", options:["Printer","Speaker","Scanner","Monitor"], a:2, e:"A scanner sends data into the computer, making it an input device."},
+{chap:3, topic:"Output Devices", q:"Output devices are used by the computer to:", options:["Gather data from the user","Display its responses to our requests and instructions","Permanently store files","Cool internal components"], a:1, e:"Output devices show or produce the results of the computer's processing."},
+{chap:3, topic:"Output Devices", q:"Which of these is classified as an output device?", options:["Keyboard","Mouse","Audio Speakers","Webcam"], a:2, e:"Audio speakers output sound generated or processed by the computer."},
+{chap:3, topic:"Storage Devices", q:"Storage devices are attached to a computer system to:", options:["Cool the CPU","Store programs and data permanently for future retrieval","Display output only","Only play music"], a:1, e:"Storage devices let you keep data permanently and retrieve it later."},
+{chap:3, topic:"Storage Devices", q:"Which of these is an example of a storage device?", options:["Pen Drive","Mouse","Speaker","Webcam"], a:0, e:"A pen drive is a portable storage device."},
+{chap:3, topic:"Storage Devices", q:"What is the storage capacity of a standard 3.5-inch floppy disk?", options:["1.44MB","700MB","4.7GB","1TB"], a:0, e:"A standard 3.5-inch floppy disk holds 1.44MB."},
+{chap:3, topic:"Storage Devices", q:"Compared to a floppy disk, a hard disk:", options:["Holds less data","Is made of rigid materials and holds a greater amount of data","Cannot store any data","Is a type of output device"], a:1, e:"Hard disks use rigid platters and store far more data than floppy disks."},
+{chap:3, topic:"Storage Devices", q:"A CD-ROM Drive (optical drive) is used to:", options:["Cool the computer case","Read CDs and DVDs","Connect the keyboard","Provide temporary memory"], a:1, e:"A CD-ROM/optical drive reads data stored on CDs and DVDs."},
+];
+
+// ---------- IDENTIFICATION QUESTIONS ----------
+const ID_QUESTIONS = [
+{chap:1, topic:"Basics", q:"What machine can be instructed to perform an operation and is used to store and process data?", ans:["computer"], e:"That's the basic definition of a computer."},
+{chap:1, topic:"Basics", q:"What term describes the tangible, physical parts of a computer system?", ans:["hardware"], e:"Hardware is what you can see and touch."},
+{chap:1, topic:"Basics", q:"What term describes the non-tangible part that tells the computer what and how to do its job?", ans:["software"], e:"Software directs the computer's behavior."},
+{chap:1, topic:"Basics", q:"What term refers to the people who use, operate, and program computer systems?", ans:["peopleware"], e:"Peopleware is the human element of a computer system."},
+{chap:1, topic:"Basics", q:"What type of software controls a computer's internal functioning via an operating system?", ans:["system software"], e:"System software also controls peripherals like printers and monitors."},
+{chap:1, topic:"Basics", q:"What are the two main types of software?", ans:["system software and application software","system and application software"], e:"Software divides into system software and application software."},
+{chap:2, topic:"Internal Parts", q:"What internal component is often called the 'brain of the computer' and carries out program instructions?", ans:["cpu","central processing unit"], e:"The CPU executes the instructions of a computer program."},
+{chap:2, topic:"Internal Parts", q:"What is the computer's temporary memory, which requires power and stores data while in use?", ans:["ram","random access memory"], e:"RAM exists as chips on the motherboard near the CPU."},
+{chap:2, topic:"Internal Parts", q:"What component is the main circuit board connecting all internal parts of a computer?", ans:["motherboard"], e:"The motherboard connects and powers memory, CPU, graphics card, and more."},
+{chap:2, topic:"Internal Parts", q:"What internal part connects the speakers and microphone to the computer?", ans:["sound card"], e:"The sound card handles audio input/output connections."},
+{chap:2, topic:"External Parts", q:"What external device is used to enter information and give commands to the computer?", ans:["keyboard"], e:"The keyboard is the primary text-entry and command input device."},
+{chap:2, topic:"External Parts", q:"What external device provides 'output' to the user as a display screen?", ans:["monitor"], e:"The monitor displays the information you're working on."},
+{chap:3, topic:"Input Devices", q:"What category of devices allows data and programs to be sent to the CPU?", ans:["input devices","input device"], e:"Keyboard, mouse, scanner, and microphone are all input devices."},
+{chap:3, topic:"Output Devices", q:"What category of devices displays the computer's responses to our requests and instructions?", ans:["output devices","output device"], e:"Monitor, speakers, and printer are all output devices."},
+{chap:3, topic:"Storage Devices", q:"What category of devices lets you store programs and data permanently for future retrieval?", ans:["storage devices","storage device"], e:"Hard disk, RAM, CD/DVD, and pen drives are all storage devices."},
+{chap:3, topic:"Storage Devices", q:"What is the storage capacity of a standard 3.5-inch floppy disk?", ans:["1.44mb","1.44 mb"], e:"A 3.5-inch floppy disk holds 1.44MB of data."},
+{chap:3, topic:"Storage Devices", q:"What device is used to read CDs and DVDs?", ans:["cd-rom drive","cd rom drive","optical drive"], e:"A CD-ROM drive (optical drive) reads data from CDs and DVDs."},
+];
+
+// ---------- FLASHCARDS ----------
+const FLASHCARDS = [
+{chap:1, term:"Computer", def:"A machine that can be instructed to perform an operation; used to store and process data."},
+{chap:1, term:"Data Processing Model", def:"Data → Processing System → Information."},
+{chap:1, term:"Input (function)", def:"Accepts and gathers data."},
+{chap:1, term:"Processing (function)", def:"Processes data to become information."},
+{chap:1, term:"Storage (function)", def:"Stores data and information."},
+{chap:1, term:"Output (function)", def:"Presents information."},
+{chap:1, term:"Hardware", def:"The tangible part of a computer system — the exterior devices you can see and touch."},
+{chap:1, term:"Software", def:"The non-tangible part that tells the computer what and how to do its job."},
+{chap:1, term:"System Software", def:"Controls a computer's internal functioning (via the operating system) and peripherals like monitors, printers, storage devices."},
+{chap:1, term:"Application Software", def:"Directs the computer to execute commands given by the user; e.g., Word, Excel, PowerPoint, Gmail, Paint."},
+{chap:1, term:"Peopleware", def:"People who use/operate the computer system, write programs, and analyze/design information systems."},
+{chap:2, term:"Keyboard", def:"Used to enter information into the computer and for giving commands. (External)"},
+{chap:2, term:"Mouse", def:"Input device that controls the on-screen pointer via clicking, double-clicking, or dragging. (External)"},
+{chap:2, term:"Monitor", def:"A display screen that provides output to the user. (External)"},
+{chap:2, term:"Speakers", def:"Used to generate or reproduce voice, music, and other sounds. (External)"},
+{chap:2, term:"Printer", def:"Accepts text/graphic output from a computer and transfers it to paper. (External)"},
+{chap:2, term:"Microphone", def:"Allows the user to record sounds as input to the computer. (External)"},
+{chap:2, term:"CPU", def:"Central Processing Unit — carries out the instructions of a computer program. (Internal)"},
+{chap:2, term:"Fan", def:"Used for active cooling inside or attached to the computer case. (Internal)"},
+{chap:2, term:"Video Card", def:"Connects the computer to the monitor; sends display information. (Internal)"},
+{chap:2, term:"Motherboard", def:"The main circuit board connecting all internal components and providing power. (Internal)"},
+{chap:2, term:"Hard Disk", def:"Non-volatile storage using magnetic storage on rapidly rotating platters. (Internal)"},
+{chap:2, term:"CD-ROM Drive", def:"The drive that plays CDs/DVDs and reads stored data. (Internal)"},
+{chap:2, term:"CD", def:"Compact Disk — a type of optical storage device."},
+{chap:2, term:"RAM", def:"Random Access Memory — temporary memory near the CPU; stores data/programs in use, requires power. (Internal)"},
+{chap:2, term:"Sound Card", def:"Connects the speakers and microphone to the computer. (Internal)"},
+{chap:2, term:"Floppy Disk Drive", def:"Holds a removable floppy disk; read/write heads access data on the diskette. (Internal)"},
+{chap:3, term:"Input Devices", def:"Allow data and programs to be sent to the CPU. Examples: keyboard, mouse, joystick, microphone, webcam, scanner."},
+{chap:3, term:"Output Devices", def:"Media used by the computer to display its responses. Examples: monitor, audio speakers, printer."},
+{chap:3, term:"Storage Devices", def:"Attached to the system to store programs/data permanently. Examples: hard disk, RAM, ROM, CD/DVD, floppy, memory card, pen drive, tape."},
+{chap:3, term:"Floppy Disk", def:"Common secondary storage device; a 3.5\u2033 disk holds 1.44MB."},
+{chap:3, term:"Hard Disk vs. Floppy", def:"Hard disk is made of rigid materials, unlike floppy disks, and holds a much greater amount of data."},
+{chap:3, term:"CD-ROM Drive (optical drive)", def:"The device used to read CDs and DVDs."},
+];
+
+// ---------- WEAK SPOT TRACKING ----------
+const STATS_KEY = 'introcomp_topic_stats_v1';
+function loadStats(){
+  try{ return JSON.parse(localStorage.getItem(STATS_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveStats(stats){
+  try{ localStorage.setItem(STATS_KEY, JSON.stringify(stats)); }catch(e){}
+}
+function recordAnswer(topic, correct){
+  const stats = loadStats();
+  if(!stats[topic]) stats[topic] = {correct:0, total:0};
+  stats[topic].total++;
+  if(correct) stats[topic].correct++;
+  saveStats(stats);
+}
+function renderWeakBox(){
+  const holder = document.getElementById('ic-weak-box-holder');
+  const stats = loadStats();
+  const rows = Object.keys(stats)
+    .map(topic=>({topic, ...stats[topic], pct: stats[topic].correct/stats[topic].total}))
+    .filter(r=>r.total>=3 && r.pct<0.7)
+    .sort((a,b)=>a.pct-b.pct)
+    .slice(0,5);
+  if(rows.length===0){ holder.innerHTML=''; return; }
+  holder.innerHTML = `<div class="weak-box"><h4>Your weak spots so far</h4><ul>` +
+    rows.map(r=>`<li>${r.topic} \u2014 ${r.correct}/${r.total} correct</li>`).join('') +
+    `</ul><div class="stats-row"><span></span><button class="link-btn" id="ic-reset-stats-btn">Reset stats</button></div></div>`;
+  document.getElementById('ic-reset-stats-btn').addEventListener('click', ()=>{
+    localStorage.removeItem(STATS_KEY);
+    renderWeakBox();
+  });
+}
+renderWeakBox();
+
+// ---------- QUIZ LOGIC ----------
+let activeChaps = [];
+let quizMode = 'mc';
+let quizQueue = [];
+let currentIndex = 0;
+let score = 0;
+let missed = [];
+
+ROOT.querySelectorAll('.mode-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    ROOT.querySelectorAll('.mode-chip').forEach(c=>c.classList.remove('on'));
+    chip.classList.add('on');
+    quizMode = chip.dataset.mode;
+  });
+});
+
+document.querySelectorAll('#ic-filter-row .filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const c = parseInt(chip.dataset.chap);
+    if(activeChaps.includes(c)){
+      activeChaps = activeChaps.filter(x=>x!==c);
+      chip.classList.remove('on');
+    } else {
+      activeChaps.push(c);
+      chip.classList.add('on');
+    }
+  });
+});
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+document.getElementById('ic-start-btn').addEventListener('click', ()=>{
+  const chapFilter = activeChaps.length>0 ? activeChaps : [1,2,3];
+  let pool = [];
+  if(quizMode==='mc') pool = QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'}));
+  else if(quizMode==='id') pool = ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}));
+  else pool = [
+    ...QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'})),
+    ...ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}))
+  ];
+  quizQueue = shuffle(pool);
+  currentIndex = 0; score = 0; missed = [];
+  document.getElementById('ic-quiz-start').style.display='none';
+  document.getElementById('ic-quiz-result').style.display='none';
+  document.getElementById('ic-quiz-play').style.display='block';
+  renderQuestion();
+});
+
+function renderQuestion(){
+  const q = quizQueue[currentIndex];
+  document.getElementById('ic-q-count').textContent = `Question ${currentIndex+1} of ${quizQueue.length}`;
+  document.getElementById('ic-q-score').textContent = `Score: ${score}`;
+  document.getElementById('ic-bar-fill').style.width = ((currentIndex)/quizQueue.length*100)+'%';
+  document.getElementById('ic-q-topic').textContent = `Part ${q.chap} \u00b7 ${q.topic}`;
+  document.getElementById('ic-q-text').textContent = q.q;
+  document.getElementById('ic-q-explain').classList.remove('show');
+  document.getElementById('ic-q-explain').textContent='';
+  document.getElementById('ic-next-btn').disabled = true;
+
+  const optsDiv = document.getElementById('ic-q-options');
+  const idArea = document.getElementById('ic-q-id-area');
+  optsDiv.innerHTML='';
+
+  if(q.type==='id'){
+    optsDiv.style.display='none';
+    idArea.style.display='block';
+    const input = document.getElementById('ic-id-input');
+    input.value=''; input.classList.remove('correct','wrong'); input.disabled=false;
+    input.focus();
+    const submitBtn = document.getElementById('ic-id-submit');
+    submitBtn.disabled=false;
+
+    const checkAnswer = ()=>{
+      const val = input.value.trim().toLowerCase();
+      if(!val) return;
+      input.disabled=true; submitBtn.disabled=true;
+      const isCorrect = q.ans.some(a=>a.toLowerCase()===val);
+      if(isCorrect){ input.classList.add('correct'); score++; }
+      else{ input.classList.add('wrong'); missed.push(q); }
+      recordAnswer(q.topic, isCorrect);
+      document.getElementById('ic-q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('ic-q-explain');
+      ex.textContent = isCorrect ? q.e : `Accepted answer: ${q.ans[0]}. ${q.e}`;
+      ex.classList.add('show');
+      document.getElementById('ic-next-btn').disabled = false;
+    };
+    submitBtn.onclick = checkAnswer;
+    input.onkeydown = (e)=>{ if(e.key==='Enter') checkAnswer(); };
+    return;
+  }
+
+  optsDiv.style.display='block';
+  idArea.style.display='none';
+
+  const correctText = q.options[q.a];
+  const shuffledOpts = shuffle(q.options.map((text,i)=>({text, isCorrect:i===q.a})));
+
+  shuffledOpts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt';
+    b.textContent = opt.text;
+    b.addEventListener('click', ()=>{
+      ROOT.querySelectorAll('.opt').forEach(o=>o.disabled=true);
+      recordAnswer(q.topic, opt.isCorrect);
+      if(opt.isCorrect){
+        b.classList.add('correct');
+        score++;
+      } else {
+        b.classList.add('wrong');
+        ROOT.querySelectorAll('.opt').forEach(o=>{ if(o.textContent===correctText) o.classList.add('correct'); });
+        missed.push(q);
+      }
+      document.getElementById('ic-q-score').textContent = `Score: ${score}`;
+      const ex = document.getElementById('ic-q-explain');
+      ex.textContent = q.e;
+      ex.classList.add('show');
+      document.getElementById('ic-next-btn').disabled = false;
+    });
+    optsDiv.appendChild(b);
+  });
+}
+
+document.getElementById('ic-next-btn').addEventListener('click', ()=>{
+  currentIndex++;
+  if(currentIndex >= quizQueue.length){
+    showResult();
+  } else {
+    renderQuestion();
+  }
+});
+
+function showResult(){
+  document.getElementById('ic-bar-fill').style.width = '100%';
+  document.getElementById('ic-quiz-play').style.display='none';
+  document.getElementById('ic-quiz-result').style.display='block';
+  document.getElementById('ic-final-score').textContent = `${score} / ${quizQueue.length}`;
+  const pct = Math.round(score/quizQueue.length*100);
+  let msg;
+  if(pct>=90) msg = "Excellent \u2014 you know this cold.";
+  else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
+  else if(pct>=50) msg = "Decent start \u2014 go back over the missed topics below.";
+  else msg = "Worth another full pass through the notes before the exam.";
+  document.getElementById('ic-final-msg').textContent = msg;
+
+  const missedDiv = document.getElementById('ic-missed-list');
+  missedDiv.innerHTML='';
+  if(missed.length===0){
+    missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses \u2014 clean sweep!</p>';
+  }
+}
+
+document.getElementById('ic-retry-btn').addEventListener('click', ()=>{
+  document.getElementById('ic-quiz-result').style.display='none';
+  document.getElementById('ic-quiz-start').style.display='block';
+  renderWeakBox();
+});
+
+document.getElementById('ic-review-btn').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('ic-missed-list');
+  if(missed.length===0) return;
+  missedDiv.innerHTML = '<h3 style="margin-top:20px;">Questions to review</h3>';
+  missed.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='missed-item';
+    const correctAns = q.type==='id' ? q.ans[0] : q.options[q.a];
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${correctAns}</div><div class="me">${q.e}</div>`;
+    missedDiv.appendChild(div);
+  });
+});
+
+// ---------- QUIZ 2: TERM MATCH ----------
+let activeChaps2 = [];
+let quiz2Queue = [];
+let quiz2Index = 0;
+let quiz2Score = 0;
+let quiz2Missed = [];
+
+document.querySelectorAll('#ic-filter-row2 .filter-chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const c = parseInt(chip.dataset.chap);
+    if(activeChaps2.includes(c)){
+      activeChaps2 = activeChaps2.filter(x=>x!==c);
+      chip.classList.remove('on');
+    } else {
+      activeChaps2.push(c);
+      chip.classList.add('on');
+    }
+  });
+});
+
+function buildTermPool(chapFilter){
+  const cards = FLASHCARDS.filter(c=>chapFilter.includes(c.chap));
+  return cards.map(c=>{
+    const distractors = shuffle(FLASHCARDS.filter(x=>x.term!==c.term)).slice(0,3).map(x=>x.term);
+    const options = shuffle([c.term, ...distractors]);
+    return {
+      chap: c.chap,
+      topic: 'Term Match',
+      q: c.def,
+      options: options,
+      answerText: c.term,
+      e: `${c.term} — ${c.def}`
+    };
+  });
+}
+
+document.getElementById('ic-start-btn2').addEventListener('click', ()=>{
+  const chapFilter = activeChaps2.length>0 ? activeChaps2 : [1,2,3];
+  quiz2Queue = shuffle(buildTermPool(chapFilter));
+  quiz2Index = 0; quiz2Score = 0; quiz2Missed = [];
+  document.getElementById('ic-quiz2-start').style.display='none';
+  document.getElementById('ic-quiz2-result').style.display='none';
+  document.getElementById('ic-quiz2-play').style.display='block';
+  renderQuiz2Question();
+});
+
+function renderQuiz2Question(){
+  const q = quiz2Queue[quiz2Index];
+  document.getElementById('ic-q2-count').textContent = `Question ${quiz2Index+1} of ${quiz2Queue.length}`;
+  document.getElementById('ic-q2-score').textContent = `Score: ${quiz2Score}`;
+  document.getElementById('ic-bar-fill2').style.width = ((quiz2Index)/quiz2Queue.length*100)+'%';
+  document.getElementById('ic-q2-topic').textContent = `Part ${q.chap} \u00b7 Term Match`;
+  document.getElementById('ic-q2-text').textContent = q.q;
+  document.getElementById('ic-q2-explain').classList.remove('show');
+  document.getElementById('ic-q2-explain').textContent='';
+  document.getElementById('ic-next-btn2').disabled = true;
+
+  const optsDiv = document.getElementById('ic-q2-options');
+  optsDiv.innerHTML='';
+  const shuffledOpts = shuffle(q.options.map(text=>({text, isCorrect:text===q.answerText})));
+
+  shuffledOpts.forEach(opt=>{
+    const b = document.createElement('button');
+    b.className='opt';
+    b.textContent = opt.text;
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('#ic-q2-options .opt').forEach(o=>o.disabled=true);
+      recordAnswer(q.topic, opt.isCorrect);
+      if(opt.isCorrect){
+        b.classList.add('correct');
+        quiz2Score++;
+      } else {
+        b.classList.add('wrong');
+        document.querySelectorAll('#ic-q2-options .opt').forEach(o=>{ if(o.textContent===q.answerText) o.classList.add('correct'); });
+        quiz2Missed.push(q);
+      }
+      document.getElementById('ic-q2-score').textContent = `Score: ${quiz2Score}`;
+      const ex = document.getElementById('ic-q2-explain');
+      ex.textContent = q.e;
+      ex.classList.add('show');
+      document.getElementById('ic-next-btn2').disabled = false;
+    });
+    optsDiv.appendChild(b);
+  });
+}
+
+document.getElementById('ic-next-btn2').addEventListener('click', ()=>{
+  quiz2Index++;
+  if(quiz2Index >= quiz2Queue.length){
+    showQuiz2Result();
+  } else {
+    renderQuiz2Question();
+  }
+});
+
+function showQuiz2Result(){
+  document.getElementById('ic-bar-fill2').style.width = '100%';
+  document.getElementById('ic-quiz2-play').style.display='none';
+  document.getElementById('ic-quiz2-result').style.display='block';
+  document.getElementById('ic-final-score2').textContent = `${quiz2Score} / ${quiz2Queue.length}`;
+  const pct = Math.round(quiz2Score/quiz2Queue.length*100);
+  let msg;
+  if(pct>=90) msg = "Excellent — you know this cold.";
+  else if(pct>=75) msg = "Solid grasp. Review your misses and you're set.";
+  else if(pct>=50) msg = "Decent start — go back over the missed terms below.";
+  else msg = "Worth another pass through the flashcards before the exam.";
+  document.getElementById('ic-final-msg2').textContent = msg;
+
+  const missedDiv = document.getElementById('ic-missed-list2');
+  missedDiv.innerHTML='';
+  if(quiz2Missed.length===0){
+    missedDiv.innerHTML = '<p style="color:var(--good); font-weight:700; margin-top:16px;">No misses — clean sweep!</p>';
+  }
+}
+
+document.getElementById('ic-retry-btn2').addEventListener('click', ()=>{
+  document.getElementById('ic-quiz2-result').style.display='none';
+  document.getElementById('ic-quiz2-start').style.display='block';
+});
+
+document.getElementById('ic-review-btn2').addEventListener('click', ()=>{
+  const missedDiv = document.getElementById('ic-missed-list2');
+  if(quiz2Missed.length===0) return;
+  missedDiv.innerHTML = '<h3 style="margin-top:20px;">Terms to review</h3>';
+  quiz2Missed.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='missed-item';
+    div.innerHTML = `<div class="mq">${q.q}</div><div class="ma">Correct answer: ${q.answerText}</div>`;
+    missedDiv.appendChild(div);
+  });
+});
+
+// ---------- FLASHCARDS LOGIC ----------
+let cardDeck = shuffle(FLASHCARDS);
+let cardIndex = 0;
+
+function renderCard(){
+  const c = cardDeck[cardIndex];
+  document.getElementById('ic-flip-card').classList.remove('flipped');
+  document.getElementById('ic-fc-chap').textContent = `Part ${c.chap}`;
+  document.getElementById('ic-fc-term').textContent = c.term;
+  document.getElementById('ic-fc-def').textContent = c.def;
+  document.getElementById('ic-card-count').textContent = `Card ${cardIndex+1} of ${cardDeck.length}`;
+}
+document.getElementById('ic-flip-card').addEventListener('click', ()=>{
+  document.getElementById('ic-flip-card').classList.toggle('flipped');
+});
+document.getElementById('ic-card-next').addEventListener('click', ()=>{
+  cardIndex = (cardIndex+1) % cardDeck.length;
+  renderCard();
+});
+document.getElementById('ic-card-prev').addEventListener('click', ()=>{
+  cardIndex = (cardIndex-1+cardDeck.length) % cardDeck.length;
+  renderCard();
+});
+document.getElementById('ic-shuffle-cards-btn').addEventListener('click', ()=>{
+  cardDeck = shuffle(FLASHCARDS);
+  cardIndex = 0;
+  renderCard();
+});
+renderCard();
+
+// ---------- CHEAT SHEET ----------
+function renderCheatSheet(){
+  const container = document.getElementById('ic-cheat-content');
+  const parts = [
+    {n:1, label:'Part 1 \u2014 Computer Basics'},
+    {n:2, label:'Part 2 \u2014 Computer Parts'},
+    {n:3, label:'Part 3 \u2014 I/O & Storage Devices'}
+  ];
+  let html = '';
+  parts.forEach(p=>{
+    const items = FLASHCARDS.filter(f=>f.chap===p.n);
+    html += `<div class="cheat-col"><h3>${p.label}</h3>`;
+    items.forEach(it=>{
+      html += `<div class="cheat-item"><b>${it.term}:</b> ${it.def}</div>`;
+    });
+    html += `</div>`;
+  });
+  container.innerHTML = html;
+}
+renderCheatSheet();
+document.getElementById('ic-print-cheat-btn').addEventListener('click', ()=>{
   window.print();
 });
 
