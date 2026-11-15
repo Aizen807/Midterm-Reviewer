@@ -5,13 +5,14 @@ A study reviewer for **Understanding the Self (UTS)**, **PATHFIT / Physical Educ
 ## What’s included
 
 - Chapter and lesson notes for all three subjects
+- Understanding the Self: all 80 pages of the supplied module as offline-readable text, organized by chapter, plus the original PDF for its illustrations and layout in a compatible browser
 - Multiple-choice, identification, and mixed quiz modes, with explanations and missed-question review
 - Flashcards, shuffle, and subject cheat sheets
 - Weak-spot statistics saved on the device
 - Android system Back navigation from a subject to the study hub
 - Android print dialog for the cheat sheet (including **Save as PDF**)
 
-The app content and study interactions are local and work without a network connection after installation. Google Fonts are optional and load only when the device is online. The weak-spot statistics use WebView local storage on the device.
+The app content, full UTS module text, and study interactions are local and work without a network connection after installation. The full-module text is extracted from the supplied PDF and may not preserve diagrams or table layout; the original PDF is included in the repository and can be opened in a compatible browser. The source may contain outdated health information. Google Fonts are optional and load only when the device is online. The weak-spot statistics use WebView local storage on the device.
 
 ## Build and run the Android app
 
