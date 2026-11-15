@@ -5,7 +5,8 @@ A study reviewer for **Understanding the Self (UTS)**, **PATHFIT / Physical Educ
 ## What’s included
 
 - Chapter and lesson notes for all three subjects
-- Understanding the Self: all 80 pages of the supplied module as offline-readable text, organized by chapter, plus the original PDF for its illustrations and layout in a compatible browser
+- Understanding the Self: a lesson-by-lesson summary of all three chapters (including activities) modeled on the supplied review PDF, followed by all 80 pages of the original module as offline-readable text and the original PDF in a compatible browser
+- Expanded UTS quiz and flashcard coverage; the cheat sheet is generated from the flashcards
 - Multiple-choice, identification, and mixed quiz modes, with explanations and missed-question review
 - Flashcards, shuffle, and subject cheat sheets
 - Weak-spot statistics saved on the device
