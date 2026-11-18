@@ -39,6 +39,23 @@
     --plum-soft:#4a6d8c;
     --tint:#e2e9f0;
   }
+  #subject-purcom{
+    --plum:#5c365f;
+    --plum-soft:#87618b;
+    --tint:#f0e6f1;
+  }
+  .purcom-transcript{
+    white-space:pre-wrap; overflow-wrap:anywhere; font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;
+    color:var(--ink); background:#fffdf8; border:1px solid var(--rule); border-radius:4px;
+    padding:14px; margin:0; max-height:65vh; overflow:auto;
+  }
+  .pc-option{display:block;width:100%;text-align:left;padding:12px 14px;margin:8px 0;border:1px solid var(--rule);border-radius:4px;background:var(--panel);color:var(--ink);font:15px/1.45 'Karla',sans-serif;cursor:pointer;}
+  .pc-option:hover{border-color:var(--plum-soft);}
+  .pc-option.correct{border-color:var(--good);background:#e7f0e6;}
+  .pc-option.wrong{border-color:var(--bad);background:#f6e6e6;}
+  .pc-missed-item{margin:8px 0;padding:10px 12px;background:var(--tint);border-left:3px solid var(--plum-soft);border-radius:3px;font-size:14px;}
+  .pc-weak{background:var(--tint);padding:12px 14px;border-radius:4px;margin:12px 0 18px;font-size:13.5px;color:var(--ink-soft);}
+  .pc-weak strong{color:var(--plum);}
   .subject-view{display:none;}
 
   *{box-sizing:border-box;}
@@ -340,6 +357,12 @@
         <span class="tag2">Computer Studies</span>
         <h2>Introduction to Computer</h2>
         <p>Computer fundamentals, hardware/software/peopleware, internal and external parts, and input/output/storage devices.</p>
+        <span class="meta">Open Reviewer →</span>
+      </button>
+      <button class="subject-card" onclick="showSubject('purcom')">
+        <span class="tag2">General Education</span>
+        <h2>Purposive Communication</h2>
+        <p>Language, communication types and modes, processes and ethics, and globalization.</p>
         <span class="meta">Open Reviewer →</span>
       </button>
     </div>
@@ -5151,6 +5174,811 @@ maintain or improve your physical, mental, and emotional health.
 </div>
 </div>
 
+<div id="subject-purcom" class="subject-view">
+<header class="top"><button onclick="showHub()" style="display:inline-block;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:10px;background:none;border:none;cursor:pointer;padding:0;font-family:'Karla',sans-serif;">← All Subjects</button><div class="kicker">Midterm Review</div><h1>Purposive Communication (PURCOM)</h1><p>Language, communication types and modes, communication principles and ethics, and globalization — with lesson notes, a full module area, two self-quizzes, flashcards, and a cheat sheet.</p></header>
+<nav class="tabs" id="pc-tabs"><button data-view="lesson1" class="active">Language</button><button data-view="lesson2">Types</button><button data-view="lesson3">Processes &amp; Ethics</button><button data-view="modes">Forms</button><button data-view="globalization">Globalization</button><button data-view="module">Full Module</button><button data-view="quiz">Quiz Yourself</button><button data-view="quiz2">Quiz Yourself 2</button><button data-view="cards">Flashcards</button><button data-view="cheat">Cheat Sheet</button></nav>
+<div class="wrap"><!-- PURCOM LESSON 1 -->
+<section class="view active" id="pc-view-lesson1">
+  <div class="chapter-intro"><h2>Lesson 1 — The Nature of Language</h2><p>What language is, how communities share it, and how acquisition, learning, contact, and change relate.</p></div>
+  <details class="lesson" open><summary><h3>Language as a system</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p><span class="term">Language</span> is a structured system of conventional symbols—words, sounds, or gestures—used to convey meaning. The lesson names a rule system (<strong>grammar/syntax</strong>), <strong>semantics</strong> (meaning), <strong>phonology</strong> (sound and pronunciation), and a <strong>lexicon</strong> (vocabulary).</p>
+    <p>People understand one another through shared use within a <span class="term">speech community</span>. The lesson’s spelling activity compares variants such as <em>colour/color</em>-style spellings; it asks learners to justify which spelling is appropriate rather than treating one regional form as universally wrong.</p>
+  </div></details>
+  <details class="lesson"><summary><h3>Acquisition, learning, and language change</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p><span class="term">Language acquisition</span> is gaining the language or languages used in one’s community while growing up. These are called <strong>mother tongues</strong> or <strong>first languages</strong>. A <strong>second language</strong> may be needed later and can be learned formally in school or informally on one’s own.</p>
+    <p><span class="term">Language contact</span> occurs as people interact while using or learning one another’s languages. The lesson says this continuing contact can lead to <strong>language change</strong>.</p>
+    <p class="module-note">The slides pose questions about animal communication and whether monkeys produce language, but do not provide the answers. Use your instructor’s discussion for those points.</p>
+  </div></details>
+</section>
+<!-- PURCOM LESSON 2 -->
+<section class="view" id="pc-view-lesson2">
+  <div class="chapter-intro"><h2>Lesson 2 — Types of Communication</h2><p>Communication as shared meaning, the role of context, and the major types by mode, context, organization, purpose, and style.</p></div>
+  <details class="lesson" open><summary><h3>Communication and context</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p><span class="term">Communication</span> is an exchange of thoughts, ideas, concepts, and views between or among people. The slide connects the word with <em>communicare</em>, “to share” or “make common”: communication is not merely sending a message, but a collaborative process of sharing information, ideas, and feelings to build mutual understanding.</p>
+    <p><span class="term">Context</span> is the circumstance or environment in which communication happens. It can be physical, cultural, social, or psychological and includes the setting, participants’ values, and message relevance.</p>
+  </div></details>
+  <details class="lesson"><summary><h3>Types by mode and context</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <ul><li><strong>Verbal and non-verbal:</strong> spoken words work alongside gestures, facial expressions, and posture; non-verbal cues can reinforce a message and shape first impressions.</li><li><strong>Visual:</strong> signs, symbols, charts, diagrams, emojis, and imagery can make complex information easier to take in. Consider placement, color, size, shape, and audience.</li><li><strong>Intrapersonal:</strong> self-talk or introspection, used for reflection, confidence, motivation, performance review, and emotional processing.</li><li><strong>Interpersonal:</strong> exchange between two people or a small group. The slides contrast informal relationship-oriented talk with formal, goal-oriented <em>transactional</em> discussion.</li><li><strong>Extended:</strong> electronic media and telecommunications allow distant audiences to participate; broader public reach calls for prepared language.</li><li><strong>Intercultural:</strong> communication across differing linguistic, cultural, ethnic, gender, or professional backgrounds. Interpret cues with care instead of making quick judgments.</li></ul>
+  </div></details>
+  <details class="lesson"><summary><h3>Organizational communication and style</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p><strong>Formal organizational flows:</strong> downward (superior to subordinate), upward (subordinate to superior), horizontal/lateral (peers at the same level), and crosswise/diagonal (across departments and different levels).</p>
+    <p><span class="term">Grapevine</span> is unofficial message flow through social networks or in response to uncertainty or dissatisfaction; it can produce rumors that are hard to trace.</p>
+    <p><strong>Formal communication</strong> is structured and deliberate, typical of academic, professional, and business contexts; it favors precise, objective language. <strong>Informal communication</strong> is spontaneous and relaxed, common with friends and family, and may use slang, colloquialisms, or local dialects.</p>
+  </div></details>
+</section>
+<!-- PURCOM LESSON 3 -->
+<section class="view" id="pc-view-lesson3">
+  <div class="chapter-intro"><h2>Lesson 3 — Communication Processes, Principles, and Ethics</h2><p>Compare the models as far as the supplied slides explain them, then review practical principles and ethical responsibilities.</p></div>
+  <details class="lesson" open><summary><h3>Models named in the lesson</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <ul><li><strong>Aristotle:</strong> centered on public speaking and rhetoric; the speaker adapts delivery to audience demographics such as age, culture, background, and beliefs.</li><li><strong>Lasswell:</strong> described as similar to Aristotle’s model, with <strong>medium</strong> and <strong>effect</strong> added.</li><li><strong>Shannon–Weaver:</strong> introduced as a model originally created for technological systems such as radio and television.</li><li><strong>David Berlo:</strong> named in the slide’s model list, but the supplied file does not explain its components.</li></ul>
+    <p class="module-note">The source deck does not fully describe every model or show all of their variables. This reviewer stays within the details it provides.</p>
+  </div></details>
+  <details class="lesson"><summary><h3>General principles and effective communication</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p>Know your <strong>purpose</strong> (inform, persuade, or entertain), <strong>audience</strong>, and <strong>topic</strong>; adapt language and tone to the context; and integrate feedback, including constructive criticism.</p>
+    <p><strong>Effective oral communication:</strong> keep a clear purpose, support statements with essential facts, be concise, deliver naturally with appropriate non-verbal cues and posture, and provide timely, specific feedback.</p>
+    <p><strong>The 7 Cs for writing:</strong> <em>Clear</em> (distinct purpose), <em>Concise</em> (direct), <em>Concrete</em> (facts and data), <em>Correct</em> (mechanics), <em>Coherent</em> (logical flow), <em>Complete</em> (answers essential questions), and <em>Courteous</em> (respectful tone).</p>
+  </div></details>
+  <details class="lesson"><summary><h3>Ethics and a code of conduct</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p>The lesson’s ethical pillars are a <strong>values system</strong> that builds integrity, <strong>accuracy</strong> (complete, truthful, contextualized information), and <strong>transparency</strong> (appropriate disclosure without deliberate concealment).</p>
+    <p>A code of conduct sets expected behavior, protects organizational reputation, supports fair decision-making, and builds stakeholder trust.</p>
+  </div></details>
+</section>
+<!-- PURCOM FORMS -->
+<section class="view" id="pc-view-modes">
+  <div class="chapter-intro"><h2>Forms of Communication</h2><p>Choose a channel for the situation, audience, and cues available. The handout compares four practical modes.</p></div>
+  <details class="lesson" open><summary><h3>Face-to-face interaction</h3><span class="plus">+</span></summary><div class="lesson-body"><p>Direct spoken interaction, often casual, that helps people build relationships, make social connections, and form first impressions. It provides words plus facial expressions, gestures, and real objects or surroundings. With strangers, the handout recommends avoiding sensitive topics and focusing on shared immediate experiences.</p></div></details>
+  <details class="lesson"><summary><h3>Video communication</h3><span class="plus">+</span></summary><div class="lesson-body"><p>Webcam-based services connect people separated by distance or time zones while carrying audio and visual expressions. The handout gives both casual calls and formal corporate conferences as uses; technical glitches and time-zone differences can be challenges.</p></div></details>
+  <details class="lesson"><summary><h3>Audio communication</h3><span class="plus">+</span></summary><div class="lesson-body"><p>Phone calls, answering machines, voice messages, and voicemail transmit sound without visual cues. Listeners cannot see body language or facial expressions, and accents or pronunciation differences may create cross-cultural listening barriers.</p></div></details>
+  <details class="lesson"><summary><h3>Text-based communication</h3><span class="plus">+</span></summary><div class="lesson-body"><p>Email, fax, SMS, instant messaging, and social media are written channels that can distribute information quickly and to large audiences. A limitation is the absence of immediate vocal tone and facial cues unless text is paired with audio or video.</p></div></details>
+</section>
+<!-- PURCOM GLOBALIZATION -->
+<section class="view" id="pc-view-globalization">
+  <div class="chapter-intro"><h2>Communication and Globalization</h2><p>Cross-border economic and cultural connections make communication more far-reaching, while also creating uneven benefits and new challenges.</p></div>
+  <details class="lesson" open><summary><h3>Meaning and history</h3><span class="plus">+</span></summary><div class="lesson-body"><p>The slides define <span class="term">globalization</span> simply as people and goods moving more easily across borders. Economically, it involves integrating markets, trade, and investment with fewer barriers; culturally, it involves exchange and assimilation of ideas and traditions. The lesson stresses that benefits do not reach everyone equally.</p><p>The deck uses the <strong>Silk Road</strong> as an older example of trade and cultural exchange among China and regions across the Middle East, Africa, and Europe. It gives the dates 130 BCE to 1453 CE for the network described in the slides.</p></div></details>
+  <details class="lesson"><summary><h3>Drivers, benefits, and costs</h3><span class="plus">+</span></summary><div class="lesson-body"><p>The slides say globalization accelerated with the internet, container ships, and improvements in transport such as faster ships, trains, and airplanes.</p><p><strong>Potential benefits in the deck:</strong> poverty reduction, foreign investment, jobs, medical and educational facilities, and international cooperation. <strong>Costs or concerns:</strong> pressure on some local industries, cybercrime, wealth inequality, and legal tax avoidance. The deck’s Starbucks, UK steel, Rwanda coffee, Paris Agreement, and IMF examples are presented here as course examples, not independently updated facts.</p></div></details>
+  <details class="lesson"><summary><h3>Why this matters for communication</h3><span class="plus">+</span></summary><div class="lesson-body"><p>More cross-border trade, work, travel, and cultural exchange create more situations where people communicate across language and cultural differences. The companion lessons on context, intercultural communication, language variation, and mode choice help explain how to communicate with those audiences thoughtfully.</p><p class="module-note">The source deck gives examples and perspectives but does not provide independent citations or detailed measurements for each claimed effect.</p></div></details>
+</section>
+<section class="view" id="pc-view-module"><div class="chapter-intro"><h2>Full PURCOM Module</h2><p>Study-ready lesson summaries appear in the lesson tabs. The complete text extracted from each supplied slide deck is also available below for offline reading.</p><p class="module-note" id="pc-original-pdf-links">Original slide PDFs (browser version): <a href="purcom-materials/purcom-lesson-1.pdf">Lesson 1 — The Nature of Language</a> · <a href="purcom-materials/purcom-lesson-2.pdf">Lesson 2 — Types of Communication</a> · <a href="purcom-materials/purcom-lesson-3.pdf">Lesson 3 — Communication Processes, Principles, and Ethics</a> · <a href="purcom-materials/forms-of-communication.pdf">Forms of Communication</a> · <a href="purcom-materials/communication-and-globalization.pdf">Communication and Globalization</a></p></div><div class="module-guide"><h3>Lesson-by-Lesson Summary</h3><ol><li><strong>Language foundations:</strong> language, speech communities, acquisition, learning, contact, and change.</li><li><strong>Types of communication:</strong> communication and context; modes and contexts; organizational flows; formal and informal style.</li><li><strong>Communication processes, principles, and ethics:</strong> the models as described in the deck, effective oral and written practices, and ethics.</li><li><strong>Forms of communication:</strong> face-to-face, video, audio, and text-based channels.</li><li><strong>Communication and globalization:</strong> definition, history, drivers, benefits, concerns, and communication across borders.</li></ol><p class="module-note">Repeated Lesson 2 and Lesson 3 uploads were exact duplicates and are included once. The source statements and examples are transcribed as supplied; some slide statistics and examples may reflect their original publication date.</p></div><h3>Original Slide Text</h3><p class="module-note">The transcripts preserve searchable text, but not slide images, diagrams, or visual layout. Open the PDF links in a compatible browser for the original slides.</p><details class="lesson purcom-source"><summary><h3>Lesson 1 — The Nature of Language</h3><span class="plus">+</span></summary><div class="lesson-body"><pre class="purcom-transcript">--- Page 1 ---
+PURPOSIVE COMMUNICATION   Lesson 01
+
+
+
+
+THE NATURE OF
+  LANGUAGE
+
+--- Page 2 ---
+LESSON
+     OBJECTIVES
+     Demonstrate an understanding of
+01   the key ideas in language and
+     communication; and
+
+
+02   Relate your personal experience to
+     the input presented.
+
+--- Page 3 ---
+CORRECT OR INCORRECT?
+
+
+                        AEROPLANE
+
+                         AIRPLANE
+
+                         COLONISE
+
+STUDY THE FOLLOWING      COLONIZE
+
+WORDS. WHICH SPELLING    DEFENCE
+
+IS CORRECT/INCORRECT.    DEFENSE
+JUSTIFY YOUR ANSWERS.   ENROLMENT
+
+                        ENROLLMENT
+
+                         HONOUR
+
+                          HONOR
+
+--- Page 4 ---
+CAN ANIMALS
+COMMUNICATE?
+
+--- Page 5 ---
+WHAT IS
+LANGUAGE?
+
+--- Page 6 ---
+WHAT EXACTLY IS
+    LANGUAGE?
+A structured system of communication that
+relies on conventional symbols such as words,
+sounds, or gestures to convey meaning.
+Language can only be called a language if it
+has a system of rules (also known as
+grammar/syntax), a sound system (semantics -
+meaning of words, phonology - pronunciation),
+and a vocabulary (lexicon).
+
+--- Page 7 ---
+When people use language, they can
+understand each other because they belong to
+the same speech community.
+While growing up, people acquire the
+languages used by those in the community. This
+is the process of language acquisition.
+The languages acquired while growing up are
+known as mother tongues or first languages.
+People discover later on that other languages
+are needed for various reasons, referred to as
+second languages.
+People learn these languages by studying
+formally in school or informally on their own;
+this is the process of language learning.
+
+--- Page 8 ---
+FOR EXAMPLE:
+If you move to China for work knowing only
+English    and  your  native   language, how
+effectively can you communicate with locals
+who speak Mandarin and only a tiny bit of
+English? Will you be able to communicate with
+the Chinese?
+
+--- Page 9 ---
+You    will    be    able   to
+communicate as you slowly
+learn each other’s languages.
+This   is   called   language
+contact. Your own languages
+may also change as you
+constantly     interact    and
+communicate       with    each
+other. Thus, language change
+is the result of language
+contact.
+
+--- Page 10 ---
+CHECK YOUR
+UNDERSTANDING
+1. Can animals communicate?
+2. Can monkeys produce language?
+3. What is the difference between
+  language acquisition and language
+  learning?
+4. What is the difference between
+  first language and second language?
+5. What happens after a language
+  comes into contact with another?
+
+--- Page 11 ---
+THANK YOU FOR
+PARTICIPATING!</pre></div></details><details class="lesson purcom-source"><summary><h3>Lesson 2 — Types of Communication</h3><span class="plus">+</span></summary><div class="lesson-body"><pre class="purcom-transcript">--- Page 1 ---
+TYPES OF COMMUNICATION
+         LESSON 2
+
+--- Page 2 ---
+LEARNING OBJECTIVES:
+  Demonstrate knowledge about the role of language in human
+  communication;
+  Identify the types of communication in relation to
+  communication mode, context, purpose and style;
+  Differentiate verbal, non-verbal, and visual communication
+  and their sub-forms in relation to communication modes;
+  Evaluate     the     differences     among     intrapersonal,
+  interpersonal, extended, organizational, and intercultural
+  communication in relation to communication context; and
+  Explain the differences between formal and informal
+  communication.
+
+--- Page 3 ---
+WHAT IS
+COMMUNICATION?
+
+--- Page 4 ---
+COMMUNICATION
+         Communicare      is   the   Latin   verb    root   of
+         &quot;communication,&quot; meaning &quot;to share&quot; or &quot;to make
+         common&quot;. It establishes that communication is not just
+         sending a message, but a collaborative process of
+         exchanging information, ideas, and feelings to build
+         mutual understanding with your audience.
+         The exchange of thoughts, ideas, concepts, and views
+         between or among two or more people.
+
+--- Page 5 ---
+CONTEXT
+  The circumstance or environment (physical,
+  cultural,    social,   psychological)   in   which
+  communication takes place.
+  Such circumstance or environment includes
+  settings, speaker/listener values, and message
+  relevance.
+
+--- Page 6 ---
+TYPES OF COMMUNICATION
+BY MODE
+ 1.Verbal &amp; Non-Verbal Communication: Effective
+   communication requires blending spoken words (verbal)
+   with gestures, facial expressions, and posture (non-
+   verbal). Impact: Non-verbal cues leave strong initial
+   impressions and reinforce spoken content.
+ 2.Visual Communication: Uses signs, symbols, charts,
+   diagrams, emojis, and imagery. Purpose: Translates
+   complex data into digestible information to boost
+   engagement and recall. Design Considerations: Presenters
+   must consider positioning, color, size, shape, and audience
+   size.
+
+--- Page 7 ---
+TYPES OF COMMUNICATION
+BY CONTEXT
+1. Intrapersonal Communication: Self-talk, inner monologue,
+or introspection (&quot;talking to oneself&quot;). Purpose: Used for self-
+motivation, confidence building, evaluating performance, and
+emotional processing.
+
+2. Interpersonal Communication: Interactive exchange
+between two (dyad) or more people (small groups).
+Two Types: Interpersonal: Informal talks aimed at
+establishing or maintaining social relationships. Transactional:
+Formal, goal-oriented discussions aimed at achieving a
+specific outcome or resolving an issue.
+
+--- Page 8 ---
+TYPES OF COMMUNICATION
+BY CONTEXT
+3. Extended Communication: Communication facilitated by
+electronic media and telecommunications (e.g., video calls,
+teleconferences, social media, internet). Impact: Allows
+distant audiences to participate; requires more formal and
+carefully prepared language due to its public reach.
+
+4. Intercultural Communication: Communication across
+diverse linguistic, cultural, ethnic, gender, or professional
+backgrounds. Key Factors: Non-verbal variations: Cues like
+eye contact, hand gestures, and facial expressions vary wildly
+across cultures. Linguistic variations: Regional dialects and
+local vocabulary (e.g., Philippine English terms like CR,
+batchmates) shape understanding.
+
+--- Page 9 ---
+ORGANIZATIONAL COMMUNICATION
+Communication systems and standards designed for work environments.
+
+Formal Communication
+Downward: Superior to subordinate (e.g., assigning tasks, instructions).
+Upward: Subordinate to superior (e.g., feedback, reporting).
+Horizontal (Lateral): Peer-to-peer within same-level departments.
+Crosswise (Diagonal): Inter-departmental interaction across
+different hierarchical levels.
+
+Informal Communication (&quot;Grapevine&quot;)
+Unofficial flow of messages driven by employee dissatisfaction,
+uncertainty, or informal social networks. Can lead to rumors that are
+hard to trace.
+
+--- Page 10 ---
+INTERCULTURAL COMMUNICATION
+     Refers to the exchange of messages between
+     individuals or groups with distinct linguistic, ethnic,
+     religious, social, professional, or gender backgrounds.
+     Because individuals interpret the world through their
+     own cultural lenses, the same message can be
+     understood differently depending on who receives it.
+     Effective     intercultural   communication    requires
+     avoiding quick judgments and understanding how non-
+     verbal cues and language variations differ across
+     societies.
+
+--- Page 11 ---
+INTERCULTURAL COMMUNICATION
+1. Cultural Differences in Non-Verbal Communication
+Non-verbal signals are heavily influenced by culture.
+Eye Contact: While Australians view direct eye contact as a sign of
+sincerity, some traditional cultures (such as in India) consider looking
+directly into someone&#x27;s eyes while speaking to be inappropriate.
+Hand Gestures: Waving hands from side to side translates to &quot;hello&quot;
+in Western cultures, but is interpreted as &quot;no&quot; or &quot;go away&quot; in Indian
+culture.
+Facial Expressions: In the Philippines, pointing toward an object or
+person is often done by twitching or puckering the lips. To an
+outsider, this gesture might be mistaken for flirting or seduction
+rather than simple direction.
+
+--- Page 12 ---
+INTERCULTURAL COMMUNICATION
+2. Linguistic and Pronunciation Variations
+Language usage and vocabulary evolve differently across cultures,
+leading to regional variations known as World Englishes:
+Lexical Innovations: Philippine English includes unique vocabulary
+and local expressions—such as CR (comfort room), batchmates,
+thrice, solons, and high blood—that are uncommon in standard
+American or British English.
+Phonological Differences: Pronunciation varies naturally based on
+a speaker&#x27;s native sound system. For example, native Filipino
+speakers often substitute the /th/ sound with a /d/ sound (e.g.,
+pronouncing &quot;this&quot; as &quot;dis&quot;), as hard /th/ sounds do not exist in
+traditional Filipino phonology.
+
+--- Page 13 ---
+TYPES OF COMMUNICATION BY PURPOSE AND STYLE
+ Formal Communication
+ Official, structured, and deliberate communication governed by rules and
+ professional etiquette.
+ Contexts: Used in academic, professional, and business settings (e.g., lectures,
+ research papers, speeches, business letters, reports).
+ Language &amp; Style: Objective, precise, and objective-driven, avoiding casual slang
+ or colloquialisms.
+ Informal Communication
+ Unstructured and spontaneous communication that occurs naturally in casual
+ settings.
+ Contexts: Used among friends, family, and acquaintances in everyday
+ conversations.
+ Language &amp; Style: Relaxed tone, flexible grammar, and includes slang, colloquial
+ expressions, or local dialects.
+
+--- Page 14 ---
+THANK YOU!
+MISS ANGIE MONTEBON MORALES
+        SOE FACULTY</pre></div></details><details class="lesson purcom-source"><summary><h3>Lesson 3 — Communication Processes, Principles, and Ethics</h3><span class="plus">+</span></summary><div class="lesson-body"><pre class="purcom-transcript">--- Page 1 ---
+The
+Communication
+ Processes,
+Principles and
+    Ethics
+
+--- Page 2 ---
+Learning Objectives:
+Explain and compare conceptual models of
+communication.
+Identify core variables in the communication
+process.
+Apply principles for effective oral and written
+communication.
+Evaluate the necessity of ethics and a code of
+conduct in communication.
+
+--- Page 3 ---
+Communication models
+1. ARISTOTLE’S MODEL
+2. LASWELL’S MODEL
+3. SHANNON-WEAVER’S MODEL
+4. DAVID BERLO’S MODEL
+
+--- Page 4 ---
+ARISTOTLE’S Communication model
+Focus:      Centered      on       public
+speaking       and     rhetoric.     The
+speaker adjusts delivery based
+on      audience       demographics
+(age,       culture,     background,
+beliefs).
+
+--- Page 5 ---
+LASWELL’S Communication model
+Somewhat similar to Aristotle’s Communication model,
+but added two variables; medium and effect.
+
+--- Page 6 ---
+Shannon-Weaver’s Communication
+           model
+Originally created for technological systems (radio/TV).
+
+--- Page 7 ---
+berlo’s Communication model
+
+--- Page 8 ---
+General
+ Principles of
+   Effective
+Communication
+
+--- Page 9 ---
+Know Your Purpose
+Know Your Audience
+Know Your Topic
+Contextual Adaptation
+Feedback Integration
+
+--- Page 10 ---
+Know Your Purpose: Determine if your primary goal is
+to inform, persuade, or entertain.
+
+Know Your Audience: Tailor speech or writing style to
+the audience&#x27;s background, profession, culture, and
+age.
+
+Know Your Topic: Ensure you have valuable
+information to share and use engagement techniques
+effectively.
+
+--- Page 11 ---
+Contextual Adaptation: Adjust language
+and tone to fit the specific environment or
+situation.
+
+Feedback Integration: Accept constructive
+criticism to improve future interactions.
+
+--- Page 12 ---
+Oral vs. Written
+Communication
+  Principles
+
+--- Page 13 ---
+Effective Oral Communication
+1 Clear Purpose: Keep the main objective
+clear.
+2 Complete Message: Back up statements with
+essential facts.
+3 Concise: Keep speech brief and avoid
+verbosity.
+4 Natural Delivery: Use appropriate non-
+verbal cues and posture.
+5 Timely Feedback: Provide prompt, specific
+responses.
+
+--- Page 14 ---
+Effective Written Communication
+               (The 7 Cs)
+1. Clear: Guided by a distinct purpose.
+2. Concise: Direct and to the point.
+3.Concrete: Supported by solid facts and data.
+4.Correct: Proper grammar, spelling, and mechanics.
+5.Coherent: Logical flow using transitional devices.
+6.Complete: Leaves no essential questions unanswered.
+7.Courteous: Polite, friendly, and respectful tone.
+
+--- Page 15 ---
+ethics in
+communication
+
+--- Page 16 ---
+Core Ethical Pillars
+Values System: Build personal and organizational
+integrity.
+Accuracy:     Provide     complete,     truthful,  and
+contextualized information.
+Transparency:        Disclose     vital     information
+appropriately without deliberate concealment.
+Importance of Code of Conduct: Establishes
+standard     behavior,      protects     organizational
+reputation, ensures fair decision-making, and builds
+stakeholder trust.
+
+--- Page 17 ---
+Thank you
+   for
+listening!</pre></div></details><details class="lesson purcom-source"><summary><h3>Forms of Communication</h3><span class="plus">+</span></summary><div class="lesson-body"><pre class="purcom-transcript">--- Page 1 ---
+FORMS OF
+COMMUNICATION
+
+--- Page 2 ---
+LESSON OBJECTIVES
+
+          1                           2                            3
+Identify Communication        Importance Across         Distinguish Differences:
+  Modes: Understand         Audiences: Apply forms       Differentiate between
+different channels and     of communication (face-       various communication
+                                                            modes. Contextual
+their role in expressing    to-face, audio, virtual,   Application: Use appropriate
+         intent.           text-based) in local and     modes based on specific
+                               global settings.           situational contexts.
+
+--- Page 3 ---
+WHAT IS A
+COMMUNICATION
+    MODE?
+
+--- Page 4 ---
+COMMUNICATION   THE CHANNEL OR
+               MEDIUM THROUGH
+    MODE
+               WHICH THOUGHTS,
+              VIEWS, OR FEELINGS
+                ARE EXPRESSED.
+
+--- Page 5 ---
+PRIMARY MODES
+FACE-TO-FACE INTERACTION
+  VIDEO COMMUNICATION
+  AUDIO COMMUNICATION
+       TEXT-BASED
+     COMMUNICATION
+
+--- Page 6 ---
+FACE-TO-FACE INTERACTION
+ Most common mode; informal or casual direct
+ spoken interaction.
+ Purpose: Building relationships, establishing
+ social connections, and making first
+ impressions.
+ Advantage: Allows reading visual non-verbal
+ cues (facial expressions, gestures, physical
+ objects/realia) alongside spoken words.
+ Social Etiquette: Avoid sensitive topics (e.g.,
+ politics, religion) with strangers; focus on
+ shared immediate experiences.
+
+--- Page 7 ---
+VIDEO COMMUNICATION
+Uses webcams and digital platforms (e.g.,
+Skype, FaceTime, Viber, WhatsApp, Zoom).
+Advantage: Connects people separated by
+distance or time zones while capturing audio
+and close-up visual expressions.
+Applications: Casual calls with loved ones to
+formal corporate video conferencing.
+Challenges: Technical glitches and time zone
+differences.
+
+--- Page 8 ---
+AUDIO COMMUNICATION
+Transmitted sound only (voice without visual
+cues).
+Channels: Phone calls, answering machines,
+voice messages, voicemail.
+Drawbacks: Inability to observe body
+language or facial expressions.
+Cross-Cultural Challenge: Listening barriers
+related to accents (e.g., World Englishes
+paradigm, phonetic variations like /l/ vs /i/ or
+/v/ vs /b/).
+
+--- Page 9 ---
+TEXT-BASED
+     COMMUNICATION
+Written exchanges via digital platforms.
+Channels: Email, facsimile (fax), SMS, instant
+messaging, social media (Facebook, X/Twitter,
+Instagram).
+Advantage: High reach and rapid dissemination
+of information to large audiences.
+Limitation: Lacks immediate real-time vocal
+tone and facial cues unless paired with
+video/audio.
+
+--- Page 10 ---
+THANK YOU
+
+--- Page 11 ---
+TEACHER
+RESOURCES
+PAGE</pre></div></details><details class="lesson purcom-source"><summary><h3>Communication and Globalization</h3><span class="plus">+</span></summary><div class="lesson-body"><pre class="purcom-transcript">--- Page 1 ---
+Communication
+          and
+globalization
+
+--- Page 2 ---
+Lessons
+  objectives
+   Lessons
+  objectives
+Demonstrate knowledge about
+globalization as an economic
+phenomenon.
+Demonstrate an understanding
+of the impact of globalization
+on communication.
+
+--- Page 3 ---
+Context
+Many global companies
+    operate in the
+Philippines alongside
+  local counterparts
+(e.g., McDonald&#x27;s and
+       Jollibee).
+
+--- Page 4 ---
+Group discussion
+   Compare customer
+     experiences,
+     similarities,
+   differences, and
+product quality between
+ global companies and
+  local counterparts.
+
+--- Page 5 ---
+The Globalization
+The Globalization Phenomenon
+                  Phenomenon
+Terms like &quot;globalization&quot; and &quot;global&quot; refer to
+realities outside the territories of nation-
+states.
+Almost all countries and societies are affected
+by globalization, making it vital to understand
+what it is and how it impacts communication.
+
+--- Page 6 ---
+How
+Globalization
+    Works
+
+--- Page 7 ---
+WHAT IS
+GLOBALIZATION?
+
+--- Page 8 ---
+Core Definition
+  In simple terms, globalization is the process
+ by which people and goods move easily
+ across borders.
+ Principally an economic concept involving
+ the integration of markets, trade, and
+ investments with few barriers.
+
+--- Page 9 ---
+Core Definition
+ Includes a cultural element where ideas and
+ traditions are traded and assimilated.
+ Brings benefits to many, though not to
+ everyone.
+
+--- Page 10 ---
+Case Study
+   Case Study Example
+              Example
+      (Starbucks)
+      (Starbucks)
+Started in Seattle in 1971; expanded
+    to 15,000 stores across 50
+    countries, becoming a truly
+       globalized company.
+
+--- Page 11 ---
+Case Study
+   Case Study Example
+              Example
+      (Starbucks)
+      (Starbucks)
+Provides jobs and purchases millions
+  of kilograms of unroasted coffee
+      from dozens of countries.
+
+--- Page 12 ---
+Case Study
+   Case Study Example
+              Example
+      (Starbucks)
+      (Starbucks)
+   Controversy: In 2012, reports
+highlighted tax avoidance issues in
+the UK, showing how multinational
+companies use complex accounting
+ rules to pay lower taxes, reducing
+ public funds for local well-being.
+
+--- Page 13 ---
+History of Globalization
+Globalization is not entirely new; it has been
+            around for centuries.
+Example: The Silk Road facilitated trade and
+cultural exchange (including spices, silk, and
+coffee customs) between China, Europe, and
+                   Turkey.
+
+--- Page 14 ---
+The Silk Road was an
+  ancient, interconnected
+ network of land and sea
+  trade routes that linked
+China and the Far East with
+  the Middle East, Africa,
+ and Europe from 130 BCE
+       until 1453 CE.
+
+--- Page 15 ---
+Drivers of Globalization
+ Accelerated drastically over the last half-
+  century due to major technological leaps.
+ Key drivers: The internet (revolutionizing
+communication sharing like the 15th-century
+ printing press and email), container ships,
+and general transport improvements (faster
+        ships, trains, and airplanes).
+
+--- Page 16 ---
+The Pros
+The Pros and
+         and Cons
+             Cons
+of Globalization
+of Globalization
+
+--- Page 17 ---
+What’s Good
+What’s Good About
+            About
+       It?
+       It?
+
+--- Page 18 ---
+Lifted millions out of poverty.
+Boosts local economies through foreign
+investments,         medical/educational
+facilities, and job creation (e.g., buying
+coffee from farmers in Rwanda).
+Encourages international cooperation,
+such as the Paris Agreement on Climate
+Change addressing carbon emissions.
+
+--- Page 19 ---
+What’s Bad
+What’s Bad About
+           About
+       It?
+       It?
+
+--- Page 20 ---
+Economic shifts can cause certain local
+industries to flounder (e.g., UK steel
+plants closing down due to cheaper
+production in China).
+Tech advancements bring new cyber
+crime     dangers,     and       global
+wealth/warming have skyrocketed.
+
+--- Page 21 ---
+Unequal distribution of benefits:
+Profits flow back to the richest
+countries/individuals, leaving a wide
+gap between the poorest and richest
+nations, worsened by legal tax
+avoidance (noted by Oxfam).
+
+--- Page 22 ---
+International Monetary Fund (IMF)
+                Perspective:
+  Done wisely, globalization leads to
+unparalleled peace and prosperity; done
+      poorly, it leads to disaster.
+
+--- Page 23 ---
+performance task:
+         creative output
+
+ In pairs, create a collage, poster, or slogan
+illustrating the impact of globalization on
+communication, and explain the work in short
+paragraphs.
+⅛ Illustration board with plastic cover.
+
+--- Page 24 ---
+Thank you
+Thank you for
+          for
+
+students!
+listening
+students!</pre></div></details></section><!-- PURCOM QUIZ 1 -->
+<section class="view" id="pc-view-quiz">
+ <div class="quiz-shell">
+  <div id="pc-quiz-start"><h2>Self-Quiz</h2><p>Choose a question type and lessons to drill. Leave every lesson unchecked to cover them all; questions are shuffled and explained after each answer.</p><div id="pc-weak-box"></div>
+   <div class="section-label">Question type</div><div class="mode-row" id="pc-mode-row"><button class="mode-chip on" data-mode="mc">Multiple Choice</button><button class="mode-chip" data-mode="id">Identification</button><button class="mode-chip" data-mode="mixed">Mixed</button></div>
+   <div class="section-label">Lessons</div><div class="filter-row" id="pc-filter-row"><button class="filter-chip" data-chap="1">Lesson 1</button><button class="filter-chip" data-chap="2">Lesson 2</button><button class="filter-chip" data-chap="3">Lesson 3</button><button class="filter-chip" data-chap="4">Forms</button><button class="filter-chip" data-chap="5">Globalization</button></div><button class="btn" id="pc-start-btn">Start Quiz</button>
+  </div>
+  <div id="pc-quiz-play" style="display:none"><div class="quiz-progress"><span id="pc-q-count"></span><span id="pc-q-score"></span></div><div class="bar"><div class="bar-fill" id="pc-bar-fill" style="width:0%"></div></div><div class="q-topic" id="pc-q-topic"></div><p class="q-text" id="pc-q-text"></p><div id="pc-q-options"></div><div id="pc-q-id-area" style="display:none"><div class="id-row"><input class="id-input" id="pc-id-input" type="text" placeholder="Type your answer" autocomplete="off"><button class="btn" id="pc-id-submit">Check</button></div></div><div class="explain" id="pc-q-explain"></div><div class="next-row"><button class="btn" id="pc-next-btn" disabled>Next Question</button></div></div>
+  <div id="pc-quiz-result" style="display:none"><h2>Quiz Complete</h2><p id="pc-final-score"></p><p id="pc-final-msg"></p><div class="missed-list" id="pc-missed-list"></div><div class="next-row"><button class="btn secondary" id="pc-review-btn">Try Missed Questions</button><button class="btn" id="pc-retry-btn">Back to Quiz</button></div></div>
+ </div>
+</section>
+<!-- PURCOM QUIZ 2 -->
+<section class="view" id="pc-view-quiz2">
+ <div class="quiz-shell">
+  <div id="pc2-quiz-start"><h2>Quiz Yourself 2</h2><p>A second shuffled practice set. Select a type and lesson, or leave all lessons unchecked to mix the full set.</p><div id="pc2-weak-box"></div>
+   <div class="section-label">Question type</div><div class="mode-row" id="pc2-mode-row"><button class="mode-chip on" data-mode="mc">Multiple Choice</button><button class="mode-chip" data-mode="id">Identification</button><button class="mode-chip" data-mode="mixed">Mixed</button></div>
+   <div class="section-label">Lessons</div><div class="filter-row" id="pc2-filter-row"><button class="filter-chip" data-chap="1">Lesson 1</button><button class="filter-chip" data-chap="2">Lesson 2</button><button class="filter-chip" data-chap="3">Lesson 3</button><button class="filter-chip" data-chap="4">Forms</button><button class="filter-chip" data-chap="5">Globalization</button></div><button class="btn" id="pc2-start-btn">Start Quiz</button>
+  </div>
+  <div id="pc2-quiz-play" style="display:none"><div class="quiz-progress"><span id="pc2-q-count"></span><span id="pc2-q-score"></span></div><div class="bar"><div class="bar-fill" id="pc2-bar-fill" style="width:0%"></div></div><div class="q-topic" id="pc2-q-topic"></div><p class="q-text" id="pc2-q-text"></p><div id="pc2-q-options"></div><div id="pc2-q-id-area" style="display:none"><div class="id-row"><input class="id-input" id="pc2-id-input" type="text" placeholder="Type your answer" autocomplete="off"><button class="btn" id="pc2-id-submit">Check</button></div></div><div class="explain" id="pc2-q-explain"></div><div class="next-row"><button class="btn" id="pc2-next-btn" disabled>Next Question</button></div></div>
+  <div id="pc2-quiz-result" style="display:none"><h2>Quiz Complete</h2><p id="pc2-final-score"></p><p id="pc2-final-msg"></p><div class="missed-list" id="pc2-missed-list"></div><div class="next-row"><button class="btn secondary" id="pc2-review-btn">Try Missed Questions</button><button class="btn" id="pc2-retry-btn">Back to Quiz</button></div></div>
+ </div>
+</section>
+<section class="view" id="pc-view-cards"><div class="chapter-intro"><h2>Flashcards</h2><p>Tap or press the card to flip it. Filter by lesson or shuffle for a fresh order.</p></div><div class="quiz-shell"><div class="section-label">Filter cards</div><div class="filter-row" id="pc-card-filters"><button class="filter-chip on" data-chap="all">All</button><button class="filter-chip" data-chap="1">Lesson 1</button><button class="filter-chip" data-chap="2">Lesson 2</button><button class="filter-chip" data-chap="3">Lesson 3</button><button class="filter-chip" data-chap="4">Forms</button><button class="filter-chip" data-chap="5">Globalization</button></div><div class="card-controls"><span class="count" id="pc-card-count"></span><button class="link-btn" id="pc-shuffle-cards-btn">Shuffle deck</button></div><div class="flip-scene"><div class="flip-card" id="pc-flip-card" role="button" tabindex="0" aria-label="Flip flashcard"><div class="flip-face flip-front"><span class="term-tag" id="pc-fc-chap"></span><div class="fc-text" id="pc-fc-term"></div></div><div class="flip-face flip-back"><div class="fc-text" id="pc-fc-def"></div></div></div></div><p class="flip-hint">Tap the card to flip</p><div class="card-nav"><button class="btn secondary" id="pc-card-prev">Previous</button><button class="btn" id="pc-card-next">Next</button></div></div></section>
+<section class="view cheat-view" id="pc-view-cheat"><div class="chapter-intro"><h2>Cheat Sheet</h2><p>Every PURCOM flashcard term in a quick, printable review sheet.</p></div><div class="quiz-shell"><div class="cheat-head"><span style="font-size:13px;color:var(--ink-soft);">Key terms, grouped by lesson</span><button class="btn secondary" id="pc-print-cheat-btn">Print / Save PDF</button></div><div id="pc-cheat-content"></div></div></section>
+</div></div>
 <footer id="global-footer">Built from your class materials. Good luck on your midterms.</footer>
 
 <script>
@@ -5160,6 +5988,7 @@ function showHub(){
   document.getElementById('subject-uts').style.display='none';
   document.getElementById('subject-pathfit').style.display='none';
   document.getElementById('subject-ic').style.display='none';
+  document.getElementById('subject-purcom').style.display='none';
   window.scrollTo({top:0, behavior:'instant'});
 }
 function showSubject(id){
@@ -5167,6 +5996,7 @@ function showSubject(id){
   document.getElementById('subject-uts').style.display = (id==='uts') ? 'block' : 'none';
   document.getElementById('subject-pathfit').style.display = (id==='pathfit') ? 'block' : 'none';
   document.getElementById('subject-ic').style.display = (id==='ic') ? 'block' : 'none';
+  document.getElementById('subject-purcom').style.display = (id==='purcom') ? 'block' : 'none';
   window.scrollTo({top:0, behavior:'instant'});
 }
 
@@ -7000,6 +7830,63 @@ document.getElementById('ic-print-cheat-btn').addEventListener('click', ()=>{
 });
 
 })();
+
+(function(){
+const ROOT=document.getElementById('subject-purcom');
+if(!ROOT)return;
+const PC_MC1=[{"chap":1,"topic":"Language","q":"Which set best describes the components named in Lesson 1?","options":["Rules, meaning, pronunciation, and vocabulary","Only a written alphabet and punctuation","A speaker, receiver, channel, and noise","Gestures and facial expressions only"],"a":0,"e":"The slide associates grammar/syntax with rules, semantics with meaning, phonology with pronunciation, and lexicon with vocabulary."},{"chap":1,"topic":"Language","q":"What does the lesson call languages acquired while growing up in one’s community?","options":["Second languages","Mother tongues or first languages","Formal registers","Contact languages"],"a":1,"e":"The lesson calls these mother tongues or first languages."},{"chap":1,"topic":"Language","q":"In the lesson’s example, what may result when people continually interact while learning each other’s languages?","options":["Language contact and language change","The disappearance of all dialects","A loss of vocabulary only","A new writing system every time"],"a":0,"e":"The lesson describes the interaction as language contact and says languages may change through it."},{"chap":1,"topic":"Language","q":"What is a lexicon?","options":["A language’s vocabulary","The pronunciation system","A set of visual signs","A communication setting"],"a":0,"e":"Lexicon refers to vocabulary."},{"chap":2,"topic":"Communication types","q":"Which item is part of communication context as described in Lesson 2?","options":["Only the room’s physical layout","Physical, cultural, social, and psychological circumstances","Only a speaker’s accent","Only the communication channel"],"a":1,"e":"The slide includes physical, cultural, social, and psychological circumstances, along with setting, values, and relevance."},{"chap":2,"topic":"Communication types","q":"Which is an example of visual communication in Lesson 2?","options":["An inner monologue","A chart or diagram","A phone call with no video","A formal report read aloud"],"a":1,"e":"Visual communication uses signs, symbols, charts, diagrams, emojis, and imagery."},{"chap":2,"topic":"Communication types","q":"A student reflects silently on how to improve after a presentation. This is:","options":["Extended communication","Intrapersonal communication","Crosswise communication","The grapevine"],"a":1,"e":"Intrapersonal communication includes self-talk, inner monologue, and introspection."},{"chap":2,"topic":"Communication types","q":"Which best matches the slide’s description of transactional discussion?","options":["Spontaneous talk to maintain a friendship","A formal, goal-oriented exchange toward an outcome or issue resolution","An unofficial rumor network","A message sent to a distant public audience"],"a":1,"e":"The slide describes transactional discussion as formal and goal-oriented."},{"chap":2,"topic":"Communication types","q":"A supervisor sends instructions to a staff member. Which formal organizational flow is this?","options":["Upward","Downward","Horizontal","Crosswise"],"a":1,"e":"Downward communication flows from superior to subordinate."},{"chap":2,"topic":"Communication types","q":"Which statement about the organizational grapevine matches the lesson?","options":["It is an official reporting route with a clear record","It is unofficial message flow and may spread hard-to-trace rumors","It only moves from subordinate to superior","It is another name for visual communication"],"a":1,"e":"The grapevine is informal, unofficial flow that can lead to hard-to-trace rumors."},{"chap":3,"topic":"Processes and ethics","q":"Which model is described as centered on public speaking and adapting delivery to audience demographics?","options":["Aristotle’s model","Shannon–Weaver’s model","Berlo’s model","The globalization model"],"a":0,"e":"The slide attributes public speaking and audience adaptation to Aristotle’s model."},{"chap":3,"topic":"Processes and ethics","q":"According to the supplied Lesson 3, what two variables did Lasswell add to a model similar to Aristotle’s?","options":["Medium and effect","Grammar and vocabulary","Noise and context","Purpose and topic"],"a":0,"e":"The slide says Lasswell added medium and effect."},{"chap":3,"topic":"Processes and ethics","q":"Which set contains the “7 Cs” of effective written communication?","options":["Clear, concise, concrete, correct, coherent, complete, courteous","Careful, casual, creative, colorful, current, concise, correct","Clear, complete, compelling, constant, correct, courteous, confident","Concise, coherent, confident, credible, careful, complete, current"],"a":0,"e":"These are the seven terms listed in the slide."},{"chap":3,"topic":"Processes and ethics","q":"Which is one of Lesson 3’s ethical pillars?","options":["Accuracy","Speed","Popularity","Anonymity"],"a":0,"e":"The slides identify values/integrity, accuracy, and transparency."},{"chap":3,"topic":"Processes and ethics","q":"Which is listed as a principle for effective oral communication?","options":["Avoid all non-verbal cues","Natural delivery using appropriate non-verbal cues and posture","Use as many details as possible","Delay feedback until the next term"],"a":1,"e":"Natural delivery, including appropriate non-verbal cues and posture, is one of the oral principles."},{"chap":4,"topic":"Communication modes","q":"What is a key advantage of face-to-face interaction in the handout?","options":["It hides facial expressions","It allows people to read visual non-verbal cues alongside spoken words","It works without a shared situation","It guarantees there will be no misunderstandings"],"a":1,"e":"The handout highlights access to facial expressions, gestures, and realia along with speech."},{"chap":4,"topic":"Communication modes","q":"Which challenge is specifically mentioned for video communication?","options":["It cannot carry voice","Technical glitches and time-zone differences","It cannot connect distant people","It is always informal"],"a":1,"e":"The video section names technical glitches and time-zone differences as challenges."},{"chap":4,"topic":"Communication modes","q":"Why can audio-only communication be challenging across cultures?","options":["It has no spoken language","Listeners cannot see visual cues, and accents or pronunciation may create listening barriers","It reaches no one at a distance","It requires a printed document"],"a":1,"e":"The handout notes absent body-language/facial cues and possible accent-related listening barriers."},{"chap":4,"topic":"Communication modes","q":"Which is a limitation of text-based communication noted in the handout?","options":["It cannot be sent digitally","It lacks immediate vocal tone and facial cues unless paired with audio or video","It cannot reach a large audience","It always causes a time-zone delay"],"a":1,"e":"Text can spread quickly and widely, but lacks immediate vocal and facial cues unless paired with other modes."},{"chap":5,"topic":"Globalization","q":"How does the globalization lesson define the process in simple terms?","options":["People and goods move more easily across borders","All countries adopt one language","Only digital messages cross borders","Countries stop trading with one another"],"a":0,"e":"The slides define globalization simply as people and goods moving easily across borders."},{"chap":5,"topic":"Globalization","q":"Which historical example is used to illustrate early trade and cultural exchange?","options":["The Silk Road","The Panama Canal","The first email","The Paris Agreement"],"a":0,"e":"The lesson presents the Silk Road as an ancient network of trade routes and cultural exchange."},{"chap":5,"topic":"Globalization","q":"Which set of drivers is named for globalization’s acceleration in the slides?","options":["Internet, container ships, and transport improvements","Television, handwritten letters, and local markets","Only social media","Only foreign investment"],"a":0,"e":"The slides identify the internet, container ships, and faster transport as drivers."},{"chap":5,"topic":"Globalization","q":"Which concern is listed among the possible costs of globalization?","options":["Unequal distribution of benefits","Too much local cultural exchange","Fewer international connections","A shortage of shipping containers only"],"a":0,"e":"The slides mention uneven benefits and a gap between the richest and poorest."}];
+const PC_ID1=[{"chap":1,"topic":"Language","q":"What term means a language’s vocabulary?","ans":["lexicon"],"e":"Lexicon means vocabulary."},{"chap":1,"topic":"Language","q":"What term describes interaction between people who are learning or using one another’s languages?","ans":["language contact"],"e":"The lesson calls this language contact and associates it with language change."},{"chap":2,"topic":"Communication types","q":"What type of communication means self-talk, inner monologue, or introspection?","ans":["intrapersonal communication","intrapersonal"],"e":"Intrapersonal communication is communication with oneself."},{"chap":2,"topic":"Communication types","q":"What is the informal, unofficial organizational message flow often called?","ans":["grapevine","the grapevine"],"e":"The lesson uses “grapevine” for unofficial organizational communication."},{"chap":2,"topic":"Communication types","q":"What formal flow goes from subordinate to superior?","ans":["upward communication","upward"],"e":"Upward communication goes from a subordinate to a superior."},{"chap":2,"topic":"Communication types","q":"What formal flow is peer-to-peer at the same organizational level?","ans":["horizontal communication","horizontal","lateral communication","lateral"],"e":"The lesson calls same-level peer communication horizontal or lateral."},{"chap":3,"topic":"Processes and ethics","q":"Which model adds medium and effect, according to Lesson 3?","ans":["lasswell","lasswells model","lasswell model"],"e":"The slide says Lasswell added medium and effect."},{"chap":3,"topic":"Processes and ethics","q":"What single word names the ethical pillar about appropriate disclosure without deliberate concealment?","ans":["transparency"],"e":"Transparency is the slide’s term for appropriate disclosure."},{"chap":4,"topic":"Communication modes","q":"What communication mode is written exchange through email, SMS, or instant messaging?","ans":["text based communication","text based","text-based communication","text-based"],"e":"The handout groups these as text-based communication."},{"chap":5,"topic":"Globalization","q":"What ancient network of trade routes is used as an example of early globalization?","ans":["silk road","the silk road"],"e":"The slides identify the Silk Road as an ancient trade and cultural-exchange network."}];
+const PC_MC2=[{"chap":1,"topic":"Language","q":"Which statement matches the lesson’s meaning of language?","options":["A structured system of conventional symbols used to convey meaning","Any sound made by a person","A list of spelling variants only","A single communication channel"],"a":0,"e":"The lesson defines language as a structured system that relies on conventional symbols."},{"chap":1,"topic":"Language","q":"In the lesson, what is language acquisition?","options":["Studying a foreign language later in school","Acquiring languages used in one’s community while growing up","Translating a message into writing","Changing a communication channel"],"a":1,"e":"The slides use language acquisition for gaining community languages while growing up."},{"chap":1,"topic":"Language","q":"Which term is associated with pronunciation in Lesson 1?","options":["Lexicon","Phonology","Semantics","Context"],"a":1,"e":"The slide associates phonology with pronunciation."},{"chap":2,"topic":"Communication types","q":"What is the collaborative purpose of communication emphasized in the Lesson 2 definition?","options":["Building mutual understanding through exchange","Sending information without considering a listener","Avoiding feedback","Replacing context with a script"],"a":0,"e":"The slide describes communication as a collaborative exchange that builds mutual understanding."},{"chap":2,"topic":"Communication types","q":"A department head and a colleague at the same organizational level exchange updates. This is:","options":["Downward","Upward","Horizontal/lateral","Crosswise/diagonal"],"a":2,"e":"Horizontal or lateral communication is peer-to-peer at the same level."},{"chap":2,"topic":"Communication types","q":"A message travels between departments across different hierarchical levels. This formal flow is:","options":["Crosswise/diagonal","Horizontal only","Intrapersonal","Grapevine"],"a":0,"e":"The slide defines crosswise/diagonal as interdepartmental communication across different levels."},{"chap":2,"topic":"Communication types","q":"Which communication context is facilitated by electronic media to reach distant audiences?","options":["Intrapersonal","Extended","Downward","Visual"],"a":1,"e":"Extended communication uses electronic media and telecommunications to include distant audiences."},{"chap":3,"topic":"Processes and ethics","q":"Which goal is one of the purposes to consider before communicating?","options":["Inform, persuade, or entertain","Win every disagreement","Avoid adapting to the audience","Use only written channels"],"a":0,"e":"Lesson 3 says to know whether the purpose is to inform, persuade, or entertain."},{"chap":3,"topic":"Processes and ethics","q":"What should an effective oral message include according to the slides?","options":["Essential facts supporting its statements","Every detail the speaker knows","No feedback","Only technical terms"],"a":0,"e":"The oral principles ask for a complete message backed by essential facts."},{"chap":3,"topic":"Processes and ethics","q":"Which written “C” means the message follows a logical flow?","options":["Concrete","Coherent","Courteous","Correct"],"a":1,"e":"Coherent means logical flow, supported by transitional devices."},{"chap":3,"topic":"Processes and ethics","q":"What does the slide say a communication code of conduct helps build?","options":["Stakeholder trust","More rumors","Less accountability","A single speaking style"],"a":0,"e":"The slides say a code supports standards, fair decisions, reputation, and stakeholder trust."},{"chap":4,"topic":"Communication modes","q":"Which mode uses webcams and platforms such as Zoom or Viber?","options":["Audio communication","Video communication","Text-based communication","Face-to-face only"],"a":1,"e":"Video communication uses webcams and digital platforms."},{"chap":4,"topic":"Communication modes","q":"Which is a channel listed for audio communication?","options":["Voicemail","Infographic","Fax only","Chart"],"a":0,"e":"The audio section lists phone calls, answering machines, voice messages, and voicemail."},{"chap":5,"topic":"Globalization","q":"Which cultural dimension of globalization is mentioned in the slides?","options":["Ideas and traditions are exchanged and assimilated","Cultures are fully isolated","All local traditions disappear by definition","Communication stops at national borders"],"a":0,"e":"The slides describe the exchange and assimilation of ideas and traditions as a cultural element."},{"chap":5,"topic":"Globalization","q":"Which is presented as a potential benefit of globalization?","options":["Job creation and investment in local economies","Guaranteed equal profit for every country","No change to industries","An end to cybercrime"],"a":0,"e":"The slides cite jobs and investment as possible benefits, while noting benefits are uneven."},{"chap":5,"topic":"Globalization","q":"Which contrast does the lesson make about globalization’s effects?","options":["It can create benefits but can also pressure local industries and widen inequality","It affects only wealthy countries","It eliminates all economic shifts","It only changes shipping"],"a":0,"e":"The lesson explicitly describes both potential benefits and costs, with uneven distribution."}];
+const PC_ID2=[{"chap":1,"topic":"Language","q":"What term means the rules or grammar/syntax system of a language?","ans":["grammar","syntax","grammar syntax"],"e":"The slide associates grammar/syntax with a language’s system of rules."},{"chap":1,"topic":"Language","q":"What term is used for the meaning of words?","ans":["semantics"],"e":"Semantics refers to meaning in the slide."},{"chap":2,"topic":"Communication types","q":"What context describes exchange between two people or a small group?","ans":["interpersonal communication","interpersonal"],"e":"Interpersonal communication is exchange between two or more people."},{"chap":2,"topic":"Communication types","q":"What is the formal organizational direction from a superior to a subordinate?","ans":["downward communication","downward"],"e":"Downward communication carries messages from superior to subordinate."},{"chap":2,"topic":"Communication types","q":"What context describes communication across differing linguistic or cultural backgrounds?","ans":["intercultural communication","intercultural"],"e":"Intercultural communication crosses distinct backgrounds."},{"chap":3,"topic":"Processes and ethics","q":"Name the set of seven written communication principles commonly called the “7 Cs.”","ans":["7 cs","the 7 cs","seven cs","seven cs of communication"],"e":"The 7 Cs are clear, concise, concrete, correct, coherent, complete, and courteous."},{"chap":3,"topic":"Processes and ethics","q":"What ethical pillar calls for complete, truthful, contextualized information?","ans":["accuracy"],"e":"Accuracy is described in those terms."},{"chap":4,"topic":"Communication modes","q":"Which mode connects people at a distance while carrying both audio and close-up visual expressions?","ans":["video communication","video"],"e":"Video communication bridges distance and includes audio and visual cues."},{"chap":4,"topic":"Communication modes","q":"Which mode transmits sound only, without visual cues?","ans":["audio communication","audio"],"e":"Audio communication carries sound/voice without visual cues."},{"chap":5,"topic":"Globalization","q":"What word describes the integration of markets, trade, and investment with few barriers?","ans":["globalization","globalisation"],"e":"The slides describe globalization as economic integration with movement across borders."}];
+const PC_CARDS=[{"chap":1,"term":"Language","def":"Structured use of conventional symbols such as words, sounds, or gestures to convey meaning."},{"chap":1,"term":"Grammar / syntax","def":"The system of rules associated with a language."},{"chap":1,"term":"Semantics","def":"The meaning of words."},{"chap":1,"term":"Phonology","def":"The sound and pronunciation system."},{"chap":1,"term":"Lexicon","def":"The vocabulary of a language."},{"chap":1,"term":"Speech community","def":"People who share language use and can understand one another."},{"chap":1,"term":"Language acquisition","def":"Gaining the language or languages used in one’s community while growing up."},{"chap":1,"term":"Language learning","def":"Studying a language formally or informally."},{"chap":1,"term":"Language contact","def":"Interaction as people use or learn one another’s languages; the slides connect it with language change."},{"chap":2,"term":"Communication","def":"An exchange of thoughts, ideas, concepts, or views that can build mutual understanding."},{"chap":2,"term":"Context","def":"Physical, cultural, social, or psychological circumstances in which communication takes place."},{"chap":2,"term":"Intrapersonal communication","def":"Self-talk, inner monologue, or introspection."},{"chap":2,"term":"Transactional discussion","def":"A formal, goal-oriented exchange toward an outcome or issue resolution, as described in the slides."},{"chap":2,"term":"Extended communication","def":"Electronic-media or telecommunications-facilitated communication that includes distant audiences."},{"chap":2,"term":"Grapevine","def":"Unofficial organizational message flow, sometimes associated with hard-to-trace rumors."},{"chap":2,"term":"Horizontal / lateral flow","def":"Formal peer-to-peer communication among people at the same organizational level."},{"chap":2,"term":"Crosswise / diagonal flow","def":"Formal interdepartmental communication across different hierarchical levels."},{"chap":2,"term":"Intercultural communication","def":"Exchange across differing linguistic, cultural, ethnic, gender, or professional backgrounds."},{"chap":3,"term":"Lasswell’s model","def":"The model the lesson says adds medium and effect to an approach similar to Aristotle’s."},{"chap":3,"term":"Aristotle’s model","def":"A public-speaking and rhetoric model in which delivery is adapted to audience demographics."},{"chap":3,"term":"The 7 Cs","def":"Clear, concise, concrete, correct, coherent, complete, and courteous."},{"chap":3,"term":"Accuracy","def":"Providing complete, truthful, and contextualized information."},{"chap":3,"term":"Transparency","def":"Appropriately disclosing vital information without deliberate concealment."},{"chap":3,"term":"Feedback integration","def":"Accepting and using constructive feedback to improve future communication."},{"chap":4,"term":"Face-to-face interaction","def":"Direct spoken interaction with access to facial expressions, gestures, and other visual cues."},{"chap":4,"term":"Video communication","def":"Webcam-based communication that connects distant people with audio and visual cues."},{"chap":4,"term":"Audio communication","def":"Voice or sound communication without visual cues; accents may create listening challenges."},{"chap":4,"term":"Text-based communication","def":"Written exchange through channels such as email, SMS, messaging, or social media."},{"chap":5,"term":"Globalization","def":"Easier cross-border movement of people and goods, with economic integration and cultural exchange."},{"chap":5,"term":"Silk Road","def":"The ancient land and sea trade network used in the slides as an example of trade and cultural exchange."},{"chap":5,"term":"Globalization drivers","def":"The internet, container ships, and improvements in transport, according to the slides."},{"chap":5,"term":"Uneven benefits","def":"A course-slide concern that globalization’s gains may not be shared equally."}];
+const LESSON_LABELS={1:'Lesson 1 — Language',2:'Lesson 2 — Types',3:'Lesson 3 — Processes & Ethics',4:'Forms of Communication',5:'Communication and Globalization'};
+const shuffle=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const STATS_KEY='midterm-reviewer-purcom-weakspots-v1';
+function loadStats(){try{return JSON.parse(localStorage.getItem(STATS_KEY)||'{}')||{};}catch(e){return {};}}
+function saveStats(stats){try{localStorage.setItem(STATS_KEY,JSON.stringify(stats));}catch(e){}}
+function record(q,correct){const stats=loadStats(),key=String(q.chap);if(!stats[key])stats[key]={attempts:0,correct:0,missed:0};stats[key].attempts++;if(correct)stats[key].correct++;else stats[key].missed++;saveStats(stats);}
+function renderWeak(prefix){const host=document.getElementById(prefix+'-weak-box');if(!host)return;const stats=loadStats();const rows=Object.keys(stats).filter(k=>Number(k)>=1&&Number(k)<=5).sort((a,b)=>a-b).map(k=>`<span><strong>${esc(LESSON_LABELS[k])}:</strong> ${stats[k].correct||0}/${stats[k].attempts||0} correct, ${stats[k].missed||0} missed</span>`);host.innerHTML='<div class="pc-weak"><strong>Your weak spots so far</strong><div style="display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:6px">'+(rows.length?rows.map(x=>x).join(''):'<span>Results from your quizzes will be saved on this device.</span>')+'</div><button type="button" class="link-btn" id="'+prefix+'-reset-stats">Reset PURCOM stats</button></div>';const reset=document.getElementById(prefix+'-reset-stats');if(reset)reset.addEventListener('click',()=>{try{localStorage.removeItem(STATS_KEY);}catch(e){}renderWeak(prefix);});}
+function setupTabs(){const buttons=ROOT.querySelectorAll('#pc-tabs button');buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');ROOT.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));const view=ROOT.querySelector('#pc-view-'+btn.dataset.view);if(view)view.classList.add('active');window.scrollTo({top:0,behavior:'instant'});}));}
+function setupQuiz(cfg){
+ const el=id=>document.getElementById(cfg.prefix+'-'+id);
+ const modeRow=el('mode-row'),filterRow=el('filter-row');
+ let questions=[],index=0,score=0,answered=false,missed=[];
+ modeRow.querySelectorAll('.mode-chip').forEach(b=>b.addEventListener('click',()=>{modeRow.querySelectorAll('.mode-chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');}));
+ filterRow.querySelectorAll('.filter-chip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')));
+ function start(retrySet){
+   if(retrySet){questions=shuffle(retrySet);}
+   else {const mode=modeRow.querySelector('.mode-chip.on')?.dataset.mode||'mc';const selected=[...filterRow.querySelectorAll('.filter-chip.on')].map(b=>Number(b.dataset.chap));let pool=mode==='id'?cfg.ids:mode==='mc'?cfg.mc:cfg.mc.concat(cfg.ids);if(selected.length)pool=pool.filter(q=>selected.includes(q.chap));questions=shuffle(pool.map(q=>({...q,type:q.options?'mc':'id'})));}
+   if(!questions.length){el('q-text').textContent='No questions are available for that selection.';return;}
+   index=0;score=0;missed=[];answered=false;el('quiz-start').style.display='none';el('quiz-result').style.display='none';el('quiz-play').style.display='block';render();
+ }
+ function render(){
+   if(index>=questions.length){finish();return;}
+   const q=questions[index];answered=false;el('q-count').textContent=`Question ${index+1} of ${questions.length}`;el('q-score').textContent=`Score: ${score}`;el('bar-fill').style.width=`${Math.round(index/questions.length*100)}%`;el('q-topic').textContent=`${LESSON_LABELS[q.chap]} · ${q.topic}`;el('q-text').textContent=q.q;el('q-explain').textContent='';el('q-explain').className='explain';el('next-btn').disabled=true;el('next-btn').textContent=index===questions.length-1?'See Results':'Next Question';el('q-options').innerHTML='';el('q-id-area').style.display=q.type==='id'?'block':'none';el('q-options').style.display=q.type==='id'?'none':'block';const input=el('id-input');input.value='';input.classList.remove('correct','wrong');el('id-submit').disabled=true;
+   if(q.type==='mc'){shuffle(q.options.map((text,i)=>({text,correct:i===q.a}))).forEach((option,n)=>{const b=document.createElement('button');b.type='button';b.className='pc-option';b.textContent=option.text;b.addEventListener('click',()=>answer(option.correct,b));el('q-options').appendChild(b);});}
+ }
+ function answer(correct,chosen){if(answered)return;answered=true;const q=questions[index];if(correct)score++;else missed.push(q);record(q,correct);const explanation=el('q-explain');explanation.textContent=(correct?'Correct. ':'Not quite. ')+(q.e||'');explanation.className='explain show '+(correct?'good':'bad');el('q-score').textContent=`Score: ${score}`;el('next-btn').disabled=false;if(q.type==='mc'){const opts=[...el('q-options').querySelectorAll('.pc-option')];opts.forEach(b=>{b.disabled=true;if(b===chosen)b.classList.add(correct?'correct':'wrong');if(!correct&&b.textContent===q.options[q.a])b.classList.add('correct');});}else{const input=el('id-input');input.classList.add(correct?'correct':'wrong');el('id-submit').disabled=true;if(!correct){const expected=(q.ans||[]).slice(0,2).join(' / ');explanation.textContent+=' Accepted answer: '+expected+'.';}}}
+ function checkId(){if(answered)return;const val=norm(el('id-input').value);if(!val)return;const q=questions[index];answer((q.ans||[]).some(x=>norm(x)===val));}
+ el('start-btn').addEventListener('click',()=>start(null));el('next-btn').addEventListener('click',()=>{if(!answered)return;index++;render();});el('id-submit').addEventListener('click',checkId);el('id-input').addEventListener('input',()=>{el('id-submit').disabled=!el('id-input').value.trim()||answered;});el('id-input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!el('id-submit').disabled)checkId();});el('review-btn').addEventListener('click',()=>{if(missed.length)start(missed);});el('retry-btn').addEventListener('click',()=>{el('quiz-result').style.display='none';el('quiz-play').style.display='none';el('quiz-start').style.display='block';renderWeak(cfg.prefix);});
+ function finish(){el('quiz-play').style.display='none';el('quiz-result').style.display='block';el('bar-fill').style.width='100%';el('final-score').textContent=`You got ${score} of ${questions.length} correct.`;el('final-msg').textContent=score===questions.length?'Excellent work — you got every question right.':score/questions.length>=.7?'Good progress. Review the items you missed, then try again.':'Use the missed-question list to decide which lesson to revisit.';el('missed-list').innerHTML=missed.length?'<h3 style="margin-top:18px">Questions to review</h3>'+missed.map(q=>`<div class="pc-missed-item"><strong>${esc(LESSON_LABELS[q.chap])} · ${esc(q.topic)}</strong><br>${esc(q.q)}</div>`).join(''):'<p class="empty-note">No missed questions this round.</p>';el('review-btn').disabled=!missed.length;renderWeak(cfg.prefix);}
+ renderWeak(cfg.prefix);
+}
+setupTabs();
+if(window.ReviewerBridge){const links=document.getElementById('pc-original-pdf-links');if(links)links.style.display='none';}
+setupQuiz({prefix:'pc',mc:PC_MC1,ids:PC_ID1});
+setupQuiz({prefix:'pc2',mc:PC_MC2,ids:PC_ID2});
+// Flashcards
+let cardDeck=shuffle(PC_CARDS),cardIndex=0;
+const card= id=>document.getElementById('pc-'+id);
+function renderCard(){if(!cardDeck.length)return;const c=cardDeck[cardIndex];card('fc-chap').textContent=LESSON_LABELS[c.chap];card('fc-term').textContent=c.term;card('fc-def').textContent=c.def;card('card-count').textContent=`Card ${cardIndex+1} of ${cardDeck.length}`;card('flip-card').classList.remove('flipped');card('flip-card').setAttribute('aria-label','Flashcard. Tap to reveal the definition.');}
+card('card-filters').querySelectorAll('.filter-chip').forEach(b=>b.addEventListener('click',()=>{const key=b.dataset.chap;if(key==='all'){card('card-filters').querySelectorAll('.filter-chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');}else{card('card-filters').querySelector('[data-chap="all"]').classList.remove('on');b.classList.toggle('on');if(!card('card-filters').querySelector('.filter-chip.on'))card('card-filters').querySelector('[data-chap="all"]').classList.add('on');}const selected=[...card('card-filters').querySelectorAll('.filter-chip.on')].map(x=>x.dataset.chap).filter(x=>x!=='all').map(Number);cardDeck=shuffle(selected.length?PC_CARDS.filter(x=>selected.includes(x.chap)):PC_CARDS);cardIndex=0;renderCard();}));
+card('flip-card').addEventListener('click',()=>{card('flip-card').classList.toggle('flipped');card('flip-card').setAttribute('aria-label',card('flip-card').classList.contains('flipped')?'Flashcard definition shown. Tap to see the term.':'Flashcard. Tap to reveal the definition.');});card('flip-card').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card('flip-card').click();}});card('card-prev').addEventListener('click',()=>{cardIndex=(cardIndex-1+cardDeck.length)%cardDeck.length;renderCard();});card('card-next').addEventListener('click',()=>{cardIndex=(cardIndex+1)%cardDeck.length;renderCard();});card('shuffle-cards-btn').addEventListener('click',()=>{cardDeck=shuffle(cardDeck);cardIndex=0;renderCard();});renderCard();
+// Generate the cheat sheet from the same flashcard source as the deck.
+const cheat=card('cheat-content');cheat.innerHTML=[1,2,3,4,5].map(ch=>'<div class="cheat-col"><h3>'+esc(LESSON_LABELS[ch])+'</h3>'+PC_CARDS.filter(c=>c.chap===ch).map(c=>'<div class="cheat-item"><b>'+esc(c.term)+':</b> '+esc(c.def)+'</div>').join('')+'</div>').join('');
+card('print-cheat-btn').addEventListener('click',()=>window.print());
+})();
+
 </script>
 </body>
 </html>
