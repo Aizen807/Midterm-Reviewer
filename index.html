@@ -356,7 +356,7 @@
       <button class="subject-card" onclick="showSubject('ic')">
         <span class="tag2">Computer Studies</span>
         <h2>Introduction to Computer</h2>
-        <p>Computer fundamentals, hardware/software/peopleware, internal and external parts, and input/output/storage devices.</p>
+        <p>Computer fundamentals, parts, input/output/storage, and computer networking.</p>
         <span class="meta">Open Reviewer →</span>
       </button>
       <button class="subject-card" onclick="showSubject('purcom')">
@@ -4879,12 +4879,13 @@ maintain or improve your physical, mental, and emotional health.
   <button onclick="showHub()" style="display:inline-block;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:10px;background:none;border:none;cursor:pointer;padding:0;font-family:'Karla',sans-serif;">← All Subjects</button>
   <div class="kicker">Midterm Review</div>
   <h1>Introduction to Computer</h1>
-  <p>Computer fundamentals, hardware/software/peopleware, internal and external parts, and input/output/storage devices — condensed into study-ready notes, plus a self-quiz to drill before the exam.</p>
+  <p>Computer fundamentals, computer parts, input/output/storage, and networking — with study notes, quizzes, flashcards, and a cheat sheet.</p>
 </header>
 <nav class="tabs" id="ic-tabs">
   <button data-view="ch1" class="active">Basics</button>
   <button data-view="ch2">Computer Parts</button>
   <button data-view="ch3">I/O &amp; Storage</button>
+  <button data-view="ch4">Networking</button>
   <button data-view="quiz">Quiz Yourself</button>
   <button data-view="quiz2">Quiz Yourself 2</button>
   <button data-view="cards">Flashcards</button>
@@ -5023,6 +5024,64 @@ maintain or improve your physical, mental, and emotional health.
   </details>
 </section>
 
+<!-- PART 4 -->
+<section class="view" id="ic-view-ch4">
+  <div class="chapter-intro">
+    <h2>Part 4 — Computer Networking</h2>
+    <p>How computers connect, share resources, and move data across networks.</p>
+  </div>
+  <details class="lesson" open>
+    <summary><h3>Lesson 1 — Networks and Transmission Media</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <p>A <span class="term">computer network</span> connects two or more computers so they can communicate, exchange information, and share resources. A network includes the media that connect devices and the hardware or software used to build and operate it.</p>
+      <h4>Wired and wireless media</h4>
+      <ul>
+        <li><span class="term">Wired transmission</span> sends signals through cables. The presentation names copper wire and fiber-optic cable as network media.</li>
+        <li><span class="term">Wireless transmission</span> uses radio waves to send data; the system can use different signal strengths and frequencies.</li>
+      </ul>
+    </div>
+  </details>
+  <details class="lesson">
+    <summary><h3>Lesson 2 — Wireless Transmission Types</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <ul>
+        <li><span class="term">Cellular transmission</span> uses radio links between mobile devices and cell towers, supporting calls, texts, and mobile data.</li>
+        <li><span class="term">Microwave transmission</span> uses radio waves in roughly the 1–300 GHz range to send information between locations. The presentation gives Wi-Fi, radar, GPS, and satellite communications as examples.</li>
+        <li><span class="term">Satellite communication</span> relays microwave signals between Earth-based stations and orbiting satellites. Examples in the presentation include satellite TV, satellite internet, GPS, and satellite-phone communication.</li>
+      </ul>
+    </div>
+  </details>
+  <details class="lesson">
+    <summary><h3>Lesson 3 — Network Size and Topology</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <table>
+        <tr><th>Network</th><th>Coverage</th></tr>
+        <tr><td><span class="term">LAN</span> (Local Area Network)</td><td>Connects devices in a limited area, such as a home, office, or school, for sharing files, printers, or an internet connection.</td></tr>
+        <tr><td><span class="term">MAN</span> (Metropolitan Area Network)</td><td>Connects multiple LANs across a city or campus.</td></tr>
+        <tr><td><span class="term">WAN</span> (Wide Area Network)</td><td>Connects smaller networks over a large area, such as across cities, countries, or continents.</td></tr>
+      </table>
+      <p><span class="term">Network topology</span> is the physical or logical arrangement of devices and connections, describing how devices are linked and how data flows.</p>
+      <ul>
+        <li><span class="term">Bus topology:</span> devices share one continuous central cable, called the bus or backbone.</li>
+        <li><span class="term">Ring topology:</span> devices connect in a closed circular data path.</li>
+      </ul>
+    </div>
+  </details>
+  <details class="lesson">
+    <summary><h3>Lesson 4 — Network Structure, Access, and Ethernet</h3><span class="plus">+</span></summary>
+    <div class="lesson-body">
+      <ul>
+        <li><span class="term">Peer-to-peer (P2P):</span> computers share resources directly without a central server.</li>
+        <li><span class="term">Client/server:</span> client devices request resources such as files, applications, or data from a central server.</li>
+        <li><span class="term">CSMA</span> (Carrier Sense Multiple Access) manages shared-channel access: a device listens to the channel before transmitting.</li>
+        <li><span class="term">Switched Ethernet</span> uses a switch to connect devices in a wired LAN. <span class="term">Fast Ethernet</span> is rated up to 100 Mbps; <span class="term">Gigabit Ethernet</span> is 1 Gbps (1,000 Mbps).</li>
+        <li>A <span class="term">bridge</span> connects two or more network segments to form a larger network.</li>
+      </ul>
+    </div>
+  </details>
+  <p class="module-note" id="ic-source-pptx-link">Source slides: <a href="computer-materials/computer-networking.pptx" download>Download the original Computer Networking presentation</a> (browser version).</p>
+</section>
+
 <!-- QUIZ -->
 <section class="view" id="ic-view-quiz">
   <div class="quiz-shell">
@@ -5045,6 +5104,7 @@ maintain or improve your physical, mental, and emotional health.
         <button class="filter-chip" data-chap="1">Part 1</button>
         <button class="filter-chip" data-chap="2">Part 2</button>
         <button class="filter-chip" data-chap="3">Part 3</button>
+        <button class="filter-chip" data-chap="4">Part 4</button>
       </div>
       <button class="btn" id="ic-start-btn">Start Quiz</button>
     </div>
@@ -5095,6 +5155,7 @@ maintain or improve your physical, mental, and emotional health.
         <button class="filter-chip" data-chap="1">Part 1</button>
         <button class="filter-chip" data-chap="2">Part 2</button>
         <button class="filter-chip" data-chap="3">Part 3</button>
+        <button class="filter-chip" data-chap="4">Part 4</button>
       </div>
       <button class="btn" id="ic-start-btn2">Start Quiz</button>
     </div>
@@ -7372,6 +7433,21 @@ const QUESTIONS = [
 {chap:3, topic:"Storage Devices", q:"What is the storage capacity of a standard 3.5-inch floppy disk?", options:["1.44MB","700MB","4.7GB","1TB"], a:0, e:"A standard 3.5-inch floppy disk holds 1.44MB."},
 {chap:3, topic:"Storage Devices", q:"Compared to a floppy disk, a hard disk:", options:["Holds less data","Is made of rigid materials and holds a greater amount of data","Cannot store any data","Is a type of output device"], a:1, e:"Hard disks use rigid platters and store far more data than floppy disks."},
 {chap:3, topic:"Storage Devices", q:"A CD-ROM Drive (optical drive) is used to:", options:["Cool the computer case","Read CDs and DVDs","Connect the keyboard","Provide temporary memory"], a:1, e:"A CD-ROM/optical drive reads data stored on CDs and DVDs."},
+{chap:4, topic:"Network basics", q:"Why do computers connect to a network?", options:["To communicate, exchange information, and share resources","To turn software into hardware","To remove the need for storage","To stop devices from sending data"], a:0, e:"The presentation describes communication, information exchange, and resource sharing as network goals."},
+{chap:4, topic:"Transmission media", q:"Which statement describes wired transmission?", options:["It sends signals through cables","It always uses satellites","It uses only cell towers","It has no transmission medium"], a:0, e:"Wired transmission uses cables, including copper wire and fiber-optic cable."},
+{chap:4, topic:"Transmission media", q:"What does wireless transmission use to send data?", options:["Radio waves","A single backbone cable","Floppy disks","Printed pages"], a:0, e:"The presentation describes wireless transmission as using radio waves."},
+{chap:4, topic:"Wireless transmission", q:"How does cellular transmission connect mobile devices to a network?", options:["Through cell towers using radio waves","Through one continuous bus cable","Through a central printer","Only through orbiting satellites"], a:0, e:"Cellular systems use radio waves and cell towers to connect mobile devices."},
+{chap:4, topic:"Network types", q:"Which network usually covers a limited area such as a home, office, or school?", options:["LAN","WAN","MAN","Ring"], a:0, e:"A LAN connects devices within a limited geographic area."},
+{chap:4, topic:"Network types", q:"Which network connects multiple LANs across a city or campus?", options:["MAN","LAN","WAN","P2P"], a:0, e:"A MAN connects multiple LANs across a metropolitan area or campus."},
+{chap:4, topic:"Network types", q:"Which network can connect smaller networks across countries or continents?", options:["WAN","LAN","Bus","MAN"], a:0, e:"A WAN connects smaller networks over a large geographic area."},
+{chap:4, topic:"Topology", q:"In a linear bus topology, how are devices connected?", options:["To one continuous central cable","In a closed circle only","Directly to a satellite","Only to one client"], a:0, e:"A bus topology connects devices to a single continuous bus or backbone cable."},
+{chap:4, topic:"Topology", q:"What path do devices form in a ring topology?", options:["A closed circular data path","A single open-ended backbone","A central client/server pair","A city-wide loop of LANs"], a:0, e:"In a ring topology, device connections form a closed circular data path."},
+{chap:4, topic:"Network structure", q:"What is a key feature of a peer-to-peer network?", options:["Peers share resources directly without a central server","Every request must go to a central server","It connects only city-wide LANs","It requires a ring cable"], a:0, e:"A peer-to-peer network is decentralized; peers connect and share resources directly."},
+{chap:4, topic:"Network structure", q:"In a client/server network, what does a client do?", options:["Requests resources from a central server","Connects all devices to a bus cable","Acts as a satellite relay","Listens to the channel for CSMA"], a:0, e:"Clients request resources such as files, applications, and data from a central server."},
+{chap:4, topic:"Channel access", q:"What does a device do before transmitting with CSMA?", options:["Listens to see whether the shared channel is busy","Sends data without checking the channel","Connects a new LAN with a bridge","Requests an address from a satellite"], a:0, e:"Carrier Sense Multiple Access has a device listen to the channel before transmitting."},
+{chap:4, topic:"Ethernet", q:"What is the rated maximum speed of Fast Ethernet in the presentation?", options:["100 Mbps","10 Mbps","1 Gbps","300 GHz"], a:0, e:"The presentation gives Fast Ethernet a maximum data rate of 100 Mbps."},
+{chap:4, topic:"Ethernet", q:"What data rate does Gigabit Ethernet provide?", options:["1 Gbps","100 Mbps","1 Mbps","300 GHz"], a:0, e:"Gigabit Ethernet transmits at 1 gigabit per second, or 1,000 Mbps."},
+{chap:4, topic:"Network devices", q:"What does a network bridge do?", options:["Connects network segments","Relays calls through cell towers","Measures radio frequency","Stores files for one user"], a:0, e:"A bridge connects two or more network segments to form a larger network."},
 ];
 
 // ---------- IDENTIFICATION QUESTIONS ----------
@@ -7393,6 +7469,15 @@ const ID_QUESTIONS = [
 {chap:3, topic:"Storage Devices", q:"What category of devices lets you store programs and data permanently for future retrieval?", ans:["storage devices","storage device"], e:"Hard disk, RAM, CD/DVD, and pen drives are all storage devices."},
 {chap:3, topic:"Storage Devices", q:"What is the storage capacity of a standard 3.5-inch floppy disk?", ans:["1.44mb","1.44 mb"], e:"A 3.5-inch floppy disk holds 1.44MB of data."},
 {chap:3, topic:"Storage Devices", q:"What device is used to read CDs and DVDs?", ans:["cd-rom drive","cd rom drive","optical drive"], e:"A CD-ROM drive (optical drive) reads data from CDs and DVDs."},
+{chap:4, topic:"Network types", q:"What is the name for a network covering a limited area such as a home, office, or school?", ans:["lan","local area network"], e:"A Local Area Network connects devices within a limited geographic area."},
+{chap:4, topic:"Network types", q:"What network connects multiple LANs across a city or campus?", ans:["man","metropolitan area network"], e:"A Metropolitan Area Network connects multiple LANs across a city or campus."},
+{chap:4, topic:"Network types", q:"What network connects smaller networks across cities, countries, or continents?", ans:["wan","wide area network"], e:"A Wide Area Network connects smaller networks over a large geographic area."},
+{chap:4, topic:"Topology", q:"What term describes the physical or logical arrangement of devices and connections in a network?", ans:["network topology","topology"], e:"Network topology describes how devices are interconnected and how data flows."},
+{chap:4, topic:"Network structure", q:"What kind of network lets peers share resources directly without a central server?", ans:["peer-to-peer","peer to peer","p2p"], e:"Peer-to-peer networking is decentralized and does not rely on a central server."},
+{chap:4, topic:"Network structure", q:"What network model has client devices request resources from a central server?", ans:["client-server","client server","client/server"], e:"In a client/server network, clients request resources from a central server."},
+{chap:4, topic:"Channel access", q:"What does CSMA stand for?", ans:["carrier sense multiple access"], e:"CSMA means Carrier Sense Multiple Access; devices listen before transmitting."},
+{chap:4, topic:"Ethernet", q:"What speed is associated with Gigabit Ethernet?", ans:["1 gbps","1gbps","1000 mbps","1000mbps","1 gigabit per second"], e:"Gigabit Ethernet is 1 Gbps, or 1,000 Mbps."},
+{chap:4, topic:"Network devices", q:"What device connects two or more network segments to form a larger network?", ans:["bridge","network bridge"], e:"A bridge connects network segments to form a larger network."},
 ];
 
 // ---------- FLASHCARDS ----------
@@ -7430,6 +7515,25 @@ const FLASHCARDS = [
 {chap:3, term:"Floppy Disk", def:"Common secondary storage device; a 3.5\u2033 disk holds 1.44MB."},
 {chap:3, term:"Hard Disk vs. Floppy", def:"Hard disk is made of rigid materials, unlike floppy disks, and holds a much greater amount of data."},
 {chap:3, term:"CD-ROM Drive (optical drive)", def:"The device used to read CDs and DVDs."},
+{chap:4, term:"Computer Network", def:"Two or more computers connected to communicate, exchange information, and share resources."},
+{chap:4, term:"Wired Transmission", def:"Sends network signals through cables, including copper wire and fiber-optic cable."},
+{chap:4, term:"Wireless Transmission", def:"Uses radio waves to send data without a cable connection."},
+{chap:4, term:"Cellular Transmission", def:"Uses radio waves and cell towers to connect mobile devices for calls, texts, and mobile data."},
+{chap:4, term:"Microwave Transmission", def:"Uses radio waves in roughly the 1–300 GHz range to transmit information between locations."},
+{chap:4, term:"Satellite Communication", def:"Relays microwave signals between Earth-based stations and orbiting satellites."},
+{chap:4, term:"LAN", def:"Local Area Network — connects devices in a limited area such as a home, office, or school."},
+{chap:4, term:"MAN", def:"Metropolitan Area Network — connects multiple LANs across a city or campus."},
+{chap:4, term:"WAN", def:"Wide Area Network — connects smaller networks across a large geographic area."},
+{chap:4, term:"Network Topology", def:"The physical or logical arrangement of network devices and connections, including how data flows."},
+{chap:4, term:"Bus Topology", def:"Connects devices to one continuous central cable called the bus or backbone."},
+{chap:4, term:"Ring Topology", def:"Connects devices in a closed circular data path."},
+{chap:4, term:"Peer-to-Peer (P2P)", def:"A decentralized network where peers share resources directly without a central server."},
+{chap:4, term:"Client/Server", def:"A network model where clients request files, applications, or data from a central server."},
+{chap:4, term:"CSMA", def:"Carrier Sense Multiple Access — a device listens to a shared channel before transmitting."},
+{chap:4, term:"Switched Ethernet", def:"Wired LAN networking that uses a switch to connect multiple devices."},
+{chap:4, term:"Fast Ethernet", def:"An Ethernet standard rated up to 100 megabits per second (Mbps)."},
+{chap:4, term:"Gigabit Ethernet", def:"An Ethernet standard rated at 1 gigabit per second (Gbps), or 1,000 Mbps."},
+{chap:4, term:"Network Bridge", def:"A device that connects two or more network segments to form a larger network."},
 ];
 
 // ---------- WEAK SPOT TRACKING ----------
@@ -7505,7 +7609,7 @@ function shuffle(arr){
 }
 
 document.getElementById('ic-start-btn').addEventListener('click', ()=>{
-  const chapFilter = activeChaps.length>0 ? activeChaps : [1,2,3];
+  const chapFilter = activeChaps.length>0 ? activeChaps : [1,2,3,4];
   let pool = [];
   if(quizMode==='mc') pool = QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'mc'}));
   else if(quizMode==='id') pool = ID_QUESTIONS.filter(q=>chapFilter.includes(q.chap)).map(q=>({...q, type:'id'}));
@@ -7680,7 +7784,7 @@ function buildTermPool(chapFilter){
 }
 
 document.getElementById('ic-start-btn2').addEventListener('click', ()=>{
-  const chapFilter = activeChaps2.length>0 ? activeChaps2 : [1,2,3];
+  const chapFilter = activeChaps2.length>0 ? activeChaps2 : [1,2,3,4];
   quiz2Queue = shuffle(buildTermPool(chapFilter));
   quiz2Index = 0; quiz2Score = 0; quiz2Missed = [];
   document.getElementById('ic-quiz2-start').style.display='none';
@@ -7811,7 +7915,8 @@ function renderCheatSheet(){
   const parts = [
     {n:1, label:'Part 1 \u2014 Computer Basics'},
     {n:2, label:'Part 2 \u2014 Computer Parts'},
-    {n:3, label:'Part 3 \u2014 I/O & Storage Devices'}
+    {n:3, label:'Part 3 \u2014 I/O & Storage Devices'},
+    {n:4, label:'Part 4 \u2014 Computer Networking'}
   ];
   let html = '';
   parts.forEach(p=>{
@@ -7873,7 +7978,7 @@ function setupQuiz(cfg){
  renderWeak(cfg.prefix);
 }
 setupTabs();
-if(window.ReviewerBridge){const links=document.getElementById('pc-original-pdf-links');if(links)links.style.display='none';}
+if(window.ReviewerBridge){const links=document.getElementById('pc-original-pdf-links');if(links)links.style.display='none';const icSourceLink=document.getElementById('ic-source-pptx-link');if(icSourceLink)icSourceLink.style.display='none';}
 setupQuiz({prefix:'pc',mc:PC_MC1,ids:PC_ID1});
 setupQuiz({prefix:'pc2',mc:PC_MC2,ids:PC_ID2});
 // Flashcards

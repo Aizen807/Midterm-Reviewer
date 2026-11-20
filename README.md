@@ -5,6 +5,7 @@ A study reviewer for **Understanding the Self (UTS)**, **PATHFIT / Physical Educ
 ## What’s included
 
 - Chapter and lesson notes for all four subjects
+- Introduction to Computer: four parts covering computer basics, hardware, I/O and storage, and computer networking
 - Understanding the Self: a lesson-by-lesson summary of all three chapters (including activities) modeled on the supplied review PDF, followed by all 80 pages of the original module as offline-readable text and the original PDF in a compatible browser
 - PURCOM: five lesson groups, two shuffled quizzes with multiple-choice/identification/mixed modes, lesson filters, explanations, flashcards, a generated cheat sheet, and offline-readable text transcripts of the five unique supplied slide decks
 - Expanded UTS quiz and flashcard coverage; the cheat sheet is generated from the flashcards
@@ -14,7 +15,7 @@ A study reviewer for **Understanding the Self (UTS)**, **PATHFIT / Physical Educ
 - Android system Back navigation from a subject to the study hub
 - Android print dialog for the cheat sheet (including **Save as PDF**)
 
-The app content, full UTS and PURCOM module text, and study interactions are local and work without a network connection after installation. Full-module text is extracted from the supplied source files and may not preserve diagrams or layout. The five unique PURCOM PDFs are kept in `purcom-materials/` for browser access; the UTS PDF remains in the repository root. The PDFs are not bundled into the Android package, which uses offline-readable transcripts instead. Duplicate PURCOM Lesson 2 and Lesson 3 uploads are included once. Google Fonts are optional and load only when the device is online. Weak-spot statistics use WebView local storage on the device.
+The app content, full UTS and PURCOM module text, and study interactions are local and work without a network connection after installation. Full-module text is extracted from the supplied source files and may not preserve diagrams or layout. The five unique PURCOM PDFs are kept in `purcom-materials/` for browser access; the UTS PDF remains in the repository root. The original networking presentation is kept in `computer-materials/` and linked from Part 4 in the browser version. These source files are not bundled into the Android package. Duplicate PURCOM Lesson 2 and Lesson 3 uploads are included once. Google Fonts are optional and load only when the device is online. Weak-spot statistics use WebView local storage on the device.
 
 ## Build and run the Android app
 
@@ -37,4 +38,4 @@ The Gradle build copies the repository-root `index.html` into the app’s genera
 
 ## Run the browser version
 
-Open [`index.html`](index.html) in a modern browser. The study reviewer works offline; internet access is only needed for optional web fonts. PURCOM’s original slide PDFs are linked from its Full Module area.
+Open [`index.html`](index.html) in a modern browser. The study reviewer works offline; internet access is only needed for optional web fonts. The original networking presentation and PURCOM slide PDFs are linked from their browser-version sections.
