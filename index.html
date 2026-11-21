@@ -44,6 +44,13 @@
     --plum-soft:#87618b;
     --tint:#f0e6f1;
   }
+  #subject-rph{
+    --plum:#254c5a;
+    --plum-soft:#4f7c89;
+    --tint:#e5eef0;
+  }
+  .rph-source-note{background:var(--tint);border-left:3px solid var(--gold);padding:12px 14px;margin:14px 0;border-radius:2px;font-size:14px;color:var(--ink-soft);}
+  .rph-source-note strong{color:var(--plum);}
   .purcom-transcript{
     white-space:pre-wrap; overflow-wrap:anywhere; font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;
     color:var(--ink); background:#fffdf8; border:1px solid var(--rule); border-radius:4px;
@@ -363,6 +370,12 @@
         <span class="tag2">General Education</span>
         <h2>Purposive Communication</h2>
         <p>Language, communication types and modes, processes and ethics, and globalization.</p>
+        <span class="meta">Open Reviewer →</span>
+      </button>
+      <button class="subject-card" onclick="showSubject('rph')">
+        <span class="tag2">General Education</span>
+        <h2>Reading in Philippine History</h2>
+        <p>The American colonial period: the Philippine-American War, public education, colonial democracy, and contested legacies.</p>
         <span class="meta">Open Reviewer →</span>
       </button>
     </div>
@@ -6040,6 +6053,131 @@ students!</pre></div></details></section><!-- PURCOM QUIZ 1 -->
 <section class="view" id="pc-view-cards"><div class="chapter-intro"><h2>Flashcards</h2><p>Tap or press the card to flip it. Filter by lesson or shuffle for a fresh order.</p></div><div class="quiz-shell"><div class="section-label">Filter cards</div><div class="filter-row" id="pc-card-filters"><button class="filter-chip on" data-chap="all">All</button><button class="filter-chip" data-chap="1">Lesson 1</button><button class="filter-chip" data-chap="2">Lesson 2</button><button class="filter-chip" data-chap="3">Lesson 3</button><button class="filter-chip" data-chap="4">Forms</button><button class="filter-chip" data-chap="5">Globalization</button></div><div class="card-controls"><span class="count" id="pc-card-count"></span><button class="link-btn" id="pc-shuffle-cards-btn">Shuffle deck</button></div><div class="flip-scene"><div class="flip-card" id="pc-flip-card" role="button" tabindex="0" aria-label="Flip flashcard"><div class="flip-face flip-front"><span class="term-tag" id="pc-fc-chap"></span><div class="fc-text" id="pc-fc-term"></div></div><div class="flip-face flip-back"><div class="fc-text" id="pc-fc-def"></div></div></div></div><p class="flip-hint">Tap the card to flip</p><div class="card-nav"><button class="btn secondary" id="pc-card-prev">Previous</button><button class="btn" id="pc-card-next">Next</button></div></div></section>
 <section class="view cheat-view" id="pc-view-cheat"><div class="chapter-intro"><h2>Cheat Sheet</h2><p>Every PURCOM flashcard term in a quick, printable review sheet.</p></div><div class="quiz-shell"><div class="cheat-head"><span style="font-size:13px;color:var(--ink-soft);">Key terms, grouped by lesson</span><button class="btn secondary" id="pc-print-cheat-btn">Print / Save PDF</button></div><div id="pc-cheat-content"></div></div></section>
 </div></div>
+<div id="subject-rph" class="subject-view">
+<header class="top">
+  <button onclick="showHub()" style="display:inline-block;font-size:13px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:10px;background:none;border:none;cursor:pointer;padding:0;font-family:'Karla',sans-serif;">← All Subjects</button>
+  <div class="kicker">Midterm Review</div>
+  <h1>Reading in Philippine History</h1>
+  <p>Study the American colonial period through the Philippine-American War, public education, democratic institutions, and the complex legacies Filipinos negotiated under colonial rule.</p>
+</header>
+<nav class="tabs" id="rph-tabs">
+  <button data-view="war" class="active">The War</button>
+  <button data-view="education">Education</button>
+  <button data-view="democracy">Democracy</button>
+  <button data-view="legacies">Legacies &amp; Inquiry</button>
+  <button data-view="module">Full Module</button>
+  <button data-view="quiz">Quiz Yourself</button>
+  <button data-view="quiz2">Quiz Yourself 2</button>
+  <button data-view="cards">Flashcards</button>
+  <button data-view="cheat">Cheat Sheet</button>
+</nav>
+<div class="wrap">
+<section class="view active" id="rph-view-war">
+  <div class="chapter-intro"><h2>1 — The Philippine-American War</h2><p>The shift from Spanish to American rule was not a simple transfer of sovereignty. Filipino independence claims met expanding American imperial ambitions, producing a violent struggle over legitimacy and the country's future.</p></div>
+  <details class="lesson" open><summary><h3>Chronology and context</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <table><tr><th>Year</th><th>What the source highlights</th></tr>
+      <tr><td><strong>1898</strong></td><td>Transfer of empire; Filipino independence claims and American imperial ambitions collide.</td></tr>
+      <tr><td><strong>1899</strong></td><td>Open conflict begins. The deck dates the open Philippine-American War to 1899–1902.</td></tr>
+      <tr><td><strong>1901</strong></td><td>Emilio Aguinaldo is captured.</td></tr>
+      <tr><td><strong>1902 onward</strong></td><td>Resistance and regional insurgencies continue after the period of open conflict.</td></tr>
+    </table>
+    <p>Key Filipino actors included <strong>Emilio Aguinaldo</strong>, <strong>Macario Sakay</strong>, and local revolutionaries. American actors named in the source include President <strong>William McKinley</strong> and Generals <strong>Arthur MacArthur</strong> and <strong>Elwell Otis</strong>.</p>
+  </div></details>
+  <details class="lesson"><summary><h3>Resistance, policy, and civilian cost</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p>Resistance changed over time: conventional battles gave way to guerrilla warfare shaped by terrain, local networks, and regional priorities. Military campaigns, surveillance, reconcentration, and suppression accompanied the American rhetoric of “benevolent assimilation.”</p>
+    <p><strong>Read competing descriptions critically:</strong> a policy described by officials as restoring order could be experienced by civilians as coercion. The source stresses that civilian costs and local experience belong in the historical account.</p>
+  </div></details>
+  <div class="rph-source-note"><strong>Interpretive reminder:</strong> distinguish the official language used to justify a policy from the lived effects it had on Filipinos.</div>
+</section>
+<section class="view" id="rph-view-education">
+  <div class="chapter-intro"><h2>2 — Public Education: Access, Language, and Power</h2><p>American rule expanded a centralized public school system, but education served more than one purpose and did not reach everyone equally.</p></div>
+  <details class="lesson" open><summary><h3>A new public school system</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <ul>
+      <li>Public schooling was presented as <strong>free</strong> and <strong>secular</strong>, with a more centralized system.</li>
+      <li><strong>Thomasites</strong> and other teachers helped train personnel and open schools.</li>
+      <li>The promotion of <strong>English</strong> enabled shared instruction and could create opportunities for mobility.</li>
+    </ul>
+  </div></details>
+  <details class="lesson"><summary><h3>Education as opportunity and colonial governance</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p>Schooling also advanced a colonial “civilizing” agenda and social control. Filipinos used education for professional advancement and nationalist purposes, while the colonial system shaped language and ideas about authority.</p>
+    <p>Access and outcomes were uneven: <strong>region, class, gender, and available resources</strong> affected who could attend and benefit. Avoid treating the experience of one school, region, or social group as everyone's experience.</p>
+  </div></details>
+</section>
+<section class="view" id="rph-view-democracy">
+  <div class="chapter-intro"><h2>3 — Democratic Institutions Inside an Empire</h2><p>Participation expanded through colonial institutions, but sovereignty and the terms of participation remained under American colonial authority.</p></div>
+  <details class="lesson" open><summary><h3>Institutional transition</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <table><tr><th>Institution</th><th>Structure described in the source</th><th>Key point</th></tr>
+      <tr><td><strong>Philippine Commission</strong></td><td>Appointed; held executive and legislative power.</td><td>Authority was not simply elected by Filipinos.</td></tr>
+      <tr><td><strong>Philippine Assembly</strong></td><td>Elected lower house from 1907.</td><td>Created a larger avenue for Filipino political participation.</td></tr>
+      <tr><td><strong>Philippine Legislature</strong></td><td>Bicameral structure from 1916.</td><td>Participation grew within a colonial framework.</td></tr>
+    </table>
+  </div></details>
+  <details class="lesson"><summary><h3>The democratic contradiction</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p>Colonial democracy offered political practices and institutions without transferring full sovereignty. Appointed authority, suffrage restrictions, property and literacy requirements, and American constitutional frameworks limited participation.</p>
+    <p><strong>Core idea:</strong> democratic practice developed, but within boundaries set by colonial power. Ask who could participate, who set the rules, and where ultimate authority rested.</p>
+  </div></details>
+</section>
+<section class="view" id="rph-view-legacies">
+  <div class="chapter-intro"><h2>4 — Legacies and Historical Inquiry</h2><p>Colonial institutions could empower and control at the same time. Their legacies are influential, contested, and never a simple, unchanged continuation.</p></div>
+  <details class="lesson" open><summary><h3>Ambivalent legacies</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <ul>
+      <li><strong>Memory:</strong> the war remains part of nationalist memory and debates over sovereignty and how the period should be named.</li>
+      <li><strong>Language and schooling:</strong> American-initiated schooling continues to influence English use, educational aspiration, and cultural hierarchy.</li>
+      <li><strong>Politics:</strong> electoral and legislative practices were shaped by institutions developed under colonial rule.</li>
+    </ul>
+    <p>Schools, laws, and legislatures became foundations for modern systems while carrying assumptions about language, citizenship, and authority. Identify what changed, persisted, and was contested rather than assuming the colonial system survived unchanged.</p>
+  </div></details>
+  <details class="lesson"><summary><h3>Whose experience is visible?</h3><span class="plus">+</span></summary><div class="lesson-body">
+    <p>Resistance and accommodation differed across regions because histories, terrain, economies, and local leadership differed. Civilians exercised agency while navigating displacement, schooling, work, local politics, and new legal categories.</p>
+    <h4>Read sources with care</h4>
+    <ul>
+      <li>Ask who created a source, for whom, and under what conditions.</li>
+      <li>Notice words that frame fear, duty, freedom, order, or legitimacy; compare sources before drawing a conclusion.</li>
+      <li>Look for experiences missing from official archives using local histories, oral accounts, regional collections, and material evidence.</li>
+      <li>Connect claims to specific evidence and explain how the evidence supports the interpretation.</li>
+    </ul>
+  </div></details>
+  <div class="rph-source-note"><strong>Practice a historical claim:</strong> make a clear claim, cite a specific event, policy, institution, or source, then explain what it shows—and whose perspective it may leave out.</div>
+</section>
+<section class="view" id="rph-view-module">
+  <div class="chapter-intro"><h2>American Colonial Period — Source Module</h2><p>Notes distilled from the supplied presentation, <em>The American Colonial Period in the Philippines: War, Education, and Democracy</em>.</p></div>
+  <div class="quiz-shell">
+    <h3>Learning targets</h3>
+    <ol><li>Explain causes, events, and consequences of the Philippine-American War.</li><li>Assess the reach and purposes of the public school system.</li><li>Evaluate how democratic institutions formed and where colonial limits remained.</li></ol>
+    <h3 style="margin-top:20px;">Essential questions</h3>
+    <ul><li>How did Filipinos and Americans experience and interpret rule differently?</li><li>How did education and political institutions reshape society under American rule?</li><li>How do the period's legacies influence civic life, language, schooling, and governance today?</li></ul>
+    <div class="rph-source-note"><strong>Three connected stories:</strong> war was a struggle over independence and legitimacy; education was both a tool of colonial governance and a resource Filipinos repurposed; democracy developed within imperial limits.</div>
+    <h3>Formative review</h3>
+    <ol><li>Identify one cause and one effect of the war.</li><li>Describe how the Thomasites influenced education.</li><li>Explain one limitation of colonial democratic institutions.</li></ol>
+    <h3 style="margin-top:20px;">Primary-source pathways</h3>
+    <p>Compare Philippine Revolutionary and First Republic documents, U.S. presidential messages and colonial reports, letters, speeches, newspapers, photographs, military records, and proceedings of the Philippine Assembly and Legislature. Check authorship, provenance, edition, and context before treating any source as transparent evidence.</p>
+    <h3>Further reading and archives named in the deck</h3>
+    <p>Teodoro A. Agoncillo, <em>Malolos and the Crisis of the Republic</em>; Reynaldo C. Ileto, <em>Pasyon and Revolution</em>; Resil B. Mojares, <em>Brains of the Nation</em>; the National Library and National Archives of the Philippines; and the U.S. Library of Congress digital collections.</p>
+    <p class="module-note" id="rph-pdf-link">Original source presentation: <a href="rph-materials/American-Colonial-Period.pdf">Open or download the American Colonial Period PDF</a> (browser version).</p>
+  </div>
+</section>
+<section class="view" id="rph-view-quiz">
+  <div class="quiz-shell">
+    <div id="rph-quiz-start"><h2>Self-Quiz</h2><p>Test key facts and interpretations from the four topics. Leave every topic unchecked to mix the full set; questions are shuffled and explained after each answer.</p><div id="rph-weak-box"></div>
+      <div class="section-label">Topics</div><div class="filter-row" id="rph-filter-row"><button class="filter-chip" data-chap="1">The War</button><button class="filter-chip" data-chap="2">Education</button><button class="filter-chip" data-chap="3">Democracy</button><button class="filter-chip" data-chap="4">Legacies &amp; Inquiry</button></div><button class="btn" id="rph-start-btn">Start Quiz</button>
+    </div>
+    <div id="rph-quiz-play" style="display:none;"><div class="quiz-progress"><span id="rph-q-count"></span><span id="rph-q-score"></span></div><div class="bar"><div class="bar-fill" id="rph-bar-fill" style="width:0%"></div></div><div class="q-topic" id="rph-q-topic"></div><p class="q-text" id="rph-q-text"></p><div id="rph-q-options"></div><div class="explain" id="rph-q-explain"></div><div class="next-row"><button class="btn" id="rph-next-btn" disabled>Next Question</button></div></div>
+    <div id="rph-quiz-result" style="display:none;"><h2>Quiz Complete</h2><div class="score" id="rph-final-score"></div><p id="rph-final-msg" style="color:var(--ink-soft);"></p><button class="btn" id="rph-retry-btn">Try Again</button><button class="btn secondary" id="rph-review-btn" style="margin-left:8px;">Review Missed</button><div class="missed-list" id="rph-missed-list"></div></div>
+  </div>
+</section>
+<section class="view" id="rph-view-quiz2">
+  <div class="quiz-shell">
+    <div id="rph-quiz2-start"><h2>Quiz Yourself 2 — Term Match</h2><p>Read a key idea and choose the matching term or institution. Answer choices are shuffled each time.</p>
+      <div class="section-label">Topics</div><div class="filter-row" id="rph-filter-row2"><button class="filter-chip" data-chap="1">The War</button><button class="filter-chip" data-chap="2">Education</button><button class="filter-chip" data-chap="3">Democracy</button><button class="filter-chip" data-chap="4">Legacies &amp; Inquiry</button></div><button class="btn" id="rph-start-btn2">Start Quiz</button>
+    </div>
+    <div id="rph-quiz2-play" style="display:none;"><div class="quiz-progress"><span id="rph-q-count2"></span><span id="rph-q-score2"></span></div><div class="bar"><div class="bar-fill" id="rph-bar-fill2" style="width:0%"></div></div><div class="q-topic" id="rph-q-topic2"></div><p class="q-text" id="rph-q-text2"></p><div id="rph-q-options2"></div><div class="explain" id="rph-q-explain2"></div><div class="next-row"><button class="btn" id="rph-next-btn2" disabled>Next Question</button></div></div>
+    <div id="rph-quiz2-result" style="display:none;"><h2>Quiz Complete</h2><div class="score" id="rph-final-score2"></div><p id="rph-final-msg2" style="color:var(--ink-soft);"></p><button class="btn" id="rph-retry-btn2">Try Again</button><button class="btn secondary" id="rph-review-btn2" style="margin-left:8px;">Review Missed</button><div class="missed-list" id="rph-missed-list2"></div></div>
+  </div>
+</section>
+<section class="view" id="rph-view-cards"><div class="chapter-intro"><h2>Flashcards</h2><p>Tap or press a card to flip it. Filter by topic or shuffle for a fresh order.</p></div><div class="quiz-shell"><div class="section-label">Filter cards</div><div class="filter-row" id="rph-card-filters"><button class="filter-chip on" data-chap="all">All</button><button class="filter-chip" data-chap="1">The War</button><button class="filter-chip" data-chap="2">Education</button><button class="filter-chip" data-chap="3">Democracy</button><button class="filter-chip" data-chap="4">Legacies &amp; Inquiry</button></div><div class="card-controls"><span class="count" id="rph-card-count"></span><button class="link-btn" id="rph-shuffle-cards-btn">Shuffle deck</button></div><div class="flip-scene"><div class="flip-card" id="rph-flip-card" role="button" tabindex="0" aria-label="Flip flashcard"><div class="flip-face flip-front"><span class="term-tag" id="rph-fc-chap"></span><div class="fc-text" id="rph-fc-term"></div></div><div class="flip-face flip-back"><div class="fc-text" id="rph-fc-def"></div></div></div></div><p class="flip-hint">Tap the card to flip</p><div class="card-nav"><button class="btn secondary" id="rph-card-prev">Previous</button><button class="btn" id="rph-card-next">Next</button></div></div></section>
+<section class="view cheat-view" id="rph-view-cheat"><div class="chapter-intro"><h2>Cheat Sheet</h2><p>Scan the key ideas by topic or print/save the summary for later review.</p></div><div class="quiz-shell"><div class="cheat-head"><span style="font-size:13px;color:var(--ink-soft);">Key ideas, grouped by topic</span><button class="btn secondary" id="rph-print-cheat-btn">Print / Save PDF</button></div><div id="rph-cheat-content"></div></div></section>
+</div>
+</div>
 <footer id="global-footer">Built from your class materials. Good luck on your midterms.</footer>
 
 <script>
@@ -6050,6 +6188,7 @@ function showHub(){
   document.getElementById('subject-pathfit').style.display='none';
   document.getElementById('subject-ic').style.display='none';
   document.getElementById('subject-purcom').style.display='none';
+  document.getElementById('subject-rph').style.display='none';
   window.scrollTo({top:0, behavior:'instant'});
 }
 function showSubject(id){
@@ -6058,6 +6197,7 @@ function showSubject(id){
   document.getElementById('subject-pathfit').style.display = (id==='pathfit') ? 'block' : 'none';
   document.getElementById('subject-ic').style.display = (id==='ic') ? 'block' : 'none';
   document.getElementById('subject-purcom').style.display = (id==='purcom') ? 'block' : 'none';
+  document.getElementById('subject-rph').style.display = (id==='rph') ? 'block' : 'none';
   window.scrollTo({top:0, behavior:'instant'});
 }
 
@@ -7990,6 +8130,90 @@ card('flip-card').addEventListener('click',()=>{card('flip-card').classList.togg
 // Generate the cheat sheet from the same flashcard source as the deck.
 const cheat=card('cheat-content');cheat.innerHTML=[1,2,3,4,5].map(ch=>'<div class="cheat-col"><h3>'+esc(LESSON_LABELS[ch])+'</h3>'+PC_CARDS.filter(c=>c.chap===ch).map(c=>'<div class="cheat-item"><b>'+esc(c.term)+':</b> '+esc(c.def)+'</div>').join('')+'</div>').join('');
 card('print-cheat-btn').addEventListener('click',()=>window.print());
+})();
+
+</script>
+<script>
+(function(){
+const ROOT=document.getElementById('subject-rph');
+if(!ROOT)return;
+const TOPIC_LABELS={1:'The Philippine-American War',2:'Public Education',3:'Democratic Institutions',4:'Legacies & Historical Inquiry'};
+const QUESTIONS=[
+{chap:1,topic:'Causes',q:'What central tension helped bring the Philippine-American War into being?',options:['Filipino independence claims clashed with expanding American imperial ambitions','Filipino leaders rejected all public schooling','The Philippine Assembly ended the Spanish period','Regional languages were banned by the Philippine Commission'],a:0,e:'The deck identifies the collision between Filipino independence claims and American imperial ambition.'},
+{chap:1,topic:'Chronology',q:'When does the source date the open Philippine-American War?',options:['1896–1898','1898–1900','1899–1902','1901–1907'],a:2,e:'The source describes open conflict from 1899 to 1902, with resistance and regional insurgencies continuing afterward.'},
+{chap:1,topic:'Chronology',q:'Which event does the presentation associate with 1901?',options:['The Philippine Assembly is elected','Aguinaldo is captured','The Philippine Legislature becomes bicameral','Open conflict begins'],a:1,e:'The timeline marks the capture of Emilio Aguinaldo in 1901.'},
+{chap:1,topic:'Chronology',q:'What does the source note about resistance after 1902?',options:['It ended everywhere at once','Regional insurgencies and resistance continued','The Philippine Assembly was dissolved','The school system became decentralized'],a:1,e:'The deck distinguishes the end of open conflict from resistance and regional insurgencies that continued afterward.'},
+{chap:1,topic:'Resistance',q:'According to the source, what shaped the shift to guerrilla warfare?',options:['Terrain, local networks, and regional priorities','A nationwide elected legislature','The use of English in schools','A single centrally controlled local movement'],a:0,e:'The source says guerrilla warfare was shaped by terrain, local networks, and regional priorities.'},
+{chap:1,topic:'Interpretation',q:'Why should historians compare official descriptions of colonial policy with civilian experience?',options:['The same policy could be presented as order by officials and experienced as coercion by civilians','Official reports always contain every local perspective','Civilian sources never contain useful evidence','The source says colonial policies had no local effects'],a:0,e:'The deck warns that official language and civilian experience could differ sharply.'},
+{chap:2,topic:'School system',q:'How does the source characterize the new public school system?',options:['Private, religious, and locally uncoordinated','Free, secular, and centrally organized','Limited to military training','Run entirely by elected assemblies'],a:1,e:'The presentation describes free, secular public schooling within a centralized system.'},
+{chap:2,topic:'Teachers',q:'What role did the Thomasites and other teachers play?',options:['They helped train personnel and open schools','They established the Philippine Legislature','They led all regional insurgencies','They administered suffrage requirements'],a:0,e:'The deck credits Thomasites and other teachers with training personnel and opening schools.'},
+{chap:2,topic:'Language',q:'Which statement best captures the presentation’s account of English promotion?',options:['It offered shared instruction and mobility while also serving colonial aims','It had no connection to colonial governance','It immediately provided equal school access to all Filipinos','It replaced the need for public schools'],a:0,e:'The source presents English as both a possible route to mobility/shared instruction and part of a colonial “civilizing” agenda and social control.'},
+{chap:2,topic:'Access',q:'Which factors does the source say shaped unequal educational access?',options:['Region, class, gender, and resources','Only the school calendar','Only the choice of textbooks','The design of the Philippine Assembly'],a:0,e:'The source names region, class, gender, and resources as shaping access and outcomes.'},
+{chap:2,topic:'Filipino agency',q:'How did Filipinos also use education, according to the deck?',options:['For professional advancement and nationalism','Only to work in colonial government','To end local political participation','To replace all regional histories'],a:0,e:'Filipinos repurposed education for professional advancement and nationalist purposes.'},
+{chap:3,topic:'Institutions',q:'How does the presentation describe the Philippine Commission?',options:['An elected lower house created in 1907','An appointed body with executive and legislative power','A bicameral body formed in 1916','A local archive for primary documents'],a:1,e:'The deck describes the Commission as appointed and holding executive and legislative power.'},
+{chap:3,topic:'Institutions',q:'What change is associated with the Philippine Assembly in 1907?',options:['It became a bicameral legislature','It became an elected lower house','It gained full national sovereignty','It replaced the public school system'],a:1,e:'The source says the Assembly was an elected lower house from 1907.'},
+{chap:3,topic:'Institutions',q:'What does the deck associate with the Philippine Legislature from 1916?',options:['A bicameral structure','The beginning of the war','The capture of Aguinaldo','The first Thomasite schools'],a:0,e:'The source dates the bicameral Philippine Legislature to 1916.'},
+{chap:3,topic:'Participation',q:'Which statement best describes the “democratic contradiction” in the source?',options:['Participation expanded, but sovereignty and participation remained limited by colonial power','Every Filipino had equal political power after 1907','Colonial rule ended when the Assembly was elected','The institutions had no Filipino participants'],a:0,e:'The source emphasizes expanded participation within limits set by colonial rule.'},
+{chap:3,topic:'Restrictions',q:'Which is listed as a limitation on Filipino participation?',options:['Suffrage restrictions and property or literacy requirements','The use of primary sources in schools','The existence of local networks','The use of multiple languages in archives'],a:0,e:'The deck names suffrage restrictions, appointed authority, property/literacy requirements, and American constitutional frameworks.'},
+{chap:4,topic:'Legacies',q:'How does the source ask readers to understand colonial legacies?',options:['As simple, unchanged continuity','As entirely beneficial or entirely harmful','As ambivalent: empowerment and control could operate through the same institution','As unrelated to present civic life'],a:2,e:'The deck stresses that empowerment and control were not opposites and could operate together.'},
+{chap:4,topic:'Regional experience',q:'Why does the source caution against assuming one Filipino experience?',options:['Resistance and accommodation varied with regional history, terrain, economy, and leadership','Every region followed exactly the same path','Only national leaders experienced the colonial period','Regional sources are always unreliable'],a:0,e:'The deck points to local histories, terrain, economies, and leadership as sources of regional variation.'},
+{chap:4,topic:'Civilian agency',q:'Which examples reflect the civilian agency highlighted in the deck?',options:['Navigating displacement, schooling, work, local politics, and legal categories','Only participating in formal elections','Writing all colonial reports','Serving exclusively in the Philippine Commission'],a:0,e:'The source describes families navigating these varied aspects of daily life.'},
+{chap:4,topic:'Historical method',q:'When reading a historical letter or report, which question does the source recommend?',options:['Who created it, for whom, and under what conditions?','Is the document old enough to be unquestionably true?','Can the source be read without considering context?','Does the author use only modern terminology?'],a:0,e:'The deck asks readers to consider authorship, audience, language, and the conditions under which a source was created.'},
+{chap:4,topic:'Historical method',q:'What does the presentation suggest when an experience is missing from official archives?',options:['Look for local histories, oral accounts, regional archives, and material evidence','Assume the experience did not occur','Use only the most powerful official voice','Avoid comparing sources'],a:0,e:'The source recommends looking for local and oral histories, regional archives, and material evidence.'},
+{chap:4,topic:'Present-day legacies',q:'Which set of present-day influences does the source connect to the American colonial period?',options:['Language and schooling, nationalist memory, and electoral or legislative practices','Only transportation infrastructure','Only the names of colonial officials','No continuing influences'],a:0,e:'The deck connects colonial history with memory, English use and schooling, and political practices—while cautioning that legacies change over time.'}
+];
+const CARDS=[
+{chap:1,term:'Philippine-American War',def:'Open conflict dated by the source to 1899–1902; resistance and regional insurgencies continued afterward.'},
+{chap:1,term:'Independence claims and imperial ambition',def:'The central tension identified in the source as the shift from Spanish to American rule unfolded.'},
+{chap:1,term:'Emilio Aguinaldo',def:'Filipino leader whom the source associates with capture in 1901.'},
+{chap:1,term:'Macario Sakay',def:'A Filipino actor named in the source among leaders of resistance.'},
+{chap:1,term:'Guerrilla resistance',def:'A form of resistance shaped by terrain, local networks, and regional priorities.'},
+{chap:1,term:'Benevolent assimilation',def:'American colonial rhetoric that coexisted with military campaigns, surveillance, reconcentration, and suppression.'},
+{chap:1,term:'Civilian cost',def:'The source emphasizes that official accounts of order may differ from civilian experiences of coercion.'},
+{chap:2,term:'Public school system',def:'A free, secular, centralized system expanded under American rule.'},
+{chap:2,term:'Thomasites',def:'Teachers associated with training personnel and opening schools.'},
+{chap:2,term:'English promotion',def:'Enabled shared instruction and possible mobility, but also served a colonial “civilizing” agenda and social control.'},
+{chap:2,term:'Uneven educational access',def:'School access and outcomes were shaped by region, class, gender, and resources.'},
+{chap:2,term:'Filipino use of education',def:'Education was repurposed for professional advancement and nationalism.'},
+{chap:3,term:'Philippine Commission',def:'Appointed institution holding executive and legislative power.'},
+{chap:3,term:'Philippine Assembly',def:'Elected lower house beginning in 1907.'},
+{chap:3,term:'Philippine Legislature',def:'Bicameral structure beginning in 1916.'},
+{chap:3,term:'Colonial democratic contradiction',def:'Political participation expanded while sovereignty and participation remained bounded by colonial power.'},
+{chap:3,term:'Limits on participation',def:'Included suffrage restrictions, appointed authority, property and literacy requirements, and American constitutional frameworks.'},
+{chap:4,term:'Ambivalent legacy',def:'An institution could enable empowerment and exercise colonial control at the same time.'},
+{chap:4,term:'Regional variation',def:'Experiences of resistance and accommodation differed with local histories, terrain, economies, and leadership.'},
+{chap:4,term:'Civilian agency',def:'Families navigated displacement, schooling, work, local politics, and new legal categories.'},
+{chap:4,term:'Primary-source context',def:'Ask who created a source, for whom, and under what conditions; check provenance and context.'},
+{chap:4,term:'Archive silence',def:'Look beyond official records to local histories, oral accounts, regional archives, and material evidence.'},
+{chap:4,term:'Historical claim',def:'Connect a specific claim to named evidence, then explain what that evidence supports and whose perspective may be missing.'}
+];
+const shuffle=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const STATS_KEY='midterm-reviewer-rph-weakspots-v1';
+function loadStats(){try{return JSON.parse(localStorage.getItem(STATS_KEY)||'{}')||{};}catch(e){return {};}}
+function record(chap,correct){const s=loadStats(),k=String(chap);if(!s[k])s[k]={attempts:0,correct:0,missed:0};s[k].attempts++;if(correct)s[k].correct++;else s[k].missed++;try{localStorage.setItem(STATS_KEY,JSON.stringify(s));}catch(e){}}
+function renderWeak(){const host=document.getElementById('rph-weak-box');if(!host)return;const s=loadStats();const rows=Object.keys(TOPIC_LABELS).map(k=>{const v=s[k];return v&&v.attempts?`<span><strong>${esc(TOPIC_LABELS[k])}:</strong> ${v.correct||0}/${v.attempts} correct, ${v.missed||0} missed</span>`:'';}).filter(Boolean);host.innerHTML='<div class="pc-weak"><strong>Your weak spots so far</strong><div style="display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:6px">'+(rows.length?rows.join(''):'<span>Results from your quizzes will be saved on this device.</span>')+'</div><button type="button" class="link-btn" id="rph-reset-stats">Reset Reading in Philippine History stats</button></div>';const reset=document.getElementById('rph-reset-stats');if(reset)reset.addEventListener('click',()=>{try{localStorage.removeItem(STATS_KEY);}catch(e){}renderWeak();});}
+ROOT.querySelectorAll('#rph-tabs button').forEach(btn=>btn.addEventListener('click',()=>{ROOT.querySelectorAll('#rph-tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');ROOT.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));const view=ROOT.querySelector('#rph-view-'+btn.dataset.view);if(view)view.classList.add('active');window.scrollTo({top:0,behavior:'instant'});}));
+if(window.ReviewerBridge){const pdfLink=document.getElementById('rph-pdf-link');if(pdfLink)pdfLink.style.display='none';}
+function setupQuiz(cfg){
+  let selected=[],queue=[],index=0,score=0,missed=[];
+  const chips=ROOT.querySelectorAll(cfg.filter+' .filter-chip');
+  chips.forEach(chip=>chip.addEventListener('click',()=>{const n=Number(chip.dataset.chap);if(selected.includes(n)){selected=selected.filter(x=>x!==n);chip.classList.remove('on');}else{selected.push(n);chip.classList.add('on');}}));
+  const el=suffix=>document.getElementById(cfg.prefix+suffix);
+  function start(){const chapters=selected.length?selected:[1,2,3,4];queue=shuffle(cfg.pool(chapters));index=0;score=0;missed=[];el(cfg.start).style.display='none';el(cfg.result).style.display='none';el(cfg.play).style.display='block';render();}
+  function render(){const q=queue[index];el(cfg.count).textContent=`Question ${index+1} of ${queue.length}`;el(cfg.score).textContent=`Score: ${score}`;el(cfg.bar).style.width=(index/queue.length*100)+'%';el(cfg.topic).textContent=`${TOPIC_LABELS[q.chap]} · ${q.topic||'Key idea'}`;el(cfg.question).textContent=q.q;el(cfg.explain).textContent='';el(cfg.explain).classList.remove('show');el(cfg.next).disabled=true;const box=el(cfg.options);box.innerHTML='';shuffle(q.options.map((text,i)=>({text,correct:q.answerText!==undefined?text===q.answerText:i===q.a}))).forEach(opt=>{const b=document.createElement('button');b.className='opt';b.textContent=opt.text;b.addEventListener('click',()=>{box.querySelectorAll('.opt').forEach(x=>x.disabled=true);record(q.chap,opt.correct);if(opt.correct){b.classList.add('correct');score++;}else{b.classList.add('wrong');box.querySelectorAll('.opt').forEach(x=>{if(x.textContent===(q.answerText!==undefined?q.answerText:q.options[q.a]))x.classList.add('correct');});missed.push(q);}el(cfg.score).textContent=`Score: ${score}`;el(cfg.explain).textContent=q.e;el(cfg.explain).classList.add('show');el(cfg.next).disabled=false;});box.appendChild(b);});}
+  function next(){if(index+1<queue.length){index++;render();}else result();}
+  function result(){el(cfg.bar).style.width='100%';el(cfg.play).style.display='none';el(cfg.result).style.display='block';el(cfg.finalScore).textContent=`${score} / ${queue.length}`;const pct=Math.round(score/queue.length*100);el(cfg.finalMsg).textContent=pct>=90?'Excellent — you know this well.':pct>=75?'Solid grasp. Review the missed questions to sharpen it.':pct>=50?'Good start — revisit the notes for the topics you missed.':'A fresh pass through the notes and flashcards will help.';const host=el(cfg.missedList);host.innerHTML=missed.length?'<p style="color:var(--good);font-weight:700;margin-top:16px;">Use “Review Missed” to see the questions you missed.</p>':'<p style="color:var(--good);font-weight:700;margin-top:16px;">No misses — clean sweep!</p>';}
+  el(cfg.startBtn).addEventListener('click',start);el(cfg.next).addEventListener('click',next);el(cfg.retry).addEventListener('click',()=>{el(cfg.result).style.display='none';el(cfg.start).style.display='block';renderWeak();});el(cfg.review).addEventListener('click',()=>{const host=el(cfg.missedList);if(!missed.length)return;host.innerHTML='<h3 style="margin-top:20px;">Questions to review</h3>';missed.forEach(q=>{const item=document.createElement('div');item.className='missed-item';const question=document.createElement('div');question.className='mq';question.textContent=q.q;const answer=document.createElement('div');answer.className='ma';answer.textContent='Correct answer: '+(q.answerText!==undefined?q.answerText:q.options[q.a]);const explanation=document.createElement('div');explanation.className='me';explanation.textContent=q.e;item.append(question,answer,explanation);host.appendChild(item);});});
+}
+setupQuiz({prefix:'rph-',filter:'#rph-filter-row',start:'quiz-start',play:'quiz-play',result:'quiz-result',count:'q-count',score:'q-score',bar:'bar-fill',topic:'q-topic',question:'q-text',options:'q-options',explain:'q-explain',next:'next-btn',finalScore:'final-score',finalMsg:'final-msg',missedList:'missed-list',startBtn:'start-btn',retry:'retry-btn',review:'review-btn',pool:chapters=>QUESTIONS.filter(q=>chapters.includes(q.chap)).map(q=>({...q}))});
+setupQuiz({prefix:'rph-',filter:'#rph-filter-row2',start:'quiz2-start',play:'quiz2-play',result:'quiz2-result',count:'q-count2',score:'q-score2',bar:'bar-fill2',topic:'q-topic2',question:'q-text2',options:'q-options2',explain:'q-explain2',next:'next-btn2',finalScore:'final-score2',finalMsg:'final-msg2',missedList:'missed-list2',startBtn:'start-btn2',retry:'retry-btn2',review:'review-btn2',pool:chapters=>CARDS.filter(c=>chapters.includes(c.chap)).map(c=>({chap:c.chap,topic:'Term Match',q:c.def,options:shuffle([c.term,...shuffle(CARDS.filter(x=>x.term!==c.term)).slice(0,3).map(x=>x.term)]),answerText:c.term,e:`${c.term} — ${c.def}`}))});
+let cardFilter='all',cardDeck=shuffle(CARDS),cardIndex=0;
+function filteredCards(){return cardFilter==='all'?CARDS:CARDS.filter(c=>c.chap===Number(cardFilter));}
+function renderCard(){cardDeck=cardDeck.filter(c=>filteredCards().some(x=>x.term===c.term));if(!cardDeck.length)cardDeck=shuffle(filteredCards());if(cardIndex>=cardDeck.length)cardIndex=0;const c=cardDeck[cardIndex];const card=document.getElementById('rph-flip-card');card.classList.remove('flipped');document.getElementById('rph-fc-chap').textContent=TOPIC_LABELS[c.chap];document.getElementById('rph-fc-term').textContent=c.term;document.getElementById('rph-fc-def').textContent=c.def;document.getElementById('rph-card-count').textContent=`Card ${cardIndex+1} of ${cardDeck.length}`;}
+ROOT.querySelectorAll('#rph-card-filters .filter-chip').forEach(chip=>chip.addEventListener('click',()=>{ROOT.querySelectorAll('#rph-card-filters .filter-chip').forEach(x=>x.classList.remove('on'));chip.classList.add('on');cardFilter=chip.dataset.chap;cardDeck=shuffle(filteredCards());cardIndex=0;renderCard();}));
+document.getElementById('rph-flip-card').addEventListener('click',()=>document.getElementById('rph-flip-card').classList.toggle('flipped'));document.getElementById('rph-flip-card').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.currentTarget.classList.toggle('flipped');}});document.getElementById('rph-card-next').addEventListener('click',()=>{cardIndex=(cardIndex+1)%cardDeck.length;renderCard();});document.getElementById('rph-card-prev').addEventListener('click',()=>{cardIndex=(cardIndex-1+cardDeck.length)%cardDeck.length;renderCard();});document.getElementById('rph-shuffle-cards-btn').addEventListener('click',()=>{cardDeck=shuffle(filteredCards());cardIndex=0;renderCard();});renderCard();
+const cheat=document.getElementById('rph-cheat-content');cheat.innerHTML=[1,2,3,4].map(n=>'<div class="cheat-col"><h3>'+esc(TOPIC_LABELS[n])+'</h3>'+CARDS.filter(c=>c.chap===n).map(c=>'<div class="cheat-item"><b>'+esc(c.term)+':</b> '+esc(c.def)+'</div>').join('')+'</div>').join('');document.getElementById('rph-print-cheat-btn').addEventListener('click',()=>window.print());renderWeak();
 })();
 
 </script>
